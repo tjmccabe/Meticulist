@@ -1,5 +1,5 @@
 {
-  "name": "Meticulist",
+  "name": "meticulist",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.9.0",
