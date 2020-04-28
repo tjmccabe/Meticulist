@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     background-color: #F7F7F7;
+    height: 100%;
 }
 
 #session-logo {
@@ -18,7 +19,7 @@
     align-items: center;
     background-color: #FFFFFF;
     width: 400px;
-    margin: 0 auto 40px auto;
+    margin: 0 auto auto auto;
     padding: 25px 40px;
     box-shadow: rgba(0,0,0,0.1) 0 0 10px;
     border-radius: 3px;
@@ -62,4 +63,56 @@ input, button {
     margin: 0 0 1.2em;
     font-size: 14px;
     padding: .5em;
+    transition: border .25s;
+}
+
+.session-form input:focus {
+    border: 2px solid rgb(93, 169, 240);
+}
+
+.session-form button {
+    background-color: #6F5187;
+    cursor: pointer;
+    border-radius: .3em;
+    display: inline-block;
+    font-weight: bold;
+    padding: .6em 1.3em;
+    position: relative;
+    text-decoration: none;
+    border: 0px;
+    color: white;
+    font-size: 14px;
+}
+
+.session-form button:hover {
+    background-color: #7f6295;
+}
+
+.account-form hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid lightgray;
+    margin: 1em 0;
+    padding: 0;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.alt-form-link {
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.alt-form-link:hover {
+    text-decoration: underline;
+}
+
+.session-errors {
+    padding: .7em 1.2em;
+    background-color: rgba(230, 41, 50, 0.856);
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+    margin: 13px 0;
 }

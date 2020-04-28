@@ -53,7 +53,11 @@ class SessionForm extends React.Component {
             'Sign up for your account'
         ) : (
             'Log in to Meticulist'
-        )
+        );
+
+        const SessionErrors = errors[0] ? (
+            <div className="session-errors">{errors[0]}</div>
+        ) : null;
 
         return (
             <div className="outer-session-form">
@@ -61,9 +65,9 @@ class SessionForm extends React.Component {
                     <h1 id='session-logo'>Meticulist</h1>
                 </div>
                 <div className="account-form">
-                    <div className="session-errors">{errors[0]}</div>
-                    <div className='top-text'>{TopText}</div>
                     <form className={["session-form", this.ready()].join(' ')} onSubmit={this.handleSubmit}>
+                        {SessionErrors}
+                        <div className='top-text'>{TopText}</div>
                         <input
                             id="email-input"
                             type="text"
@@ -81,6 +85,7 @@ class SessionForm extends React.Component {
                         />
                         <button className={this.ready()}>{formType}</button>
                     </form>
+                    <hr></hr>
                     {AltFormLink}
                 </div>
             </div>

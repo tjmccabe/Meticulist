@@ -16,7 +16,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #E3D7FF;
+    background-color: #F7F7F7;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -26,4 +26,11 @@ h1, h2, h3, h4, h5, h6 {
 #logo {
     font-family: 'Damion', cursive;
     font-size: 40px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
