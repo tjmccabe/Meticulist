@@ -1,9 +1,13 @@
 import React from 'react';
+import LoginBar from './login_bar';
 
 class Splash extends React.Component {
     render() {
         return(
-            <div>Splashy</div>
+            <div>
+                <LoginBar />
+                Splashy
+            </div>
         )
     }
 }

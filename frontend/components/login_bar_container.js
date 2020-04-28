@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import TempBar from './temp_bar';
+import LoginBar from './login_bar';
 import { logout } from '../actions/session_actions';
 
 const mSTP = ({ entities, session }) => ({
@@ -10,4 +10,4 @@ const mDTP = (dispatch) => ({
     logout: () => dispatch(logout())
 })
 
-export default connect(mSTP, mDTP)(TempBar)
+export default connect(mSTP, mDTP)(LoginBar)

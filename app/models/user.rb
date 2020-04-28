@@ -13,14 +13,28 @@
 class User < ApplicationRecord
     attr_reader :password
 
-    validates :username, :email, :password_digest, :session_token, presence: true
-    validates :username, :session_token, :email, uniqueness: true
-    validates :password, length: {minimum: 6, allow_nil: true}
+    validates :email, presence: true
+    validate :check_email
+    validates :username, :password_digest, :session_token, presence: true
+    validates :password, length: {
+        minimum: 8,
+        allow_nil: true,
+        message: "must be at least 8 characters."
+    }
+    validates :username, :email, :session_token, uniqueness: {
+        message: "already in use by another account."
+    }
+    
     before_validation :ensure_session_token
 
-    def self.find_by_credentials(un, pw)
-        user = User.find_by(email: un)
-        user ||= User.find_by(username: un)
+    def check_email
+        unless /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i.match?(self.email)
+            errors[:base] << "That doesn't look like an email address..."
+        end
+    end
+
+    def self.find_by_credentials(email, pw)
+        user = User.find_by(email: email)
         return nil if user.nil?
         user.is_password?(pw) ? user : nil
     end

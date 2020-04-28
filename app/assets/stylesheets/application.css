@@ -12,4 +12,18 @@
  *
  *= require_tree .
  *= require_self
- */
+*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #E3D7FF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+}
+
+#logo {
+    font-family: 'Damion', cursive;
+    font-size: 40px;
+}

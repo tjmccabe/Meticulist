@@ -8,6 +8,7 @@ class SessionForm extends React.Component {
         this.state = this.props.user;
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.ready = this.ready.bind(this);
     }
 
     handleSubmit(e) {
@@ -21,8 +22,12 @@ class SessionForm extends React.Component {
         }
     }
 
+    ready() {
+        return Object.values(this.state).every(v => v) ? 'ready' : 'not-ready';
+    }
+
     render() {
-        const {formType} = this.props;
+        const {formType, errors} = this.props;
 
         const UsernameField = formType === 'Sign Up' ? (
             <input
@@ -51,27 +56,33 @@ class SessionForm extends React.Component {
         )
 
         return (
-            <div>
-                {TopText}
-                <form className="session-form" onSubmit={this.handleSubmit}>
-                    <input
-                        id="email-input"
-                        type="text"
-                        value={this.state.email}
-                        placeholder="Enter email"
-                        onChange={this.handleChange('email')}
-                    />
-                    {UsernameField}
-                    <input
-                        id="password-input"
-                        type="password"
-                        value={this.state.password}
-                        placeholder={formType === 'Sign Up' ? "Create password" : "Enter password"}
-                        onChange={this.handleChange('password')}
-                    />
-                    <button>{formType}</button>
-                </form>
-                {AltFormLink}
+            <div className="outer-session-form">
+                <div className="session-header">
+                    <h1 id='session-logo'>Meticulist</h1>
+                </div>
+                <div className="account-form">
+                    <div className="session-errors">{errors[0]}</div>
+                    <div className='top-text'>{TopText}</div>
+                    <form className={["session-form", this.ready()].join(' ')} onSubmit={this.handleSubmit}>
+                        <input
+                            id="email-input"
+                            type="text"
+                            value={this.state.email}
+                            placeholder="Enter email"
+                            onChange={this.handleChange('email')}
+                        />
+                        {UsernameField}
+                        <input
+                            id="password-input"
+                            type="password"
+                            value={this.state.password}
+                            placeholder={formType === 'Sign Up' ? "Create password" : "Enter password"}
+                            onChange={this.handleChange('password')}
+                        />
+                        <button className={this.ready()}>{formType}</button>
+                    </form>
+                    {AltFormLink}
+                </div>
             </div>
         )
     }
