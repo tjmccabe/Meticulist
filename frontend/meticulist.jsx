@@ -1,18 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from './store/store';
-import * as API from './util/session_api_util';
+import Root from './components/root';
 
 const preloadedState = {};
 
 document.addEventListener("DOMContentLoaded", () => {
-    const root = document.getElementById("root");
-    const store = configureStore(preloadedState);
-
+    let store;
+    if (window.currentUser) {
+        const preloadedState = {
+            entities: {
+                users: { [window.currentUser.id]: window.currentUser }
+            },
+            session: { id: window.currentUser.id }
+        };
+        store = configureStore(preloadedState);
+        delete window.currentUser;
+    } else {
+        store = configureStore();
+    }
+    
     //testing below
     window.getState = store.getState
     window.dispatch = store.dispatch
     //testing above
-
-    ReactDOM.render(<h1 store={store}>Welcome to Meticulist</h1>, root);
+    
+    const root = document.getElementById("root");
+    ReactDOM.render(<Root store={store}/>, root);
 });
