@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -34,7 +34,33 @@ class SessionForm extends React.Component {
     }
 
     demo() {
+        const eInput = document.getElementById('email-input');
+        const pInput = document.getElementById('password-input');
+        const demoEmail = "demo@user.com";
+        const demoPass = "12345678";
+        let ei = 0;
+        let pi = 0;
 
+        const typePass = () => {
+            if (pi <= demoPass.length) {
+                pInput.value = demoPass.substr(0, pi++);
+                setTimeout(() => typePass(), 50);
+            } else {
+                setTimeout(() => this.props.processForm({
+                    email: 'demo@user.com',
+                    password: '12345678'
+                }), 200)
+            }
+        }
+
+        const typeEmail = () => {
+            if (ei <= demoEmail.length) {
+                eInput.value = demoEmail.substr(0, ei++);
+                setTimeout(() => typeEmail(), 75);
+            } else typePass()
+        }
+
+        typeEmail();
     }
 
     render() {

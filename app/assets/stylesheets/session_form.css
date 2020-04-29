@@ -48,7 +48,7 @@
     margin-right: auto;
 }
 
-input, button {
+.outer-session-form input, .outer-session-form button {
     width: 100%;
 }
 
