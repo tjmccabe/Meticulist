@@ -8,12 +8,18 @@ class SessionForm extends React.Component {
         this.state = this.props.user;
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.ready = this.ready.bind(this);
+        this.disabled = this.disabled.bind(this);
+    }
+
+    componentWillUnmount() {
+        this.props.clearErrors();
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.processForm(this.state)
+        if (this.disabled() === 'enabled') {
+            this.props.processForm(this.state)
+        }
     }
 
     handleChange(field) {
@@ -22,8 +28,8 @@ class SessionForm extends React.Component {
         }
     }
 
-    ready() {
-        return Object.values(this.state).every(v => v) ? 'ready' : 'not-ready';
+    disabled() {
+        return Object.values(this.state).every(v => v) ? 'enabled' : 'disabled';
     }
 
     render() {
@@ -65,7 +71,7 @@ class SessionForm extends React.Component {
                     <h1 id='session-logo'>Meticulist</h1>
                 </div>
                 <div className="account-form">
-                    <form className={["session-form", this.ready()].join(' ')} onSubmit={this.handleSubmit}>
+                    <form className={["session-form", `${this.disabled()}`].join(' ')} onSubmit={this.handleSubmit}>
                         {SessionErrors}
                         <div className='top-text'>{TopText}</div>
                         <input
@@ -83,7 +89,7 @@ class SessionForm extends React.Component {
                             placeholder={formType === 'Sign Up' ? "Create password" : "Enter password"}
                             onChange={this.handleChange('password')}
                         />
-                        <button className={this.ready()}>{formType}</button>
+                        <button className={this.disabled()}>{formType}</button>
                     </form>
                     <hr></hr>
                     {AltFormLink}

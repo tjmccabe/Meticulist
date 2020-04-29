@@ -82,6 +82,8 @@ input, button {
     border: 0px;
     color: white;
     font-size: 14px;
+    margin-top: 10px;
+    transition: all .25s;
 }
 
 .session-form button:hover {
@@ -115,4 +117,11 @@ input, button {
     font-size: 14px;
     border-radius: 4px;
     margin: 13px 0;
+}
+
+button.disabled {
+    background-color: lightgray;
+    pointer-events: none;
+    position: relative;
+    color: gray;
 }
