@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.disabled = this.disabled.bind(this);
+        this.demo = this.demo.bind(this);
     }
 
     componentWillUnmount() {
@@ -30,6 +31,10 @@ class SessionForm extends React.Component {
 
     disabled() {
         return Object.values(this.state).every(v => v) ? 'enabled' : 'disabled';
+    }
+
+    demo() {
+
     }
 
     render() {
@@ -65,6 +70,10 @@ class SessionForm extends React.Component {
             <div className="session-errors">{errors[0]}</div>
         ) : null;
 
+        const DemoButton = formType === 'Log In' ? (
+            <button className="demo-button" onClick={this.demo}>Log In as Demo User</button>
+        ) : null;
+
         return (
             <div className="outer-session-form">
                 <div className="session-header">
@@ -91,6 +100,7 @@ class SessionForm extends React.Component {
                         />
                         <button className={this.disabled()}>{formType}</button>
                     </form>
+                    {DemoButton}
                     <hr></hr>
                     {AltFormLink}
                 </div>

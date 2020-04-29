@@ -70,7 +70,7 @@ input, button {
     border: 2px solid rgb(93, 169, 240);
 }
 
-.session-form button {
+.session-form button, .demo-button {
     background-color: #6F5187;
     cursor: pointer;
     border-radius: .3em;
@@ -82,12 +82,23 @@ input, button {
     border: 0px;
     color: white;
     font-size: 14px;
-    margin-top: 10px;
+    margin-top: 15px;
     transition: all .25s;
 }
 
-.session-form button:hover {
+.session-form button:hover, .demo-button:hover {
     background-color: #7f6295;
+}
+
+.demo-button {
+    margin-top: 20px;
+}
+
+button.disabled {
+    background-color: lightgray;
+    pointer-events: none;
+    position: relative;
+    color: gray;
 }
 
 .account-form hr {
@@ -119,9 +130,3 @@ input, button {
     margin: 13px 0;
 }
 
-button.disabled {
-    background-color: lightgray;
-    pointer-events: none;
-    position: relative;
-    color: gray;
-}
