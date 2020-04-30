@@ -2,9 +2,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #7E5A9B;
+    background-color: rgb(126, 90, 155, .1);
     color: white;
     padding: 16px;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 1s;
+}
+
+.scrolled {
+    background-color: rgb(126, 90, 155);
 }
 
 #login-logo {

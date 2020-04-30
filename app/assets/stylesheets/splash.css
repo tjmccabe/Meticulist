@@ -1,0 +1,11 @@
+#hero {
+    background: linear-gradient(170deg, #7E5A9B, #5067c5);
+    display: block;
+    min-height: 600px;
+}
+
+#collaborate {
+    background-color: lightpink;
+    display: block;
+    min-height: 900px;
+}

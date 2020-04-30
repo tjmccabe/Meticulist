@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.disabled = this.disabled.bind(this);
         this.demo = this.demo.bind(this);
+        this.demoing = false;
     }
 
     componentWillUnmount() {
@@ -34,6 +35,9 @@ class SessionForm extends React.Component {
     }
 
     demo() {
+        if (this.demoing) return;
+        this.demoing = true;
+        
         const eInput = document.getElementById('email-input');
         const pInput = document.getElementById('password-input');
         const demoEmail = "demo@user.com";
