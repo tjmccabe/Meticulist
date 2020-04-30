@@ -19,4 +19,3 @@ const App = () => (
 )
 
 export default App;
-let trev = 'trev'
