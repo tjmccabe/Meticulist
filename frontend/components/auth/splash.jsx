@@ -18,7 +18,7 @@ class Splash extends React.Component {
         function check_if_scrolled() {
             let pixelsFromTop = $(window).scrollTop();
 
-            pixelsFromTop > 60 ? $('.login-bar').addClass('scrolled') : (
+            pixelsFromTop > 70 ? $('.login-bar').addClass('scrolled') : (
                 $('.login-bar').removeClass('scrolled')
             )
         }
@@ -36,7 +36,8 @@ class Splash extends React.Component {
                                 Our boards, lists, and cards can help you 
                                 organize and prioritize your life.</p>
                         </div>
-                        <img src='' alt=""/>
+                        {/* <img src={window.coworkers} alt="hello" /> */}
+                        <img src="assets/coworkers.png" alt="hello" />
                     </div>
                 </section>
                 <section id="collaborate">
@@ -46,7 +47,6 @@ class Splash extends React.Component {
                 </section>
                 <section id="see-how">
                     <div className='container'>
-
                     </div>
                 </section>
                 <section id="get-started">

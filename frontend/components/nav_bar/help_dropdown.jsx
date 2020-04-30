@@ -4,7 +4,7 @@ const HelpDropdown = ({ currentUser, logout, closing }) => {
     return (
         <div id="help-dropdown" className="dropdown-content right-set">
             <div className="dropdown-header">
-                <span id="currentUser">
+                <span>
                     Info/Tutorial
                 </span>
                 <span className="material-icons close-dd" onClick={closing}>

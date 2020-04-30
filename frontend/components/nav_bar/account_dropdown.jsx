@@ -17,7 +17,7 @@ const AccountDropdown = ({currentUser, logout, closing}) => {
                 <li>More stuff</li>
                 <li>Even more stuff</li>
                 <hr/>
-                <li onClick={logout}>Log Out</li>
+                <li onClick={logout}>Log Out (Actually works)</li>
             </div>
         </div>
     )

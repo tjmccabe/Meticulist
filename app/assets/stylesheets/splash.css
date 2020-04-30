@@ -13,8 +13,11 @@
 .container {
     padding: 0;
     display: flex;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .hero-text {
@@ -32,4 +35,11 @@
     font-size: 32px;
     line-height: 3rem;
     margin-top: 10px;
+}
+
+.container img {
+    object-fit: contain;
+    width: 450px;
+    max-width: 57%;
+    margin-top: 50px;
 }

@@ -68,12 +68,12 @@ class NavBar extends React.Component {
                         <BoardsDropdown currentUser={currentUser} closing={this.closing}/>
                         {/* <button>Placeholder(SearchImg)</button> */}
                     </ul>
-                    <Link to="/">
-                        <span id="logo" className="nav-bar-middle">
-                            Meticulist
-                        </span>
-                    </Link>
                 </div>
+                <Link className="nav-bar-middle" to="/">
+                    <span id="logo">
+                        Meticulist
+                    </span>
+                </Link>
                 <div className="nav-bar-right">
                     <ul className="nav-bar-list">
                         <button className='modal image'>

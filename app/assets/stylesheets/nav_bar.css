@@ -5,7 +5,8 @@
     position: relative;
     height: 40px;
     padding: 4px;
-    /* background-color: rgba(0, 0, 0, 0.25); */
+    /* background-color: rgba(0, 0, 0, 0.25);
+    -- LATER DURING BACKGROUND IMAGES*/
     background-color: #7E5A9B;
     color: white;
     box-sizing: border-box;
@@ -23,7 +24,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
 }
 
 .nav-bar-right button {
@@ -111,7 +111,7 @@ button.image span {
     border-radius: 3px;
     box-sizing: border-box;
     overflow: hidden;
-    padding: 10px;
+    padding: 0 0 10px;
     padding-top: 0;
     display: none;
 }
@@ -134,6 +134,10 @@ button.image span {
 
 #boards-dropdown {
     width: 280px;
+}
+
+#help-dropdown {
+    width: 380px;
 }
 
 .dropdown-header {
@@ -161,9 +165,7 @@ button.image span {
     height: 1px;
     border: 0;
     border-top: 1px solid lightgray;
-    margin: .5em 0;
-    padding: 0;
-    width: 100%;
+    margin: .5em 10px;
     box-sizing: border-box;
 }
 
@@ -175,7 +177,7 @@ button.image span {
     font-weight: bold;
     color: rgba(0, 0, 0, 0.6);
     letter-spacing: 0.07em;
-    margin: 10px 0;
+    margin: 20px 0 10px;
 }
 
 .boards-header .img {
@@ -185,4 +187,15 @@ button.image span {
 
 .board-links {
     margin-bottom: 15px;
+}
+
+.dropdown-content li {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 14px;
+    padding: 10px 10px
+}
+
+.dropdown-content li:hover {
+    background-color: rgba(0, 0, 0, 0.04);
 }
