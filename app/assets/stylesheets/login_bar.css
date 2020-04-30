@@ -2,17 +2,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(126, 90, 155, .1);
+    background-color: rgb(126, 90, 155, .05);
     color: white;
     padding: 16px;
     position: fixed;
     width: 100%;
     box-sizing: border-box;
-    transition: all 1s;
+    transition: all .7s;
 }
 
 .scrolled {
     background-color: rgb(126, 90, 155);
+    box-shadow: 0 0 15px rgba(39, 29, 48, 0.6);
 }
 
 #login-logo {

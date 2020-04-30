@@ -37,3 +37,7 @@ button:focus {
 a {
     text-decoration: none;
 }
+
+section {
+    box-sizing: border-box;
+}

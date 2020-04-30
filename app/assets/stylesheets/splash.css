@@ -9,3 +9,27 @@
     display: block;
     min-height: 900px;
 }
+
+.container {
+    padding: 0;
+    display: flex;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.hero-text {
+    width: 43%;
+    color: white;
+    margin: 150px 10px 50px;
+}
+
+.hero-text h1 {
+    font-size: 54px;
+    line-height: 4rem;
+}
+
+.hero-text p {
+    font-size: 32px;
+    line-height: 3rem;
+    margin-top: 10px;
+}

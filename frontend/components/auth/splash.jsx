@@ -12,21 +12,15 @@ class Splash extends React.Component {
     }
 
     listenForScroll() {
-        this.throttled = throttle(300, () => {
-            check_if_scrolled();
-        });
-
+        this.throttled = throttle(300, () => check_if_scrolled());
         $(document).on('scroll', this.throttled);
 
         function check_if_scrolled() {
             let pixelsFromTop = $(window).scrollTop();
-            console.log(pixelsFromTop);
 
-            if (pixelsFromTop > 100) {
-                $('.login-bar').addClass('scrolled');
-            } else {
-                $('.login-bar').removeClass('scrolled');
-            }
+            pixelsFromTop > 60 ? $('.login-bar').addClass('scrolled') : (
+                $('.login-bar').removeClass('scrolled')
+            )
         }
     }
 
@@ -35,11 +29,34 @@ class Splash extends React.Component {
             <div>
                 <LoginBar />
                 <section id="hero">
-                    
+                    <div className='container'>
+                        <div className="hero-text">
+                            <h1>Meticulist lets you work together to accomplish more.</h1>
+                            <p>Meticulist gives your projects visual structure. 
+                                Our boards, lists, and cards can help you 
+                                organize and prioritize your life.</p>
+                        </div>
+                        <img src='' alt=""/>
+                    </div>
                 </section>
                 <section id="collaborate">
+                    <div className='container'>
 
+                    </div>
                 </section>
+                <section id="see-how">
+                    <div className='container'>
+
+                    </div>
+                </section>
+                <section id="get-started">
+                    <div className='container'>
+
+                    </div>
+                </section>
+                <footer>
+
+                </footer>
             </div>
         )
     }
