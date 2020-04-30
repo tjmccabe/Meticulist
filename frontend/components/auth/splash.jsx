@@ -37,7 +37,7 @@ class Splash extends React.Component {
                                 organize and prioritize your life.</p>
                         </div>
                         {/* <img src={window.coworkers} alt="hello" /> */}
-                        <img src="assets/coworkers.png" alt="hello" />
+                        <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/coworkers.png" alt="coworkers" />
                     </div>
                 </section>
                 <section id="collaborate">

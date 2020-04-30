@@ -134,6 +134,10 @@ class SessionForm extends React.Component {
                     <hr></hr>
                     {AltFormLink}
                 </div>
+                <div id="session-background">
+                    <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/list.png" alt="list" />
+                    <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/productive.png" alt="productive" />
+                </div>
             </div>
         )
     }

@@ -98,7 +98,7 @@ class NavBar extends React.Component {
                             onClick={this.dropshow('account')}
                         >
                             <div className="dropbtn">
-                                {this.props.currentUser.username[0]}
+                                {this.props.currentUser.username[0].toUpperCase()}
                             </div>
                         </button>
                         <AccountDropdown
