@@ -32,7 +32,7 @@
 
 .nav-bar #logo {
     font-size: 30px;
-    width: 65px;
+    width: 1px;
     opacity: .5;
     color: white;
 }
@@ -106,13 +106,18 @@ button.image span {
     top: 43px;
     color: black;
     background-color: white;
-    box-shadow: rgba(0,0,0,0.1) 0 0 10px;
+    box-shadow: 2px 5px 15px 0 rgba(0,0,0,0.15);
     border: 1px solid lightgray;
     border-radius: 3px;
     box-sizing: border-box;
     overflow: hidden;
     padding: 10px;
     padding-top: 0;
+    display: none;
+}
+
+.shown {
+    display: block;
 }
 
 .right-set {

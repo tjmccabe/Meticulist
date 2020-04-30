@@ -1,18 +1,18 @@
 import React from 'react';
 
-const HelpDropdown = ({ currentUser, logout }) => {
+const HelpDropdown = ({ currentUser, logout, closing }) => {
     return (
-        <div id="Help-dropdown" className="dropdown-content right-set">
+        <div id="help-dropdown" className="dropdown-content right-set">
             <div className="dropdown-header">
                 <span id="currentUser">
                     Info/Tutorial
                 </span>
-                <span className="material-icons close-dd">
+                <span className="material-icons close-dd" onClick={closing}>
                     clear
                 </span>
             </div>
             <hr />
-            <div className="Help-links">
+            <div className="help-links">
                 <li>Help image</li>
                 <hr />
                 <li>Click for Tutorial Overlay</li>
