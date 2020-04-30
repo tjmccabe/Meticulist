@@ -25,7 +25,6 @@ h1, h2, h3, h4, h5, h6 {
 
 #logo {
     font-family: 'Damion', cursive;
-    font-size: 40px;
 }
 
 input:focus,
@@ -33,4 +32,8 @@ select:focus,
 textarea:focus,
 button:focus {
     outline: none;
+}
+
+a {
+    text-decoration: none;
 }

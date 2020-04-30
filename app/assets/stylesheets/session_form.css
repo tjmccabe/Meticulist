@@ -26,10 +26,6 @@
     box-sizing: border-box;
 }
 
-.session-errors {
-    align-self: flex-start;
-}
-
 .session-form {
     display: flex;
     flex-direction: column;
@@ -83,7 +79,7 @@
     color: white;
     font-size: 14px;
     margin-top: 15px;
-    transition: all .25s;
+    transition: all .15s;
 }
 
 .session-form button:hover, .demo-button:hover {
@@ -127,6 +123,9 @@ button.disabled {
     color: white;
     font-size: 14px;
     border-radius: 4px;
-    margin: 13px 0;
+    margin: 12px 0;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
 }
 

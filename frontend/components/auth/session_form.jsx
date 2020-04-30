@@ -44,7 +44,7 @@ class SessionForm extends React.Component {
         const typePass = () => {
             if (pi <= demoPass.length) {
                 pInput.value = demoPass.substr(0, pi++);
-                setTimeout(() => typePass(), 50);
+                setTimeout(() => typePass(), 75);
             } else {
                 setTimeout(() => this.props.processForm({
                     email: 'demo@user.com',
@@ -56,7 +56,7 @@ class SessionForm extends React.Component {
         const typeEmail = () => {
             if (ei <= demoEmail.length) {
                 eInput.value = demoEmail.substr(0, ei++);
-                setTimeout(() => typeEmail(), 75);
+                setTimeout(() => typeEmail(), 65);
             } else typePass()
         }
 
