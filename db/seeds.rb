@@ -33,8 +33,8 @@ demoboards = Board.create([
     }
 ])
 
-file1 = open('')
-file2 = open('')
+file1 = open('https://meticulist-seeds.s3-us-west-1.amazonaws.com/DefaultBackgrounds/aaron-burden-DjsBoWp7HV0-unsplash.jpg')
+file2 = open('https://meticulist-seeds.s3-us-west-1.amazonaws.com/DefaultBackgrounds/jason-zook-n2RrD7Aew-Q-unsplash.jpg')
 
 demoboards[0].background_photo.attach(io: file1, filename: 'pic1')
 demoboards[2].background_photo.attach(io: file2, filename: 'pic2')
