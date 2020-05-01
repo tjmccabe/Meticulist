@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from './store/store';
 import Root from './components/root';
-import * as bAPI from './util/board_api_util';
+import * as bActs from './actions/board_actions';
 
 const preloadedState = {};
 
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //testing below
     window.getState = store.getState
     window.dispatch = store.dispatch
-    window.bAPI = bAPI;
+    window.bActs = bActs;
     //testing above
     
     const root = document.getElementById("root");
