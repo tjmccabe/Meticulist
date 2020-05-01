@@ -15,19 +15,19 @@ users = User.create([
     {email: 'yeet@yeet.com', username: 'yeet', password: 'yeetyeet'}
 ])
 
-demoboards = Board.create([
+[bord1, bord2, bord3] = Board.create([
     {
-        admin_id: User.find_by(username: 'DemoUser').id,
+        admin_id: demo_user.id,
         title: 'General To Do',
         description: ''
     },
     {
-        admin_id: User.find_by(username: 'DemoUser').id,
+        admin_id: demo_user.id,
         title: 'Work',
         description: 'Just developer things'
     },
     {
-        admin_id: User.find_by(username: 'DemoUser').id,
+        admin_id: demo_user.id,
         title: 'School',
         description: 'App Academy\'s always keepin\' us busy'
     }
@@ -36,5 +36,6 @@ demoboards = Board.create([
 file1 = open('https://meticulist-seeds.s3-us-west-1.amazonaws.com/DefaultBackgrounds/aaron-burden-DjsBoWp7HV0-unsplash.jpg')
 file2 = open('https://meticulist-seeds.s3-us-west-1.amazonaws.com/DefaultBackgrounds/jason-zook-n2RrD7Aew-Q-unsplash.jpg')
 
-demoboards[0].background_photo.attach(io: file1, filename: 'pic1')
-demoboards[2].background_photo.attach(io: file2, filename: 'pic2')
+bord1.background_photo.attach(io: file1, filename: 'pic1')
+bord3.background_photo.attach(io: file2, filename: 'pic2')
+
