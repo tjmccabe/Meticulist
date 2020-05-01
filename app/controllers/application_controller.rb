@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
     def require_logged_in
         if !logged_in?
-            render json: ["You must be logged in to see that content"], status: 401
+            render json: ["You must be logged in to do that"], status: 401
         end
     end
 end
