@@ -114,6 +114,7 @@ button.image span {
     padding: 0 0 10px;
     padding-top: 0;
     display: none;
+    z-index: 100;
 }
 
 .shown {

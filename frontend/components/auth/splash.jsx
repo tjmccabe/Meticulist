@@ -36,7 +36,6 @@ class Splash extends React.Component {
                                 Our boards, lists, and cards can help you 
                                 organize and prioritize your life.</p>
                         </div>
-                        {/* <img src={window.coworkers} alt="hello" /> */}
                         <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/coworkers.png" alt="coworkers" />
                     </div>
                 </section>

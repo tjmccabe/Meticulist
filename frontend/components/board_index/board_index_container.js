@@ -4,9 +4,10 @@ import {fetchBoards} from '../../actions/board_actions'
 
 const mSTP = state => ({
     currentUser: state.entities.users[state.session.id],
-    boards: Object.values(state.entities.boards)
-    //personalBoards
-    //memberBoards
+    personalBoards: Object.values(state.entities.boards)
+        .filter(b => b.adminId === state.session.id),
+    sharedBoards: Object.values(state.entities.boards)
+        .filter(b => b.adminId !== state.session.id)
 })
 
 const mDTP = dispatch => ({
