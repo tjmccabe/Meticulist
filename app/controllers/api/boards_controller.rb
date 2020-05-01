@@ -18,14 +18,23 @@ class Api::BoardsController < ApplicationController
     end
     
     def show
-        @board = Board.find(params[:id])
-        render :show
+        @board = Board.find_by(id: params[:id])
+        if @board.nil?
+            render json: ["Board not found"], status: 404
+        elsif @board.admin_id != current_user.id
+            render json: ["Board may only be accessed by admin"], status: 403
+            # CHANGE FOR MEMBERS LATER
+        else
+            render :show
+        end
     end
 
     def update
-        @board = Board.find(params[:id])
+        @board = Board.find_by(id: params[:id])
         
-        if @board.admin_id != current_user.id
+        if @board.nil?
+            render json: ["Board not found"], status: 404
+        elsif @board.admin_id != current_user.id
             render json: ["Board settings may only be edited by admin"], status: 403
         elsif @board.update(board_params)
             render :show
@@ -35,7 +44,7 @@ class Api::BoardsController < ApplicationController
     end
 
     def destroy
-        @board = Board.find(params[:id])
+        @board = Board.find_by(id: params[:id])
 
         if @board && @board.admin_id == current_user.id
             @board.destroy
@@ -43,7 +52,7 @@ class Api::BoardsController < ApplicationController
         elsif @board
             render json: ["Board may only be deleted by admin"], status: 403
         else
-            render json: ["That board does not exist"], status: 404
+            render json: ["Board not found"], status: 404
         end
     end
 

@@ -31,11 +31,12 @@ export const fetchBoards = () => (dispatch) => (
         .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
 );
 
-export const fetchBoard = (boardId) => (dispatch) => (
-    bAPI.fetchBoard(boardId)
+export const fetchBoard = (boardId) => (dispatch) => {
+    
+    return bAPI.fetchBoard(boardId)
         .then(payload => dispatch(receiveBoard(payload)))
         .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
-);
+};
 
 export const createBoard = (board) => (dispatch) => (
     bAPI.createBoard(board)
