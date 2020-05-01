@@ -27,6 +27,10 @@ class User < ApplicationRecord
     
     before_validation :ensure_session_token
 
+    has_many :admined_boards,
+        foreign_key: :admin_id,
+        class_name: :Board
+
     def check_email
         unless /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i.match?(self.email)
             errors[:base] << "That doesn't look like an email address..."

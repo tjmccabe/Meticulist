@@ -12,5 +12,9 @@
 class Board < ApplicationRecord
     validates :admin_id, :title, presence: true
 
+    belongs_to :admin,
+        foreign_key: :admin_id,
+        class_name: :User
+
     has_one_attached :background_photo
 end

@@ -53,7 +53,7 @@ class SessionForm extends React.Component {
                 setTimeout(() => this.props.processForm({
                     email: 'demo@user.com',
                     password: '12345678'
-                }), 200)
+                }), 100)
             }
         }
 
@@ -135,8 +135,8 @@ class SessionForm extends React.Component {
                     {AltFormLink}
                 </div>
                 <div id="session-background">
-                    <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/list.png" alt="list" />
-                    <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/productive.png" alt="productive" />
+                    <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/list.png" alt="list" />
+                    <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/productive.png" alt="productive" />
                 </div>
             </div>
         )
