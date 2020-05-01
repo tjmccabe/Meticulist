@@ -1,15 +1,16 @@
 import {connect} from 'react-redux'
 import BoardIndex from './board_index';
-import {logout} from '../actions/session_actions'
+import {fetchBoards} from '../../actions/board_actions'
 
 const mSTP = state => ({
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    boards: Object.values(state.entities.boards)
     //personalBoards
     //memberBoards
 })
 
 const mDTP = dispatch => ({
-    logout: () => dispatch(logout())
+    fetchBoards: () => dispatch(fetchBoards())
     //createBoard
 })
 
