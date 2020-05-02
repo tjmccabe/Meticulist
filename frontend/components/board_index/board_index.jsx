@@ -1,6 +1,5 @@
 import React from 'react';
 import BoardIndexItem from './board_index_item';
-import BoardForm from '../board_form/board_form';
 import {Link} from 'react-router-dom';
 
 class BoardIndex extends React.Component {
@@ -59,7 +58,6 @@ class BoardIndex extends React.Component {
         <div className="board-index">
           {PersonalBoardsEle}
           {SharedBoardsEle}
-          {/* How do modals work here? */}
         </div>
       </div>
     )

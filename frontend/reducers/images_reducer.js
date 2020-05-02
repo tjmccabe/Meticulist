@@ -5,7 +5,6 @@ const imagesReducer = (state = [], action) => {
 
     switch (action.type) {
         case RECEIVE_IMAGES:
-            debugger
             if (action.response.results) {
                 return action.response.results.map((res) => {
                     return {

@@ -8,9 +8,12 @@ const Modal = ({modal, closeModal}) => {
   }
 
   let component;
+  let addClass = null;
+
   switch (modal) {
     case 'newBoard':
       component = <BoardFormContainer/>;
+      addClass = ' high-modal'
       break;
     case 'cardDetails':
       component = null;
@@ -21,7 +24,7 @@ const Modal = ({modal, closeModal}) => {
 
   return (
     <div className="modal-background" onClick={closeModal}>
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
+      <div className={`modal-child${addClass}`} onClick={e => e.stopPropagation()}>
         { component }
       </div>
     </div>

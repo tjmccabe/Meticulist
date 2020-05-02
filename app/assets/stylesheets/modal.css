@@ -14,3 +14,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.high-modal {
+  top: 50px;
+  transform: translate(-50%, 0);
+}

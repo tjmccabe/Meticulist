@@ -1,4 +1,5 @@
 import React from 'react';
+import ImageIndexContainer from './image_index_container';
 
 class ImageSearch extends React.Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class ImageSearch extends React.Component {
 
     handleRandom(e) {
         e.preventDefault();
-        this.props.fetchRandomResults()
+        this.props.fetchRandomResults();
     }
 
     handleChange(e) {
@@ -36,22 +37,27 @@ class ImageSearch extends React.Component {
     }
 
     render() {
+        const { fetchRandomResults } = this.props
+
         return (
-            <div className="image-selector-form">
-                Image selector
-                <form onSubmit={this.handleSearch}>
+            <div className="image-selector-form-container">
+                <div>Board Background Image</div>
+                <form className="image-selector-form" onSubmit={this.handleSearch}>
                     <input
                         type="text"
                         value={this.state.text}
-                        placeholder="Search for an image"
+                        placeholder="Search Photos by Unsplash"
                         onChange={this.handleChange}
                     />
-                    <button>Search Button</button>
+                    <div className="image-button-container">
+                        <button type="submit" className={this.disabled()}>Search</button>
+                        <div>OR</div>
+                        <button onClick={this.handleRandom} >Get Random Photos</button>
+                    </div>
                 </form>
-                <button onClick={this.handleRandom} >Get Randos</button>
-                <div className="search-results-container">
-
-                </div>
+                < ImageIndexContainer
+                    fetchRandomResults={fetchRandomResults}
+                />
             </div>
         )
     }
