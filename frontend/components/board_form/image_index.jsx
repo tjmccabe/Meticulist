@@ -14,16 +14,23 @@ class ImageIndex extends React.Component {
         const {images} = this.props;
         
         const ImageList = images[0] ? (
-            <ul>
+            <ul className="image-list">
                 {images.map((image, idx) => (
                     <li
                         className="image-tile"
                         key={idx}
                         style={{ backgroundImage: `url(${image.thumb})` }}
                     >
+                        <div className="image-tile-darkener">
 
+                        </div>
                     </li>
                 ))}
+                <li className="image-tile" id="default-background-tile">
+                    <div className="image-tile-darkener">
+                        None
+                    </div>
+                </li>
             </ul>
         ) : null;
 

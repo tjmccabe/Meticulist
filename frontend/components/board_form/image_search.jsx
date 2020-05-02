@@ -41,7 +41,7 @@ class ImageSearch extends React.Component {
 
         return (
             <div className="image-selector-form-container">
-                <div>Board Background Image</div>
+                <div className="image-selector-header">Board Background Image</div>
                 <form className="image-selector-form" onSubmit={this.handleSearch}>
                     <input
                         type="text"
@@ -55,6 +55,7 @@ class ImageSearch extends React.Component {
                         <button onClick={this.handleRandom} >Get Random Photos</button>
                     </div>
                 </form>
+                <hr/>
                 < ImageIndexContainer
                     fetchRandomResults={fetchRandomResults}
                 />

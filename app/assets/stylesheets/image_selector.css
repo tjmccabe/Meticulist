@@ -6,7 +6,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 10px 10px 0;
+}
+
+.image-selector-header {
+    color: rgb(71, 71, 71);
+    font-size: 14px;
 }
 
 .image-selector-form {
@@ -14,7 +19,6 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
 }
 
 
@@ -43,7 +47,62 @@
 }
 
 .image-button-container div {
-    /* display: block; */
     font-weight: 600;
-    margin: 0, 10px;
+    color: rgb(71, 71, 71);
+}
+
+.image-selector-form-container hr {
+    display: block;
+    width: 100%;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid lightgray;
+    margin: 0 10px 10px;
+    box-sizing: border-box;
+}
+
+.images-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.image-list {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-tile {
+    width: 108px;
+    height: 60px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border-radius: 3px;
+    background-position: 50%;
+    background-size: cover;
+}
+
+.image-tile:nth-child(3n) {
+    margin-right: 0;
+}
+
+.image-tile-darkener {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-tile-darkener:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, .15);
+}
+
+#default-background-tile {
+    background-color: #583f6c;
+    color: white;
+    font-weight: 300;
 }
