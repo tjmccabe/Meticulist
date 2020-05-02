@@ -1,4 +1,5 @@
 import React from 'react';
+import BoardFormContainer from '../board_form/board_form_container';
 //import board form
 
 const Modal = ({modal, closeModal}) => {
@@ -9,7 +10,7 @@ const Modal = ({modal, closeModal}) => {
   let component;
   switch (modal) {
     case 'newBoard':
-      component = null; //board form goes here
+      component = <BoardFormContainer/>;
       break;
     case 'cardDetails':
       component = null;

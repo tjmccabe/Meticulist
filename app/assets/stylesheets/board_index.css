@@ -19,6 +19,7 @@
     background-color: #e5d6f3;
     border-radius: 4px;
     padding: 7px;
+    cursor: default;
 }
 
 .boards-title span {
@@ -78,6 +79,7 @@
     font-size: 18px;
     font-weight: 900;
     display: block;
+    padding-bottom: 5px;
 }
 
 .must-grow {
@@ -95,7 +97,7 @@
 }
 
 #board-form-link {
-    background-color: lightgray;
+    background-color: rgb(223, 223, 223);
     color: gray;
     display: flex;
     justify-content: center;
@@ -104,5 +106,5 @@
 
 #board-form-link:hover {
     cursor: pointer;
-    background-color: rgba(0, 0, 0, .2);
+    background-color: rgba(0, 0, 0, .15);
 }
