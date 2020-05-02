@@ -2,7 +2,7 @@ import React from 'react';
 // import MyBoards element with conditional header- if they don't have boards, it doesn't show
 // same with shared boards
 
-const BoardsDropdown = ({ currentUser, logout, closing }) => {
+const BoardsDropdown = ({ currentUser, logout, closing, openModal }) => {
     return (
         <div id="boards-dropdown" className="dropdown-content left-set">
             <div className="dropdown-header">
@@ -28,7 +28,7 @@ const BoardsDropdown = ({ currentUser, logout, closing }) => {
                 <li>Board Link #3</li>
             </div>
             <div className="new-board">
-                <li>Create new board...</li>
+                <li onClick={openModal} >Create new board...</li>
             </div>
         </div>
     )

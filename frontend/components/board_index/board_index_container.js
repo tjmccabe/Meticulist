@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 import BoardIndex from './board_index';
 import {fetchBoards} from '../../actions/board_actions'
+import { openModal } from '../../actions/modal_actions';
 
 const mSTP = state => ({
     currentUser: state.entities.users[state.session.id],
@@ -11,8 +12,8 @@ const mSTP = state => ({
 })
 
 const mDTP = dispatch => ({
-    fetchBoards: () => dispatch(fetchBoards())
-    //createBoard
+    fetchBoards: () => dispatch(fetchBoards()),
+    openModal: () => dispatch(openModal('newBoard'))
 })
 
 export default connect(mSTP, mDTP)(BoardIndex);

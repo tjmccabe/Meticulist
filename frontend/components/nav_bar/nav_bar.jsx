@@ -44,7 +44,7 @@ class NavBar extends React.Component {
     }
     
     render() {
-        const {currentUser, logout} = this.props
+        const {currentUser, logout, openModal} = this.props
         return (
             <div className="nav-bar">
                 <div className="nav-bar-left">
@@ -65,7 +65,11 @@ class NavBar extends React.Component {
                                 Boards
                             </div>
                         </button>
-                        <BoardsDropdown currentUser={currentUser} closing={this.closing}/>
+                        <BoardsDropdown
+                            currentUser={currentUser}
+                            closing={this.closing}
+                            openModal={openModal}
+                        />
                         {/* <button>Placeholder(SearchImg)</button> */}
                     </ul>
                 </div>
@@ -76,7 +80,10 @@ class NavBar extends React.Component {
                 </Link>
                 <div className="nav-bar-right">
                     <ul className="nav-bar-list">
-                        <button className='modal image'>
+                        <button
+                            className='modal image'
+                            onClick={openModal}
+                        >
                             <span className="material-icons" id="add">
                                 add
                             </span>

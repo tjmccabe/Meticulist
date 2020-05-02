@@ -1,6 +1,6 @@
 import React from 'react';
 import BoardIndexItem from './board_index_item';
-import BoardFormTile from './board_form';
+import BoardForm from '../board_form/board_form';
 import {Link} from 'react-router-dom';
 
 class BoardIndex extends React.Component {
@@ -13,7 +13,7 @@ class BoardIndex extends React.Component {
   }
 
   render() {
-    const {personalBoards, sharedBoards, currentUser} = this.props;
+    const {personalBoards, sharedBoards, currentUser, openModal} = this.props;
 
     const PersonalBoardsEle = (
       <div className="boards-outer">
@@ -25,7 +25,13 @@ class BoardIndex extends React.Component {
           {personalBoards.map((board, index) => (
             <BoardIndexItem board={board} key={index} />
           ))}
-          <BoardFormTile />
+          <li
+            className="board-tile"
+            id="board-form-link"
+            onClick={openModal}
+          >
+            <div>Create new board</div>
+          </li>
         </ul>
       </div>
     )

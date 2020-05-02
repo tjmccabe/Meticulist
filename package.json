@@ -15,6 +15,7 @@
     "redux-thunk": "^2.3.0",
     "throttle-debounce": "^2.1.0",
     "typewriter-effect": "^2.13.0",
+    "unsplash-js": "^6.0.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   },
