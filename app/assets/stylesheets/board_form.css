@@ -20,6 +20,8 @@
     background-color: #7E5A9B;
     border-radius: 3px;
     margin-bottom: 10px;
+    background-position: 50%;
+    background-size: cover;
 }
 
 .board-entry-darkener {

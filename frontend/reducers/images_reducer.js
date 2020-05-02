@@ -9,7 +9,7 @@ const imagesReducer = (state = [], action) => {
                 return action.response.results.map((res) => {
                     return {
                         full: res.urls.full,
-                        thumb: res.urls.thumb,
+                        small: res.urls.small,
                         alt: res.alt_description
                     }
                 })
@@ -17,7 +17,7 @@ const imagesReducer = (state = [], action) => {
                 return action.response.map((res) => {
                     return {
                         full: res.urls.full,
-                        thumb: res.urls.thumb,
+                        small: res.urls.small,
                         alt: res.alt_description
                     }
                 })

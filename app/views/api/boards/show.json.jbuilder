@@ -1,6 +1,11 @@
 json.board do
-    json.extract! @board, :id, :admin_id, :title, :description
-    json.backgroundPhotoUrl @board.background_photo.attached? ? url_for(@board.background_photo) : nil
+    json.extract! @board,
+            :id,
+            :title,
+            :admin_id,
+            :bgp_big_url,
+            :bgp_small_url,
+            :bgp_alt_text
     # json.listIds do
     #     json.array! @board.lists, :id
     # end

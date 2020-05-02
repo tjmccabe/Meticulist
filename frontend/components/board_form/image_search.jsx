@@ -19,7 +19,6 @@ class ImageSearch extends React.Component {
         e.preventDefault();
         if (this.state.text.length > 0) {
             this.props.fetchSearchResults(this.state.text)
-            this.setState({ text: '' })
         }
     }
 
@@ -37,7 +36,7 @@ class ImageSearch extends React.Component {
     }
 
     render() {
-        const { fetchRandomResults } = this.props
+        const { fetchRandomResults, updateBackground } = this.props
 
         return (
             <div className="image-selector-form-container">
@@ -58,6 +57,7 @@ class ImageSearch extends React.Component {
                 <hr/>
                 < ImageIndexContainer
                     fetchRandomResults={fetchRandomResults}
+                    updateBackground={updateBackground}
                 />
             </div>
         )

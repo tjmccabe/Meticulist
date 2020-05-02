@@ -59,6 +59,13 @@ class Api::BoardsController < ApplicationController
     private
 
     def board_params
-        params.require(:board).permit(:admin_id, :title, :description, :background_photo)
+        params.require(:board).permit(
+            :admin_id,
+            :title,
+            :description,
+            :bgp_big_url,
+            :bgp_small_url,
+            :bgp_alt_text
+        )
     end
 end

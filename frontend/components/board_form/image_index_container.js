@@ -5,8 +5,8 @@ const mSTP = state => ({
     images: state.ui.images
 })
 
-const mDTP = dispatch => ({
-    //something with assigning images to the form?
+const mDTP = (dispatch, ownProps) => ({
+    
 })
 
 export default connect(mSTP, mDTP)(ImageIndex);

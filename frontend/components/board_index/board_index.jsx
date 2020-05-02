@@ -8,11 +8,11 @@ class BoardIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchBoards()
+    this.props.fetchBoards();
   }
 
   render() {
-    const {personalBoards, sharedBoards, currentUser, openModal} = this.props;
+    const {personalBoards, sharedBoards, openModal} = this.props;
 
     const PersonalBoardsEle = (
       <div className="boards-outer">
