@@ -1,7 +1,11 @@
 import { connect } from 'react-redux'
 import { closeModal } from '../../actions/modal_actions';
 import {receiveErrors, createBoard} from '../../actions/board_actions';
-import {fetchSearchResults, receiveSearchResults} from '../../actions/unslpash_actions';
+import {
+    fetchSearchResults,
+    fetchRandomResults,
+    clearImages
+} from '../../actions/unslpash_actions';
 import BoardForm from './board_form';
 
 const mSTP = state => ({
@@ -14,7 +18,8 @@ const mDTP = dispatch => ({
     closeModal: () => dispatch(closeModal()),
     clearErrors: () => dispatch(receiveErrors([])),
     fetchSearchResults: (query) => dispatch(fetchSearchResults(query)),
-    clearSearchResults: () => dispatch(receiveSearchResults({}))
+    fetchRandomResults: () => dispatch(fetchRandomResults()),
+    clearImages: () => dispatch(clearImages())
 })
 
 export default connect(mSTP, mDTP)(BoardForm);

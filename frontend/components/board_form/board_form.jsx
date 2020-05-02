@@ -18,7 +18,7 @@ class BoardForm extends React.Component {
 
     componentWillUnmount() {
         this.props.clearErrors();
-        this.props.clearSearchResults();
+        this.props.clearImages();
     }
 
     handleSubmit(e) {
@@ -43,6 +43,7 @@ class BoardForm extends React.Component {
             closeModal,
             errors,
             fetchSearchResults,
+            fetchRandomResults
         } = this.props;
 
         const BoardErrors = errors[0] ? (
@@ -78,6 +79,7 @@ class BoardForm extends React.Component {
                 </form>
                 <ImageSearch
                     fetchSearchResults={fetchSearchResults}
+                    fetchRandomResults={fetchRandomResults}
                 />
             </div>
         )

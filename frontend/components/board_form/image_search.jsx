@@ -8,17 +8,23 @@ class ImageSearch extends React.Component {
             text: ''
         }
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
+        this.handleRandom = this.handleRandom.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.disabled = this.disabled.bind(this);
     }
 
-    handleSubmit(e) {
+    handleSearch(e) {
         e.preventDefault();
         if (this.state.text.length > 0) {
             this.props.fetchSearchResults(this.state.text)
             this.setState({ text: '' })
         }
+    }
+
+    handleRandom(e) {
+        e.preventDefault();
+        this.props.fetchRandomResults()
     }
 
     handleChange(e) {
@@ -33,7 +39,7 @@ class ImageSearch extends React.Component {
         return (
             <div className="image-selector-form">
                 Image selector
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSearch}>
                     <input
                         type="text"
                         value={this.state.text}
@@ -42,6 +48,7 @@ class ImageSearch extends React.Component {
                     />
                     <button>Search Button</button>
                 </form>
+                <button onClick={this.handleRandom} >Get Randos</button>
                 <div className="search-results-container">
 
                 </div>

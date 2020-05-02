@@ -1,14 +1,25 @@
-import {fetchImages} from '../util/unsplash_util';
+import {fetchSearchImages, fetchRandomImages} from '../util/unsplash_util';
 
-export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS'
+export const RECEIVE_IMAGES = 'RECEIVE_SEARCH_RESULTS'
+export const CLEAR_IMAGES = 'CLEAR_IMAGES'
 
-export const receiveSearchResults = (results) => ({
-    type: RECEIVE_SEARCH_RESULTS,
-    results
+const receiveImages = (response) => ({
+    type: RECEIVE_IMAGES,
+    response
+});
+
+export const clearImages = () => ({
+    type: CLEAR_IMAGES,
 });
 
 export const fetchSearchResults = (query) => (dispatch) => (
-    fetchImages(query)
-        .then(results => dispatch(receiveSearchResults(results)))
+    fetchSearchImages(query)
+        .then(response => dispatch(receiveImages(response)))
+        .fail(errors => console.log(errors))
+)
+
+export const fetchRandomResults = () => (dispatch) => (
+    fetchRandomImages()
+        .then(response => dispatch(receiveImages(response)))
         .fail(errors => console.log(errors))
 )
