@@ -44,7 +44,14 @@ class NavBar extends React.Component {
     }
     
     render() {
-        const {currentUser, logout, openModal} = this.props
+        const {
+            currentUser,
+            logout,
+            openModal,
+            fetchBoards,
+            personalBoards,
+            sharedBoards
+        } = this.props
         return (
             <div className="nav-bar">
                 <div className="nav-bar-left">
@@ -66,9 +73,11 @@ class NavBar extends React.Component {
                             </div>
                         </button>
                         <BoardsDropdown
-                            currentUser={currentUser}
                             closing={this.closing}
                             openModal={openModal}
+                            fetchBoards={fetchBoards}
+                            personalBoards={personalBoards}
+                            sharedBoards={sharedBoards}
                         />
                         {/* <button>Placeholder(SearchImg)</button> */}
                     </ul>

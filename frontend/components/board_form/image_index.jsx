@@ -30,7 +30,7 @@ class ImageIndex extends React.Component {
                 <li
                     className="image-tile"
                     id="default-background-tile"
-                    onClick={updateBackground}
+                    onClick={() => updateBackground(null)}
                 >
                     <div className="image-tile-darkener">
                         None

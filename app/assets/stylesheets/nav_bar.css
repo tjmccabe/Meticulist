@@ -14,6 +14,7 @@
 
 .nav-bar ul {
     display: flex;
+    box-sizing: border-box;
 }
 
 .nav-bar-left button {
@@ -24,6 +25,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .nav-bar-right button {
@@ -186,10 +188,6 @@ button.image span {
     margin: 0 5px;
 }
 
-.board-links {
-    margin-bottom: 15px;
-}
-
 .dropdown-content li {
     cursor: pointer;
     color: rgba(0, 0, 0, 0.8);
@@ -199,4 +197,50 @@ button.image span {
 
 .dropdown-content li:hover {
     background-color: rgba(0, 0, 0, 0.04);
+}
+
+.board-buttons {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.board-buttons button {
+    background-color: #7e5a9b;
+    margin: 0 5px 5px 5px;
+    width: 96%;
+    text-align: left;
+    height: 40px;
+    background-position: 50%;
+    background-size: cover;
+    padding: 0;
+}
+
+.board-buttons button:hover {
+    background-color: #7e5a9b;
+}
+
+.dimmer {
+    width: 100%;
+    min-height: 100%;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.dimmer:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.tiny-board {
+    min-width: 15px;
+}
+
+.titley {
+    color: rgb(51, 51, 51);
+}
+
+#create-new-board {
+    text-decoration: underline;
 }

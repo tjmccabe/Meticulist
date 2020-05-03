@@ -53,7 +53,7 @@ class BoardIndex extends React.Component {
       <div className="boards-container">
         <Link to='/boards' className="boards-title">
           <span className="material-icons">dashboard</span>
-          <h2>Your Boards</h2>
+          <h2>My Boards</h2>
         </Link>
         <div className="board-index">
           {PersonalBoardsEle}
