@@ -6,9 +6,9 @@ class ImageIndex extends React.Component {
         super(props)
     }
 
-    componentDidMount() {
-        // this.props.fetchRandomResults();
-    }
+    // componentDidMount() {
+    //     this.props.fetchRandomResults();
+    // }
 
     render() {
         const {images, updateBackground} = this.props;
@@ -30,7 +30,7 @@ class ImageIndex extends React.Component {
                 <li
                     className="image-tile"
                     id="default-background-tile"
-                    onClick={() => updateBackground(null)}
+                    onClick={() => updateBackground()}
                 >
                     <div className="image-tile-darkener">
                         None

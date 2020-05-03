@@ -64,6 +64,8 @@
 .images-container {
     width: 100%;
     box-sizing: border-box;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
 }
 
 .image-list {
@@ -71,20 +73,16 @@
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .image-tile {
-    width: 108px;
+    width: 32%;
     height: 60px;
-    margin-right: 8px;
     margin-bottom: 8px;
     border-radius: 3px;
     background-position: 50%;
     background-size: cover;
-}
-
-.image-tile:nth-child(3n) {
-    margin-right: 0;
 }
 
 .image-tile-darkener {
