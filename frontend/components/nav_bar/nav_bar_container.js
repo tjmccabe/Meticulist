@@ -6,7 +6,6 @@ import {fetchBoards, fetchBoard} from '../../actions/board_actions';
 import {boardWithImageSelector} from '../../reducers/selectors';
 
 const mSTP = (state, ownProps) => {
-    // debugger
     return {
     currentUser: state.entities.users[state.session.id],
     personalBoards: Object.values(state.entities.boards)
