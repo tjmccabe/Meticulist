@@ -51,10 +51,10 @@ class BoardIndex extends React.Component {
 
     return(
       <div className="boards-container">
-        <Link to='/boards' className="boards-title">
+        <div className="boards-title">
           <span className="material-icons">dashboard</span>
-          <h2>My Boards</h2>
-        </Link>
+          <h2>Boards</h2>
+        </div>
         <div className="board-index">
           {PersonalBoardsEle}
           {SharedBoardsEle}

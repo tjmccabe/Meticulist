@@ -5,11 +5,13 @@
     position: relative;
     height: 40px;
     padding: 4px;
-    /* background-color: rgba(0, 0, 0, 0.25);
-    -- LATER DURING BACKGROUND IMAGES*/
     background-color: #7E5A9B;
     color: white;
     box-sizing: border-box;
+}
+
+.nav-bar.image-present {
+    background-color: rgba(0, 0, 0, 0.35);
 }
 
 .nav-bar ul {

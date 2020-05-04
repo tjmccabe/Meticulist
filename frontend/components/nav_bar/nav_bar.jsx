@@ -50,17 +50,24 @@ class NavBar extends React.Component {
             openModal,
             fetchBoards,
             personalBoards,
-            sharedBoards
+            sharedBoards,
+            fetchBoard,
+            boardWithImage
         } = this.props
+
+        const bgpBool = boardWithImage ? "nav-bar image-present" : "nav-bar"
+
         return (
-            <div className="nav-bar">
+            <div className={bgpBool}>
                 <div className="nav-bar-left">
                     <ul className="nav-bar-list">
-                        <button className="link image">
-                            <span className="material-icons">
-                                home
-                            </span>
-                        </button>
+                        <Link to="/boards">
+                            <button className="link image">
+                                <span className="material-icons">
+                                    home
+                                </span>
+                            </button>
+                        </Link>
                         <button
                             className='dropdown boards'
                             onClick={this.dropshow('boards')}
@@ -78,6 +85,7 @@ class NavBar extends React.Component {
                             fetchBoards={fetchBoards}
                             personalBoards={personalBoards}
                             sharedBoards={sharedBoards}
+                            fetchBoard={fetchBoard}
                         />
                         {/* <button>Placeholder(SearchImg)</button> */}
                     </ul>
@@ -114,7 +122,7 @@ class NavBar extends React.Component {
                             onClick={this.dropshow('account')}
                         >
                             <div className="dropbtn">
-                                {this.props.currentUser.username[0].toUpperCase()}
+                                {this.props.currentUser.username.substring(0,2)}
                             </div>
                         </button>
                         <AccountDropdown

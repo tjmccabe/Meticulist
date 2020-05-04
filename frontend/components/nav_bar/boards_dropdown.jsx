@@ -9,7 +9,13 @@ class BoardsDropdown extends React.Component {
     }
 
     render() {
-        const {closing, openModal, personalBoards, sharedBoards} = this.props
+        const {
+            closing,
+            openModal,
+            personalBoards,
+            sharedBoards,
+            fetchBoard
+        } = this.props
 
         const PersonalBoardsEle = personalBoards[0] ? (
             <>
@@ -26,10 +32,11 @@ class BoardsDropdown extends React.Component {
                         <div
                             key={index}
                             className="board-button-wrapper"
+                            onClick={closing}
                         >
                             <button
                                 style={{ 'backgroundImage': `url("${board.bgpSmallUrl}")`}}
-                                
+                                onClick={() => fetchBoard(board.id)}
                             >
                                 <Link to={`/boards/${board.id}`} className="dimmer">
                                     <div className="tiny-board"></div>

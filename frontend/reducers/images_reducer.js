@@ -1,4 +1,5 @@
 import {RECEIVE_IMAGES, CLEAR_IMAGES} from '../actions/unslpash_actions';
+import {LOGOUT_CURRENT_USER} from '../actions/session_actions';
 
 const imagesReducer = (state = [], action) => {
     Object.freeze(state);
@@ -23,6 +24,8 @@ const imagesReducer = (state = [], action) => {
                 })
             }
         case CLEAR_IMAGES:
+            return []
+        case LOGOUT_CURRENT_USER:
             return []
         default:
             return state;

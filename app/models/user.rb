@@ -16,6 +16,7 @@ class User < ApplicationRecord
     validates :email, presence: true
     validate :check_email
     validates :username, :password_digest, :session_token, presence: true
+    validates :username, length: {minimum: 2, message: "must be at least 2 characters."}
     validates :password, length: {
         minimum: 8,
         allow_nil: true,
