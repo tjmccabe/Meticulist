@@ -11,7 +11,7 @@ class BoardShow extends React.Component {
     }
 
     render() {
-        const {board, currentBoardId} = this.props;
+        const {board, currentBoardId, updateBoard} = this.props;
 
         return board ? (
             <div id="outer-board-show">
@@ -23,6 +23,7 @@ class BoardShow extends React.Component {
                 <BoardShowBar
                     board={board}
                     currentBoardId={currentBoardId}
+                    updateBoard={updateBoard}
                 />
                 
             </div>

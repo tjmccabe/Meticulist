@@ -12,7 +12,6 @@ const mSTP = (state, ownProps) => {
     let currentBoardId = ownProps.match.params.boardId
     return{
     board: state.entities.boards[currentBoardId],
-    currentBoardId: currentBoardId
 }};
 
 const mDTP = (dispatch, ownProps) => ({
