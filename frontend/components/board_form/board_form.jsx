@@ -1,6 +1,5 @@
 import React from 'react';
 import ImageSearch from './image_search';
-import {Redirect} from 'react-router-dom'
 
 class BoardForm extends React.Component {
     constructor(props) {
@@ -10,6 +9,7 @@ class BoardForm extends React.Component {
 
         // this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
         this.updateBackground = this.updateBackground.bind(this);
         this.disabled = this.disabled.bind(this);
     }
@@ -28,6 +28,13 @@ class BoardForm extends React.Component {
             this.props.submitForm(this.state)
                 .then((res) => this.props.history.push(`/boards/${res.payload.board.id}`))
         }
+    }
+
+    handleDelete(e) {
+        e.preventDefault();
+        this.props.closeModal()
+        this.props.deleteBoard(this.state.id)
+            .then(() => this.props.history.push(`/boards/`))
     }
 
     handleChange(field) {
@@ -71,7 +78,14 @@ class BoardForm extends React.Component {
 
         const submitText = updating ? 'Update Board' : 'Create Board';
 
-        debugger
+        const DeleteButton = updating ? (
+            <button
+                id="board-delete-button"
+                onClick={this.handleDelete}
+            >
+                    Delete Board<br/>(Permanent)
+            </button>
+        ) : null;
 
         return (
             <div className='big-board-form'>
@@ -102,7 +116,10 @@ class BoardForm extends React.Component {
                             />
                         </div>
                     </div>
-                    <button className={`board-form-button ${this.disabled()}`}>{submitText}</button>
+                    <div id="board-form-buttons">
+                        <button className={`board-form-button ${this.disabled()}`}>{submitText}</button>
+                        {DeleteButton}
+                    </div>
                 </form>
                 <ImageSearch
                     fetchSearchResults={fetchSearchResults}

@@ -105,3 +105,20 @@
 .big-board-form button:hover {
     background-color: #7f6295;
 }
+
+#board-form-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 120px;
+}
+
+#board-delete-button {
+    background-color: red;
+    font-weight: bold;
+}
+
+#board-delete-button:hover {
+    background-color: rgb(170, 0, 0);
+}

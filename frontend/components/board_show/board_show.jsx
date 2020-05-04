@@ -1,6 +1,5 @@
 import React from 'react';
 import BoardShowBar from './board_show_bar';
-import { updateBoard } from '../../util/board_api_util';
 
 class BoardShow extends React.Component {
     constructor(props) {

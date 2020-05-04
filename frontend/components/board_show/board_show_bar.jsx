@@ -11,13 +11,13 @@ class BoardShowBar extends React.Component {
     this.retitle = this.retitle.bind(this)
     this.resize = this.resize.bind(this)
     this.currBoardTitle = this.props.board.title
+    this.tempId = this.props.currentBoardId;
   }
 
   componentDidUpdate() {
     if (this.currBoardTitle !== this.props.board.title) {
-      this.setState({ titleInput: this.props.board.title})
+      this.setState({ titleInput: this.props.board.title}, this.resize)
       this.currBoardTitle = this.props.board.title
-      this.resize()
     }
   }
 
