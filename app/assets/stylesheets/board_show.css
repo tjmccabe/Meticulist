@@ -2,7 +2,7 @@
     /* margin: 20px 0; */
 }
 
-.board-background {
+.board-big-background {
     position: fixed;
     top: 0;
     right: 0;
@@ -10,6 +10,7 @@
     left: 0;
     background-position: 50%;
     background-size: cover;
+    background-color: #7e5a9b;
     overflow: hidden;
     z-index: -1;
 }

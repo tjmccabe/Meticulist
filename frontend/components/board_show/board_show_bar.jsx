@@ -10,13 +10,14 @@ class BoardShowBar extends React.Component {
 
     this.retitle = this.retitle.bind(this)
     this.resize = this.resize.bind(this)
-    this.currBoard = this.props.board.id
+    this.currBoardTitle = this.props.board.title
   }
 
   componentDidUpdate() {
-    if (this.currBoard !== this.props.board.id) {
+    if (this.currBoardTitle !== this.props.board.title) {
       this.setState({ titleInput: this.props.board.title})
-      this.currBoard = this.props.board.id
+      this.currBoardTitle = this.props.board.title
+      this.resize()
     }
   }
 
@@ -42,11 +43,11 @@ class BoardShowBar extends React.Component {
     const hide = document.getElementById('hide')
     const title = document.getElementById('bTitle')
     if (title) hide.textContent = title.value;
-    if (title) title.style.width = hide.offsetWidth + 20 + "px";
+    if (title) title.style.width = Math.min((hide.offsetWidth + 25),500) + "px";
   }
 
   render() {
-    const {board} = this.props;
+    const {board, openModal} = this.props;
     //Personal Just Me
     //Personal Shared with others
     //Shared with me
@@ -70,15 +71,20 @@ class BoardShowBar extends React.Component {
               onBlur={this.retitle}
             />
           </form>
-          <button className="modal image">
+          <button
+            className="modal image"
+            onClick={() => openModal('updateBoard')}
+          >
             <span className="material-icons">
               edit
             </span>
           </button>
           <hr/>
-          <div className="shared-indicator">
-            Personal
-          </div>
+          <button id="shared-indicator">
+            <div className="shared-indicator-text btntxt">
+              Personal
+            </div>
+          </button>
           <hr/>
           <div className="members-container">
             <div className="dropbtn name-circle">

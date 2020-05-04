@@ -1,18 +1,12 @@
 import React from 'react';
 import ImageSearch from './image_search';
+import {Redirect} from 'react-router-dom'
 
 class BoardForm extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            title: '',
-            description: '',
-            admin_id: this.props.currentUserId,
-            bgp_big_url: '',
-            bgp_small_url: '',
-            bgp_alt_text: '',
-        }
+        this.state = this.props.board;
 
         // this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,9 +23,10 @@ class BoardForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         if (this.state.title.length > 0) {
-            this.props.createBoard(this.state);
-            this.setState({title: '', description: ''})
+            // this.setState({title: '', description: ''})
             this.props.closeModal()
+            this.props.submitForm(this.state)
+                .then((res) => this.props.history.push(`/boards/${res.payload.board.id}`))
         }
     }
 
@@ -66,12 +61,17 @@ class BoardForm extends React.Component {
             closeModal,
             errors,
             fetchSearchResults,
-            fetchRandomResults
+            fetchRandomResults,
+            updating
         } = this.props;
 
         const BoardErrors = errors[0] ? (
             <div className="board-errors">{errors[0]}</div>
         ) : null;
+
+        const submitText = updating ? 'Update Board' : 'Create Board';
+
+        debugger
 
         return (
             <div className='big-board-form'>
@@ -102,7 +102,7 @@ class BoardForm extends React.Component {
                             />
                         </div>
                     </div>
-                    <button className={`board-form-button ${this.disabled()}`}>Create Board</button>
+                    <button className={`board-form-button ${this.disabled()}`}>{submitText}</button>
                 </form>
                 <ImageSearch
                     fetchSearchResults={fetchSearchResults}

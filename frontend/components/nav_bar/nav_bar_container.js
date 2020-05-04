@@ -3,7 +3,7 @@ import NavBar from './nav_bar';
 import { logout } from '../../actions/session_actions';
 import {openModal} from '../../actions/modal_actions';
 import {fetchBoards, fetchBoard} from '../../actions/board_actions';
-import {boardWithImageSelector} from '../../reducers/selectors';
+import {boardShowPageSelector} from '../../reducers/selectors';
 
 const mSTP = (state, ownProps) => {
     return {
@@ -12,7 +12,7 @@ const mSTP = (state, ownProps) => {
         .filter(b => b.adminId === state.session.id),
     sharedBoards: Object.values(state.entities.boards)
         .filter(b => b.adminId !== state.session.id),
-    boardWithImage: boardWithImageSelector(state, ownProps)
+    boardShowPage: boardShowPageSelector(state, ownProps)
 }
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import BoardFormContainer from '../board_form/board_form_container';
-//import board form
+import {withRouter} from 'react-router-dom';
+import NewBoardFormContainer from '../board_form/new_board_form_container';
+import UpdateBoardFormContainer from '../board_form/update_board_form_container';
 
 const Modal = ({modal, closeModal}) => {
   if (!modal) {
@@ -12,8 +13,12 @@ const Modal = ({modal, closeModal}) => {
 
   switch (modal) {
     case 'newBoard':
-      component = <BoardFormContainer/>;
-      addClass = ' high-modal'
+      component = <NewBoardFormContainer/>;
+      addClass = 'high-modal'
+      break;
+    case 'updateBoard':
+      component = <UpdateBoardFormContainer/>;
+      addClass = 'high-modal'
       break;
     case 'cardDetails':
       component = null;
@@ -24,11 +29,11 @@ const Modal = ({modal, closeModal}) => {
 
   return (
     <div className="modal-background" onClick={closeModal}>
-      <div className={`modal-child${addClass}`} onClick={e => e.stopPropagation()}>
+      <div className={`modal-child ${addClass}`} onClick={e => e.stopPropagation()}>
         { component }
       </div>
     </div>
   );
 }
 
-export default Modal;
+export default withRouter(Modal);

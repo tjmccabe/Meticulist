@@ -52,10 +52,10 @@ class NavBar extends React.Component {
             personalBoards,
             sharedBoards,
             fetchBoard,
-            boardWithImage
+            boardShowPage
         } = this.props
 
-        const bgpBool = boardWithImage ? "nav-bar image-present" : "nav-bar"
+        const bgpBool = boardShowPage ? "nav-bar board-show" : "nav-bar"
 
         return (
             <div className={bgpBool}>
