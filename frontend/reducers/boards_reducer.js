@@ -3,6 +3,7 @@ import {
     RECEIVE_BOARD,
     REMOVE_BOARD
 } from '../actions/board_actions';
+import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
 const boardsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -16,6 +17,8 @@ const boardsReducer = (state = {}, action) => {
             let newState = Object.assign({}, state);
             delete newState[action.boardId];
             return newState;
+        case LOGOUT_CURRENT_USER:
+            return {};
         default:
             return state;
     }

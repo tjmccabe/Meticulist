@@ -24,9 +24,9 @@ const imagesReducer = (state = [], action) => {
                 })
             }
         case CLEAR_IMAGES:
-            return []
+            return [];
         case LOGOUT_CURRENT_USER:
-            return []
+            return [];
         default:
             return state;
     }
