@@ -14,9 +14,13 @@ export const clearImages = () => ({
 
 export const fetchSearchResults = (query) => (dispatch) => (
     fetchSearchImages(query)
-        .then(response => dispatch(receiveImages(response)))
+        .then(response => {
+            console.log(response)
+            dispatch(receiveImages(response))
+        })
         .fail(errors => console.log(errors))
 )
+//take out console logs in prod
 
 export const fetchRandomResults = () => (dispatch) => (
     fetchRandomImages()

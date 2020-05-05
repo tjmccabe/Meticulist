@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_02_213736) do
+ActiveRecord::Schema.define(version: 2020_05_05_181906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,24 @@ ActiveRecord::Schema.define(version: 2020_05_02_213736) do
     t.text "bgp_small_url"
     t.text "bgp_alt_text"
     t.index ["admin_id"], name: "index_boards_on_admin_id"
+  end
+
+  create_table "cards", force: :cascade do |t|
+    t.integer "list_id", null: false
+    t.string "title", null: false
+    t.text "description"
+    t.datetime "due_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["list_id"], name: "index_cards_on_list_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.integer "board_id", null: false
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["board_id"], name: "index_lists_on_board_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -19,6 +19,10 @@ class Board < ApplicationRecord
         foreign_key: :admin_id,
         class_name: :User
 
-    # has_one_attached :background_photo
-    # can revisit if needed
+    has_many :lists, dependent: :destroy,
+        foreign_key: :board_id,
+        class_name: :List
+
+    has_many :cards,
+        through: :lists
 end
