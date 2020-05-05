@@ -51,7 +51,7 @@ Board.create([
     {
         admin_id: demo_user.id,
         title: 'Trevor\'s Party',
-        description: 'Shhhhh don\t spoil the surprise!',
+        description: "Shhhhh don't spoil the surprise!",
         bgp_big_url: "https://images.unsplash.com/photo-1528495612343-9ca9f4a4de28?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjEzMTUxNH0",
         bgp_small_url: "https://images.unsplash.com/photo-1528495612343-9ca9f4a4de28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjEzMTUxNH0",
         bgp_alt_text: "man sitting on chair underwater with floating bottles"

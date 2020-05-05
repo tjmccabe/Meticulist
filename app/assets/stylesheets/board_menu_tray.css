@@ -12,22 +12,21 @@
 .board-menu-tray-outer {
     background-color: #F7F7F7;
     box-sizing: border-box;
-    width: 320px;
     position: absolute;
+    width: 0;
     top: 0;
     right: 0;
     height: calc(100vh - 40px);
     margin: 0;
     padding: 0;
     z-index: 10;
-    transform: translateX(100%);
     overflow: hidden;
-    transition: 0.15s ease-in;
+    transition: 0.1s ease-in;
 }
 
 .board-menu-tray-outer.tray-active {
+    width: 320px;
     box-shadow: 0 7px 8px 0 rgba(0,0,0,.3);
-    transform: translateX(0);
 }
 
 .board-menu-tray-outer > hr {
