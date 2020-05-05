@@ -17,9 +17,17 @@
     top: 0;
     right: 0;
     height: calc(100vh - 40px);
-    overflow: hidden;
     margin: 0;
     padding: 0;
+    z-index: 50;
+    transform: translateX(100%);
+    overflow: hidden;
+    transition: 0.15s ease-in;
+}
+
+.board-menu-tray-outer.tray-active {
+    box-shadow: 0 7px 8px 0 rgba(0,0,0,.3);
+    transform: translateX(0);
 }
 
 .board-menu-tray-outer > hr {
@@ -49,7 +57,7 @@
     overflow-x: hidden;
     box-sizing: border-box;
     top: 0;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 110px);
 }
 
 .tray-header {
@@ -110,11 +118,12 @@
     margin-top: 10px;
     min-height: 35px;
     color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .tray-button.edit {
     font-size: 16px;
-    margin-bottom: 10px;
     background-color: #6F5187;
 }
 
