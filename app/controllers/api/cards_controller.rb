@@ -13,7 +13,7 @@ class Api::CardsController < ApplicationController
         @card = Card.find_by(id: params[:id])
 
         if !@card
-            render json: ["card not found"], status: 404
+            render json: ["Card not found"], status: 404
         elsif @card.update(card_params)
             render :show
         else
@@ -25,7 +25,7 @@ class Api::CardsController < ApplicationController
         @card = Card.find_by(id: params[:id])
 
         if !@card
-            render json: ["card not found"], status: 404
+            render json: ["Card not found"], status: 404
         elsif @card.destroy
             render :show
         else
