@@ -19,7 +19,7 @@
     height: calc(100vh - 40px);
     margin: 0;
     padding: 0;
-    z-index: 50;
+    z-index: 10;
     transform: translateX(100%);
     overflow: hidden;
     transition: 0.15s ease-in;

@@ -14,11 +14,9 @@
  *= require_self
 */
 html {
-    height: 100%;
+    height: 100%; 
     overflow: hidden;
 }
-/* overflow: hidden in the html tag saved the tray,
-   but it might mess up other stuff */
 
 body {
     height: 100%;
