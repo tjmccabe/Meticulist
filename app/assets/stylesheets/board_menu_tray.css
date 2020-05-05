@@ -1,0 +1,136 @@
+.menu-btn {
+    display: flex;
+    align-items: center;
+}
+
+.board-show-bar-right {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.board-menu-tray-outer {
+    background-color: #F7F7F7;
+    box-sizing: border-box;
+    width: 320px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: calc(100vh - 40px);
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.board-menu-tray-outer > hr {
+    right: 12px;
+    margin: 0 12px 10px;
+}
+
+.tray-content hr {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.board-menu-tray-outer hr {
+    height: 1px;
+    border: 0;
+    border-top: 1px solid lightgray;
+    box-sizing: border-box;
+}
+
+.tray-content {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0 12px 12px;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    top: 0;
+    height: calc(100vh - 100px);
+}
+
+.tray-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 14px 0;
+}
+
+.close-tray {
+    position: absolute;
+    right: 12px;
+    font-size: 24px;
+}
+
+.close-tray:hover {
+    color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+.tray-content h3 {
+    margin: 5px 0 10px;
+    font-size: 18px;
+}
+
+.tray-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.stat {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom: 7px;
+}
+
+.stat-heading {
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: rgb(109, 109, 109);
+}
+
+.stat-content {
+    margin-left: 15px;
+    margin-bottom: 3px;
+}
+
+.tray-button {
+    width: 100%;
+    margin-top: 10px;
+    min-height: 35px;
+    color: white;
+}
+
+.tray-button.edit {
+    font-size: 16px;
+    margin-bottom: 10px;
+    background-color: #6F5187;
+}
+
+.tray-button.edit:hover {
+    background-color: #7f6295;
+}
+
+.tray-button.delete {
+    font-size: 16px;
+    background-color: rgb(212, 0, 0);
+}
+
+.tray-button.delete:hover {
+    background-color: rgb(170, 0, 0);
+}
+
+.tray-member {
+    margin-top: 5px;
+}

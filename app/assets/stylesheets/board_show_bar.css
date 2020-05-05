@@ -14,13 +14,6 @@
     flex-wrap: wrap;
     align-items: center;
     box-sizing: border-box;
-    margin-right: 100px;
-}
-
-.board-show-bar-right {
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
 }
 
 .board-show-bar button {
@@ -101,11 +94,6 @@
 
 .btntxt {
     margin: 0 5px;
-}
-
-.menu-btn {
-    display: flex;
-    align-items: center;
 }
 
 .name-circle {

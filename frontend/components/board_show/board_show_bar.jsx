@@ -1,4 +1,5 @@
 import React from 'react';
+import BoardMenuTrayContainer from './board_menu_tray_container';
 
 class BoardShowBar extends React.Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class BoardShowBar extends React.Component {
   }
 
   render() {
-    const {board, openModal} = this.props;
+    const {board, openModal, openTray} = this.props;
     //Personal Just Me
     //Personal Shared with others
     //Shared with me
@@ -100,7 +101,7 @@ class BoardShowBar extends React.Component {
         <div className='board-show-bar-right'>
           <button
             className='menu-tray-button'
-            // onClick={}
+            onClick={openTray}
           >
             <div className="menu-btn">
               <span className="material-icons">
@@ -112,6 +113,9 @@ class BoardShowBar extends React.Component {
             </div>
           </button>
         </div>
+        <BoardMenuTrayContainer
+          board={board}
+        />
       </div>
     )
   }

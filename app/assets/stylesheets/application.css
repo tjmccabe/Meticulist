@@ -14,10 +14,11 @@
  *= require_self
 */
 html {
-
+    height: 100%;
 }
 
 body {
+    height: 100%;
     font-family: 'Roboto', sans-serif;
     background-color: #F7F7F7;
 }
