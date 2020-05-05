@@ -7,40 +7,32 @@ import HelpDropdown from './help_dropdown';
 class NavBar extends React.Component {
     constructor(props) {
         super(props)
-        this.dropshow = this.dropshow.bind(this);
+
+        this.prevDropdown = null;
+        this.closing = this.closing.bind(this)
+        this.dropdownCheck = this.dropdownCheck.bind(this)
     }
 
     componentDidMount() {
-        window.addEventListener("mouseup", this.errantClick, false)
+        window.addEventListener("mouseup", this.closing, false)
     }
 
     componentWillUnmount() {
-        window.removeEventListener("mouseup", this.errantClick, false)
+        window.removeEventListener("mouseup", this.closing, false)
     }
 
-    closing() {
-        let ddButs = $(".dropdown-content");
-        ddButs.removeClass("shown")
-        let parent = $(".parent");
-        parent.removeClass("parent");
-    }
-
-    errantClick(e) {
-        let ddButs = $(".shown");
-        let parent = $(".parent");
-        if (ddButs[0] && ddButs[0].contains(e.target)) return;
-        // if they clicked the corresponding button again, return
-        if (parent[0] && parent[0].contains(e.target)) return;
-        ddButs.removeClass("shown");
-        parent.removeClass("parent");
-    }
-    
-    dropshow(ddtitle) {
-        return (e) => {
-            const ele = $(`#${ddtitle}-dropdown`);
-            ele.toggleClass("shown");
-            $(e.target).toggleClass("parent")
+    closing(e) {
+        if (!this.props.currentDropdown) {
+            this.prevDropdown = null;
+        } else if (!($(".shown")[0] && $(".shown")[0].contains(e.target))) {
+            this.prevDropdown = this.props.currentDropdown;
+            this.props.closeDropdowns();
         }
+    }
+
+    dropdownCheck(dropdown) {
+        if (this.prevDropdown === dropdown) return;
+        this.props.openDropdown(dropdown);
     }
     
     render() {
@@ -52,7 +44,9 @@ class NavBar extends React.Component {
             personalBoards,
             sharedBoards,
             fetchBoard,
-            boardShowPage
+            boardShowPage,
+            currentDropdown,
+            closeDropdowns
         } = this.props
 
         const bgpBool = boardShowPage ? "nav-bar board-show" : "nav-bar"
@@ -70,7 +64,7 @@ class NavBar extends React.Component {
                         </Link>
                         <button
                             className='dropdown boards'
-                            onClick={this.dropshow('boards')}
+                            onClick={() => this.dropdownCheck('boards')}
                         >
                             <div className="dropbtn">
                                 <span className="material-icons">
@@ -80,7 +74,8 @@ class NavBar extends React.Component {
                             </div>
                         </button>
                         <BoardsDropdown
-                            closing={this.closing}
+                            closeDropdowns={closeDropdowns}
+                            currentDropdown={currentDropdown}
                             openModal={openModal}
                             fetchBoards={fetchBoards}
                             personalBoards={personalBoards}
@@ -107,7 +102,7 @@ class NavBar extends React.Component {
                         </button>
                         <button
                             className='dropdown image dropbtn'
-                            onClick={this.dropshow('help')}
+                            onClick={() => this.dropdownCheck('help')}
                         >
                             <div className="dropbtn">
                                 <span className="material-icons">
@@ -115,11 +110,14 @@ class NavBar extends React.Component {
                                 </span>
                             </div>
                         </button>
-                        <HelpDropdown closing={this.closing}/>
+                        <HelpDropdown
+                            closeDropdowns={closeDropdowns}
+                            currentDropdown={currentDropdown}
+                        />
                         <button
                             id="options"
                             className='dropdown'
-                            onClick={this.dropshow('account')}
+                            onClick={() => this.dropdownCheck('account')}
                         >
                             <div className="dropbtn">
                                 {this.props.currentUser.username.substring(0,2)}
@@ -128,7 +126,8 @@ class NavBar extends React.Component {
                         <AccountDropdown
                             currentUser={currentUser}
                             logout={logout}
-                            closing={this.closing}
+                            closeDropdowns={closeDropdowns}
+                            currentDropdown={currentDropdown}
                         />
                     </ul>
                 </div>

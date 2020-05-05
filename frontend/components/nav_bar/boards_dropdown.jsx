@@ -10,7 +10,8 @@ class BoardsDropdown extends React.Component {
 
     render() {
         const {
-            closing,
+            closeDropdowns,
+            currentDropdown,
             openModal,
             personalBoards,
             sharedBoards,
@@ -32,7 +33,7 @@ class BoardsDropdown extends React.Component {
                         <div
                             key={index}
                             className="board-button-wrapper"
-                            onClick={closing}
+                            onClick={closeDropdowns}
                         >
                             <button
                                 style={{ 'backgroundImage': `url("${board.bgpSmallUrl}")`}}
@@ -87,13 +88,17 @@ class BoardsDropdown extends React.Component {
             </>
         ) : null
 
+        const classes = (currentDropdown === 'boards') ? 
+            "dropdown-content left-set shown"
+            : "dropdown-content left-set"
+
         return (
-            <div id="boards-dropdown" className="dropdown-content left-set">
+            <div id="boards-dropdown" className={classes}>
                 <div className="dropdown-header">
                     <span>
                         All Boards
                     </span>
-                    <span className="material-icons close-dd" onClick={closing}>
+                    <span className="material-icons close-dd" onClick={closeDropdowns}>
                         clear
                     </span>
                 </div>

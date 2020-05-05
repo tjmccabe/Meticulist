@@ -1,13 +1,17 @@
 import React from 'react';
 
-const AccountDropdown = ({currentUser, logout, closing}) => {
+const AccountDropdown = ({currentUser, currentDropdown, logout, closeDropdowns}) => {
+    const classes = (currentDropdown === 'account') ?
+        "dropdown-content right-set shown"
+        : "dropdown-content right-set"
+
     return(
-        <div id="account-dropdown" className="dropdown-content right-set">
+        <div id="account-dropdown" className={classes}>
             <div className="dropdown-header">
                 <span id="currentUser">
                     {currentUser.username} {`(${currentUser.email})`}
                 </span>
-                <span className="material-icons close-dd" onClick={closing}>
+                <span className="material-icons close-dd" onClick={closeDropdowns}>
                     clear
                 </span>
             </div>
