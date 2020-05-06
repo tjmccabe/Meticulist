@@ -7,6 +7,8 @@
 #  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  next_id    :integer
+#  prev_id    :integer
 #
 require 'test_helper'
 

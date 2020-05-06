@@ -1,6 +1,6 @@
 json.extract! user, :id, :email, :username
 json.adminedBoardIds do
-    json.array! @user.admined_boards, :id
+    json.array! user.admined_boards, :id
 end
 
 # json.memberIds do
