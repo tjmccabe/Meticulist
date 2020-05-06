@@ -1,4 +1,3 @@
-json.extract! @list, :id, :title, :board_id, :prev_id, :next_id
-json.cardIds @list.card_ids
+json.partial! 'list', list: list
 
 #also send back board?

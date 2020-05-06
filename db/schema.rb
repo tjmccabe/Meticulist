@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_235912) do
+ActiveRecord::Schema.define(version: 2020_05_06_171935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_235912) do
     t.text "bgp_big_url"
     t.text "bgp_small_url"
     t.text "bgp_alt_text"
+    t.text "list_order", default: "[]", null: false
     t.index ["admin_id"], name: "index_boards_on_admin_id"
   end
 
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_235912) do
     t.datetime "updated_at", null: false
     t.integer "next_id"
     t.integer "prev_id"
+    t.text "card_order", default: "[]", null: false
     t.index ["board_id"], name: "index_lists_on_board_id"
   end
 

@@ -1,24 +1,11 @@
 json.board do
-    json.extract! @board,
-            :id,
-            :title,
-            :description,
-            :admin_id,
-            :bgp_big_url,
-            :bgp_small_url,
-            :bgp_alt_text
-    json.admin @board.admin
-    json.listIds @board.list_ids
-    # json.memberIds do
-    #     json.array! @board.members, :id
-    # end
+    json.partial! 'board', board: @board
 end
 
 json.lists do
     @board.lists.each do |list|
         json.set! list.id do
-            json.extract! list, :id, :title, :board_id, :prev_id, :next_id
-            json.cardIds list.card_ids
+            json.partial! '/api/lists/list', list: list
         end
     end
 end
@@ -27,11 +14,10 @@ json.cards do
     @board.lists.each do |list|
         list.cards.each do |card|
             json.set! card.id do
-                json.extract! card, :id, :title, :description, :due_date, :list_id, :prev_id, :next_id
-                # json.commentIds do
-                #     json.array! card.comments, :id
-                # end
+                json.partial! '/api/cards/card', card: card
             end
         end
     end
 end
+
+# users top-level key for members?

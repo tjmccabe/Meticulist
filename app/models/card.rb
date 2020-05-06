@@ -21,57 +21,67 @@ class Card < ApplicationRecord
 
     has_one_attached :image
 
-    def prev
-        Card.find_by(id: self.prev_id)
+    def stack
+        list = List.find_by(id: self.list_id)
+        list.card_order = JSON.parse(list.card_order).push(self.id).to_json
+        list.save
     end
 
-    def next
-        Card.find_by(id: self.next_id)
-    end
 
-    def quint_update(new_prev_id = nil, new_next_id = nil)
-        temp_prev = self.prev
-        temp_next = self.next
 
-        new_prev = Card.find_by(id: new_prev_id)
-        new_next = Card.find_by(id: new_next_id)
+    # ALL OF THE BELOW IS FOR LINKED LIST UPDATING
 
-        self.prev_id = new_prev_id
-        self.next_id = new_next_id
-        new_prev.next_id = self.id if new_prev
-        new_next.prev_id = self.id if new_next
+    # def prev
+    #     Card.find_by(id: self.prev_id)
+    # end
 
-        temp_prev.next_id = nil if !temp_next
-        temp_next.prev_id = nil if !temp_prev
-        if temp_prev && temp_next
-            temp_prev.next_id = temp_next.id
-            temp_next.prev_id = temp_prev.id
-        end
+    # def next
+    #     Card.find_by(id: self.next_id)
+    # end
 
-        Card.transaction do
-            temp_prev.save if temp_prev
-            temp_next.save if temp_next
-            new_prev.save if new_prev
-            new_next.save if new_next
-            self.save
-        end
-    end
+    # def quint_update(new_prev_id = nil, new_next_id = nil)
+    #     temp_prev = self.prev
+    #     temp_next = self.next
 
-    def connect_remaining
-        temp_prev = self.prev
-        temp_next = self.next
+    #     new_prev = Card.find_by(id: new_prev_id)
+    #     new_next = Card.find_by(id: new_next_id)
 
-        temp_prev.next_id = nil if !temp_next
-        temp_next.prev_id = nil if !temp_prev
-        if temp_prev && temp_next
-            temp_prev.next_id = temp_next.id
-            temp_next.prev_id = temp_prev.id
-        end
+    #     self.prev_id = new_prev_id
+    #     self.next_id = new_next_id
+    #     new_prev.next_id = self.id if new_prev
+    #     new_next.prev_id = self.id if new_next
 
-        Card.transaction do
-            temp_prev.save if temp_prev
-            temp_next.save if temp_next
-            self.destroy
-        end
-    end
+    #     temp_prev.next_id = nil if !temp_next
+    #     temp_next.prev_id = nil if !temp_prev
+    #     if temp_prev && temp_next
+    #         temp_prev.next_id = temp_next.id
+    #         temp_next.prev_id = temp_prev.id
+    #     end
+
+    #     Card.transaction do
+    #         temp_prev.save if temp_prev
+    #         temp_next.save if temp_next
+    #         new_prev.save if new_prev
+    #         new_next.save if new_next
+    #         self.save
+    #     end
+    # end
+
+    # def connect_remaining
+    #     temp_prev = self.prev
+    #     temp_next = self.next
+
+    #     temp_prev.next_id = nil if !temp_next
+    #     temp_next.prev_id = nil if !temp_prev
+    #     if temp_prev && temp_next
+    #         temp_prev.next_id = temp_next.id
+    #         temp_next.prev_id = temp_prev.id
+    #     end
+
+    #     Card.transaction do
+    #         temp_prev.save if temp_prev
+    #         temp_next.save if temp_next
+    #         self.destroy
+    #     end
+    # end
 end

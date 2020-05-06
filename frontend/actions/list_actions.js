@@ -8,6 +8,10 @@ const receiveLists = (lists) => ({
     lists
 });
 
+const removeList = () => ({
+    type: REMOVE_LIST
+})
+
 const receiveListErrors = (errors) => ({
     type: RECEIVE_LIST_ERRORS,
     errors

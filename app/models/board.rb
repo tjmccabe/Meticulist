@@ -11,9 +11,11 @@
 #  bgp_big_url   :text
 #  bgp_small_url :text
 #  bgp_alt_text  :text
+#  list_order    :text             default("[]"), not null
 #
 class Board < ApplicationRecord
-    validates :admin_id, :title, presence: true
+    validates :admin_id, :title, :list_order, presence: true
+    after_initialize :ensure_ordering
 
     belongs_to :admin,
         foreign_key: :admin_id,
@@ -25,4 +27,8 @@ class Board < ApplicationRecord
 
     has_many :cards,
         through: :lists
+
+    def ensure_ordering
+        self.list_order ||= "[]"
+    end
 end

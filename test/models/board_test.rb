@@ -11,6 +11,7 @@
 #  bgp_big_url   :text
 #  bgp_small_url :text
 #  bgp_alt_text  :text
+#  list_order    :text             default("[]"), not null
 #
 require 'test_helper'
 
