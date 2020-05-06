@@ -1,17 +1,11 @@
 import * as CardAPI from '../util/card_api_util';
 
-export const RECEIVE_CARD = 'RECEIVE_CARD';
-export const REMOVE_CARD = 'REMOVE_CARD';
+export const RECEIVE_CARDS = 'RECEIVE_CARDS';
 export const RECEIVE_CARD_ERRORS = 'RECEIVE_CARD_ERRORS';
 
-const receiveCard = (card) => ({
-    type: RECEIVE_CARD,
-    card
-});
-
-const removeCard = (cardId) => ({
-    type: REMOVE_CARD,
-    cardId
+const receiveCards = (cards) => ({
+    type: RECEIVE_CARDS,
+    cards
 });
 
 const receiveCardErrors = (errors) => ({
@@ -21,14 +15,21 @@ const receiveCardErrors = (errors) => ({
 
 export const createCard = (card) => (dispatch) => {
     CardAPI.createCard(card)
-        .then(card => dispatch(receiveCard(card)))
+        .then(cards => dispatch(receiveCards(cards)))
+        .fail(errors => console.log(errors.responseJSON))
+    // .fail(errors => dispatch(receiveCardErrors(errors.responseJSON)))
+}
+
+export const updateCard = (card) => (dispatch) => {
+    CardAPI.updateCard(card)
+        .then(cards => dispatch(receiveCards(cards)))
         .fail(errors => console.log(errors.responseJSON))
     // .fail(errors => dispatch(receiveCardErrors(errors.responseJSON)))
 }
 
 export const deleteCard = (cardId) => (dispatch) => {
     CardAPI.deleteCard(cardId)
-        .then(() => dispatch(removeCard(cardId)))
+        .then(cards => dispatch(receiveCards(cards)))
         .fail(errors => console.log(errors.responseJSON))
     // .fail(errors => dispatch(receiveCardErrors(errors.responseJSON)))
 }
