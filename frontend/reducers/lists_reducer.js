@@ -4,8 +4,12 @@ import {
     RECEIVE_CARD_ORDER,
     REMOVE_LIST,
 } from '../actions/list_actions';
-import { RECEIVE_NEW_CARD } from '../actions/card_actions'; //DO THIS AFTER
+import {
+    RECEIVE_NEW_CARD,
+    REMOVE_CARD
+} from '../actions/card_actions'; //DO THIS AFTER
 import { RECEIVE_BOARD } from '../actions/board_actions';
+import {LOGOUT_CURRENT_USER} from '../actions/session_actions'
 
 const listsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -32,6 +36,8 @@ const listsReducer = (state = {}, action) => {
             return newState2;
         case RECEIVE_BOARD:
             return Object.assign({}, state, action.payload.lists)
+        case LOGOUT_CURRENT_USER:
+            return {};
         default:
             return state;
     }

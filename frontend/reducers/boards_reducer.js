@@ -18,15 +18,16 @@ const boardsReducer = (state = {}, action) => {
             return action.boards
         case RECEIVE_BOARD:
             return Object.assign({}, state, {[action.payload.board.id]: action.payload.board})
-        case RECEIVE_LIST_ORDER:
-            return Object.assign({}, state, { [action.boardId]: { listOrder: action.listOrder } })
-        case RECEIVE_NEW_LIST:
-            let newListOrder = state[action.list.boardId][listOrder].concat([list.id])
-            return Object.assign({}, state, {[action.list.boardId]: {listOrder: newListOrder}})
         case REMOVE_BOARD:
             let newState = Object.assign({}, state);
             delete newState[action.boardId];
             return newState;
+        case RECEIVE_LIST_ORDER:
+            return Object.assign({}, state, {[action.boardId]: {listOrder: action.listOrder}})
+        case RECEIVE_NEW_LIST:
+            debugger
+            let newListOrder = state[action.list.boardId][listOrder].concat([list.id])
+            return Object.assign({}, state, {[action.list.boardId]: {listOrder: newListOrder}})
         case REMOVE_LIST:
             //this board needs to lose this list's id from its order
             let newState2 = Object.assign({}, state);
