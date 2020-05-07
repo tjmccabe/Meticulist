@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import configureStore from './store/store';
 import Root from './components/root';
 import * as bActs from './actions/board_actions';
+import * as lActs from './actions/list_actions';
 
 const preloadedState = {};
 
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.getState = store.getState
     window.dispatch = store.dispatch
     window.bActs = bActs;
+    window.lActs = lActs;
     //testing above
     
     const root = document.getElementById("root");

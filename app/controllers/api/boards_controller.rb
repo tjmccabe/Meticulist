@@ -34,9 +34,15 @@ class Api::BoardsController < ApplicationController
         
         if @board.nil?
             render json: ["Board not found"], status: 404
-        elsif @board.admin_id != current_user.id
-            render json: ["Board settings may only be edited by admin"], status: 403
-        elsif @board.update(board_params)
+        elsif params[:board][:admin_id] || params[:board][:title] || params[:board][:description] || params[:board][:bgp_big_url]
+            if @board.admin_id != current_user.id
+                render json: ["Board settings may only be edited by admin"], status: 403
+            elsif @board.update(board_params)
+                render :show
+            else
+                render json: @board.errors.full_messages, status: 422
+            end
+        elsif @board.update({list_order: params[:board][:list_order].to_json})
             render :show
         else
             render json: @board.errors.full_messages, status: 422
@@ -47,8 +53,11 @@ class Api::BoardsController < ApplicationController
         @board = Board.find_by(id: params[:id])
 
         if @board && @board.admin_id == current_user.id
-            @board.destroy
-            render :show
+            if @board.destroy
+                render :show
+            else
+                render json: @board.errors.full_messages, status: 422
+            end
         elsif @board
             render json: ["Board may only be deleted by admin"], status: 403
         else
@@ -65,7 +74,8 @@ class Api::BoardsController < ApplicationController
             :description,
             :bgp_big_url,
             :bgp_small_url,
-            :bgp_alt_text
+            :bgp_alt_text,
+            :list_order
         )
     end
 end

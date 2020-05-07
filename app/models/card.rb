@@ -14,6 +14,8 @@
 #
 class Card < ApplicationRecord
     validates :list_id, :title, presence: true
+    after_create :stack
+    after_destroy :splice
 
     belongs_to :list,
         foreign_key: :list_id,
@@ -24,6 +26,15 @@ class Card < ApplicationRecord
     def stack
         list = List.find_by(id: self.list_id)
         list.card_order = JSON.parse(list.card_order).push(self.id).to_json
+        list.save
+    end
+
+    def splice
+        list = List.find_by(id: self.list_id)
+        return if !list
+        old_card_order = JSON.parse(list.card_order)
+        target = old_card_order.indexOf(self.id)
+        list.card_order = old_card_order.splice(target, 1).to_json
         list.save
     end
 

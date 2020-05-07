@@ -1,5 +1,6 @@
 import React from 'react';
 import BoardShowBar from './board_show_bar';
+import ListIndexContainer from '../list_index/list_index_container';
 
 class BoardShow extends React.Component {
     constructor(props) {
@@ -35,7 +36,7 @@ class BoardShow extends React.Component {
                     openModal={openModal}
                     openTray={openTray}
                 />
-                
+                <ListIndexContainer/>
             </div>
         ) : null
     }

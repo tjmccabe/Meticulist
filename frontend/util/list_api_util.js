@@ -14,6 +14,17 @@ export const updateList = (list) => (
     })
 );
 
+export const reorderCards = (card_order, listId) => (
+    $.ajax({
+        method: "PATCH",
+        url: `/api/lists/${listId}`,
+        data: {list: {card_order}}
+        // MAY HAVE TO REVISIT TO FORMAT DIFFERENTLY
+        
+        // data: {list: Object.assign(list, {cardOrder})}
+    })
+);
+
 export const deleteList = (listId) => (
     $.ajax({
         method: "DELETE",
