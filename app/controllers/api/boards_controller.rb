@@ -31,7 +31,6 @@ class Api::BoardsController < ApplicationController
 
     def update
         @board = Board.find_by(id: params[:id])
-        
         if @board.nil?
             render json: ["Board not found"], status: 404
         elsif params[:board][:title] || params[:board][:description] || params[:board][:bgp_big_url]
@@ -42,7 +41,9 @@ class Api::BoardsController < ApplicationController
             else
                 render json: @board.errors.full_messages, status: 422
             end
-        elsif @board.update({list_order: params[:board][:list_order].to_json})
+        # elsif @board.update(board: {list_order: params[:board][:list_order].to_json})
+        elsif @board.update(board_params)
+            debugger
             render :show
         else
             render json: @board.errors.full_messages, status: 422

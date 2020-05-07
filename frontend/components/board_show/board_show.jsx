@@ -5,19 +5,17 @@ import ListIndexContainer from '../list_index/list_index_container';
 class BoardShow extends React.Component {
     constructor(props) {
         super(props)
-        // this.currBoard = this.props.board.id
     }
 
     componentDidMount() {
         this.props.fetchBoard(this.props.currentBoardId)
     }
 
-    // componentDidUpdate() {
-    //     if (this.currBoard !== this.props.board.id) {
-    //         this.setState({ titleInput: this.props.board.title })
-    //         this.currBoard = this.props.board.id
-    //     }
-    // }
+    componentDidUpdate(prevProps) {
+        if (prevProps.currentBoardId !== this.props.currentBoardId) {
+            this.props.fetchBoard(this.props.currentBoardId)
+        }
+    }
 
     render() {
         const {board, currentBoardId, openModal, updateBoard, openTray} = this.props;

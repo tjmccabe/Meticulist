@@ -28,16 +28,17 @@ export const updateBoard = (board) => (
     })
 );
 
-export const reorderLists = (listOrder, boardId) => (
-    $.ajax({
+export const reorderLists = (listOrder, boardId) => {
+    debugger
+    return $.ajax({
         method: "PATCH",
         url: `/api/boards/${boardId}`,
-        data: { board: { listOrder } }
+        data: { board: { list_order: JSON.stringify(listOrder) } }
         // MAY HAVE TO REVISIT TO FORMAT DIFFERENTLY
 
         // data: {board: Object.assign(board, {listOrder})}
     })
-);
+}
 
 export const deleteBoard = (boardId) => (
     $.ajax({

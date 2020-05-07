@@ -72,6 +72,27 @@ list3 = List.create({
 })
 
 list4 = List.create({
-    board_id: board2.id,
+    board_id: board1.id,
     title: "Nothin"
 })
+
+cards1 = Card.create([
+    {list_id: list1.id, title: "Wash dishes"},
+    {list_id: list1.id, title: "Take out trash"},
+    {list_id: list1.id, title: "Pick up brother"},
+    {list_id: list1.id, title: "Talk to insurance"},
+    {list_id: list1.id, title: "Get groceries"}
+])
+
+cards2 = Card.create([
+    {list_id: list2.id, title: "Walk the dog"},
+    {list_id: list2.id, title: "GET MY LIFE ON TRACK"},
+    {list_id: list2.id, title: "Eat better"},
+    {list_id: list2.id, title: "Make some art"},
+])
+
+cards3 = Card.create([
+    {list_id: list3.id, title: "Don't eat dirt"},
+    {list_id: list3.id, title: "Live a little"},
+    {list_id: list3.id, title: "Make brownies"},
+])

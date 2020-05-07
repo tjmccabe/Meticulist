@@ -57,13 +57,3 @@ export const deleteList = (listId) => (dispatch) => {
         .then((list) => dispatch(removeList(list)))
         .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
 };
-
-//frontend shape:
-// let state = {
-//     listOrder: [47,94,62],
-//     cardOrders: {
-//         94: [2, 5, 3, 8],
-//         47: [1, 12, 7],
-//         62: [9, 4]
-//     }
-// }

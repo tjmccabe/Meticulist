@@ -18,7 +18,7 @@ export const reorderCards = (cardOrder, listId) => (
     $.ajax({
         method: "PATCH",
         url: `/api/lists/${listId}`,
-        data: {list: {cardOrder}}
+        data: {list: {card_order: JSON.stringify(cardOrder)}}
         // MAY HAVE TO REVISIT TO FORMAT DIFFERENTLY
         
         // data: {list: Object.assign(list, {cardOrder})}
