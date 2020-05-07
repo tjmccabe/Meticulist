@@ -46,7 +46,7 @@ export const updateList = (list) => (dispatch) => {
         // .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
 };
 
-// dispatch this action to 2 different lists
+// potentially dispatch this action to 2 different lists
 export const reorderCards = (cardOrder, listId) => (dispatch, getState) => {
     dispatch(receiveCardOrder(cardOrder, listId))
     ListAPI.reorderCards(cardOrder, listId)
@@ -57,7 +57,7 @@ export const reorderCards = (cardOrder, listId) => (dispatch, getState) => {
 
 export const deleteList = (listId) => (dispatch) => {
     ListAPI.deleteList(listId)
-        .then(list => dispatch(removeList(list)))
+        .then((list) => dispatch(removeList(list)))
         .fail(errors => console.log(errors.responseJSON))
         // .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
 };

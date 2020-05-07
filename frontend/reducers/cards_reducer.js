@@ -1,4 +1,8 @@
-import { RECEIVE_CARDS } from '../actions/card_actions';
+import {
+    RECEIVE_NEW_CARD,
+    RECEIVE_UPDATED_CARD,
+    REMOVE_CARD
+} from '../actions/card_actions';
 import { RECEIVE_BOARD } from '../actions/board_actions';
 
 const cardsReducer = (state = {}, action) => {
