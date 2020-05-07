@@ -60,8 +60,7 @@ export const reorderLists = (listOrder, boardId) => (dispatch, getState) => {
     dispatch(receiveListOrder(listOrder, boardId))
     bAPI.reorderLists(listOrder, boardId)
         .then(res => console.log(res))
-        .fail(errors => console.log(errors.responseJSON))
-        // .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
+        .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
 };
 
 export const deleteBoard = (boardId) => (dispatch) => (

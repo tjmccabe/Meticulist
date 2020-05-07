@@ -5,7 +5,6 @@ import {receiveErrors, createBoard} from '../../actions/board_actions';
 import {
     fetchSearchResults,
     fetchRandomResults,
-    clearImages
 } from '../../actions/unslpash_actions';
 import BoardForm from './board_form';
 
@@ -29,7 +28,6 @@ const mDTP = dispatch => ({
     clearErrors: () => dispatch(receiveErrors([])),
     fetchSearchResults: (query) => dispatch(fetchSearchResults(query)),
     fetchRandomResults: () => dispatch(fetchRandomResults()),
-    clearImages: () => dispatch(clearImages())
 })
 
 export default withRouter(connect(mSTP, mDTP)(BoardForm));

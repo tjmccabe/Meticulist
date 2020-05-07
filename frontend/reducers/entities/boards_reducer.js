@@ -3,12 +3,12 @@ import {
     RECEIVE_BOARD,
     REMOVE_BOARD,
     RECEIVE_LIST_ORDER
-} from '../actions/board_actions';
+} from '../../actions/board_actions';
 import {
     RECEIVE_NEW_LIST,
     REMOVE_LIST
-} from '../actions/list_actions';
-import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
+} from '../../actions/list_actions';
+import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 
 const boardsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -23,16 +23,19 @@ const boardsReducer = (state = {}, action) => {
             delete newState[action.boardId];
             return newState;
         case RECEIVE_LIST_ORDER:
-            return Object.assign({}, state, {[action.boardId]: {listOrder: action.listOrder}})
+            let newishState1 = Object.assign({}, state)
+            newishState1[action.boardId].listOrder = action.listOrder;
+            return newishState1;
         case RECEIVE_NEW_LIST:
-            debugger
-            let newListOrder = state[action.list.boardId][listOrder].concat([list.id])
-            return Object.assign({}, state, {[action.list.boardId]: {listOrder: newListOrder}})
+            let newishState = Object.assign({}, state)
+            let newListOrder = state[action.list.boardId].listOrder.concat([action.list.id])
+            newishState[action.list.boardId].listOrder = newListOrder;
+            return newishState
         case REMOVE_LIST:
             //this board needs to lose this list's id from its order
             let newState2 = Object.assign({}, state);
-            let target = newState2[action.list.boardId][listOrder].indexOf(action.list.id);
-            newState2[action.list.boardId][listOrder].splice(target, 1);
+            let target = newState2[action.list.boardId].listOrder.indexOf(action.list.id);
+            newState2[action.list.boardId].listOrder.splice(target, 1);
             return newState2;
         case LOGOUT_CURRENT_USER:
             return {};

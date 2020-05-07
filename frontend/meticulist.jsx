@@ -4,6 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 import * as bActs from './actions/board_actions';
 import * as lActs from './actions/list_actions';
+import * as cActs from './actions/card_actions';
 
 const preloadedState = {};
 
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.dispatch = store.dispatch
     window.bActs = bActs;
     window.lActs = lActs;
+    window.cActs = cActs;
     //testing above
     
     const root = document.getElementById("root");

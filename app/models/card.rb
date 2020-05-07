@@ -33,8 +33,8 @@ class Card < ApplicationRecord
         list = List.find_by(id: self.list_id)
         return if !list
         old_card_order = JSON.parse(list.card_order)
-        target = old_card_order.indexOf(self.id)
-        list.card_order = old_card_order.splice(target, 1).to_json
+        old_card_order.delete(self.id)
+        list.card_order = old_card_order.to_json
         list.save
     end
 

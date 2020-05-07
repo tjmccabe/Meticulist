@@ -34,7 +34,7 @@ class Api::BoardsController < ApplicationController
         
         if @board.nil?
             render json: ["Board not found"], status: 404
-        elsif params[:board][:admin_id] || params[:board][:title] || params[:board][:description] || params[:board][:bgp_big_url]
+        elsif params[:board][:title] || params[:board][:description] || params[:board][:bgp_big_url]
             if @board.admin_id != current_user.id
                 render json: ["Board settings may only be edited by admin"], status: 403
             elsif @board.update(board_params)

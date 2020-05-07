@@ -35,15 +35,13 @@ const receiveListErrors = (errors) => ({
 export const createList = (list) => (dispatch) => {
     ListAPI.createList(list)
         .then(list => dispatch(receiveNewList(list)))
-        .fail(errors => console.log(errors.responseJSON))
-        // .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
+        .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
 };
 
 export const updateList = (list) => (dispatch) => {
     ListAPI.updateList(list)
         .then(list => dispatch(receiveUpdatedList(list)))
-        .fail(errors => console.log(errors.responseJSON))
-        // .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
+        .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
 };
 
 // potentially dispatch this action to 2 different lists
@@ -51,15 +49,13 @@ export const reorderCards = (cardOrder, listId) => (dispatch, getState) => {
     dispatch(receiveCardOrder(cardOrder, listId))
     ListAPI.reorderCards(cardOrder, listId)
     .then(res => console.log(res))
-    .fail(errors => console.log(errors.responseJSON))
-    // .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
+    .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
 };
 
 export const deleteList = (listId) => (dispatch) => {
     ListAPI.deleteList(listId)
         .then((list) => dispatch(removeList(list)))
-        .fail(errors => console.log(errors.responseJSON))
-        // .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
+        .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
 };
 
 //frontend shape:

@@ -39,9 +39,9 @@ class List < ApplicationRecord
         board = Board.find_by(id: self.board_id)
         return if !board
         old_list_order = JSON.parse(board.list_order)
-        target = old_list_order.indexOf(self.id)
-        board.list_order = old_list_order.splice(target, 1).to_json
-        board.save
+        old_list_order.delete(self.id)
+        board.list_order = old_list_order.to_json
+        board.save!
     end
 
 

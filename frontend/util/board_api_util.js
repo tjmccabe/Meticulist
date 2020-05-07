@@ -28,11 +28,11 @@ export const updateBoard = (board) => (
     })
 );
 
-export const reorderLists = (card_order, boardId) => (
+export const reorderLists = (listOrder, boardId) => (
     $.ajax({
         method: "PATCH",
         url: `/api/boards/${boardId}`,
-        data: { board: { list_order } }
+        data: { board: { listOrder } }
         // MAY HAVE TO REVISIT TO FORMAT DIFFERENTLY
 
         // data: {board: Object.assign(board, {listOrder})}

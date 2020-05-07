@@ -15,7 +15,7 @@ class Api::ListsController < ApplicationController
         if !@list
             render json: ["List not found"], status: 404
         else
-            if params[:list][:title] || params[:list][:board_id]
+            if params[:list][:title]
                 if @list.update(list_params)
                     render :show
                 else

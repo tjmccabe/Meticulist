@@ -1,9 +1,8 @@
 import {
     RECEIVE_SEARCH_IMAGES,
     RECEIVE_RANDOM_IMAGES,
-    CLEAR_IMAGES
-} from '../actions/unslpash_actions';
-import {LOGOUT_CURRENT_USER} from '../actions/session_actions';
+} from '../../actions/unslpash_actions';
+import {LOGOUT_CURRENT_USER} from '../../actions/session_actions';
 
 const imagesReducer = (state = [], action) => {
     Object.freeze(state);
@@ -21,8 +20,6 @@ const imagesReducer = (state = [], action) => {
                 small: res.urls.small,
                 alt: res.alt_description
             }))
-        case CLEAR_IMAGES:
-            return [];
         case LOGOUT_CURRENT_USER:
             return [];
         default:

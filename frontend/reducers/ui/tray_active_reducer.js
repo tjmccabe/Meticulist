@@ -1,5 +1,5 @@
-import {OPEN_TRAY, CLOSE_TRAY} from '../actions/tray_actions';
-import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
+import {OPEN_TRAY, CLOSE_TRAY} from '../../actions/tray_actions';
+import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 
 const trayActiveReducer = (state = false, action) => {
     switch (action.type) {

@@ -11,7 +11,9 @@ class ListIndex extends React.Component {
             <div>
                 {JSON.stringify(this.props.listOrder)}
                 <br/>
-                {JSON.stringify(this.props.cardOrders)}
+                {Object.keys(this.props.cardOrders)}
+                <br/>
+                {JSON.stringify(Object.values(this.props.cardOrders))}
             </div>
         )
     }

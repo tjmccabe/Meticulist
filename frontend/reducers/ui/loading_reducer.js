@@ -1,5 +1,5 @@
 // import {STUFF} from '../actions/stuff_actions.js'
-import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
+import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 let STUFF = 'STUFF';
 
 const loadingReducer = (state = false, action) => {

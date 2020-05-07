@@ -2,7 +2,7 @@ import {fetchSearchImages, fetchRandomImages} from '../util/unsplash_util';
 
 export const RECEIVE_SEARCH_IMAGES = 'RECEIVE_SEARCH_IMAGES'
 export const RECEIVE_RANDOM_IMAGES = 'RECEIVE_RANDOM_IMAGES'
-export const CLEAR_IMAGES = 'CLEAR_IMAGES'
+export const RECEIVE_IMAGE_ERRORS = 'RECEIVE_IMAGE_ERRORS'
 
 const receiveSearchImages = (response) => ({
     type: RECEIVE_SEARCH_IMAGES,
@@ -14,22 +14,20 @@ const receiveRandomImages = (response) => ({
     response
 });
 
-export const clearImages = () => ({
-    type: CLEAR_IMAGES,
-});
+const receiveImageErrors = (errors) => ({
+    type: RECEIVE_IMAGE_ERRORS,
+    errors
+})
 
 export const fetchSearchResults = (query) => (dispatch) => (
     fetchSearchImages(query)
-        .then(response => {
-            console.log(response)
-            dispatch(receiveSearchImages(response))
-        })
-        .fail(errors => console.log(errors))
+        .then(response => dispatch(receiveSearchImages(response)))
+        .fail(errors => dispatch(receiveImageErrors(errors.responseJSON)))
 )
 //take out console logs in prod
 
 export const fetchRandomResults = () => (dispatch) => (
     fetchRandomImages()
         .then(response => dispatch(receiveRandomImages(response)))
-        .fail(errors => console.log(errors))
+        .fail(errors => dispatch(receiveImageErrors(errors.responseJSON)))
 )

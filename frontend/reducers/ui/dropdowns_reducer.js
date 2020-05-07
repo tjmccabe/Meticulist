@@ -1,6 +1,6 @@
-import {OPEN_DROPDOWN, CLOSE_DROPDOWNS} from '../actions/dropdown_actions.js';
-import {RECEIVE_BOARD} from '../actions/board_actions';
-import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
+import {OPEN_DROPDOWN, CLOSE_DROPDOWNS} from '../../actions/dropdown_actions.js';
+import {RECEIVE_BOARD} from '../../actions/board_actions';
+import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 
 const dropdownsReducer = (state = '', action) => {
     switch (action.type) {

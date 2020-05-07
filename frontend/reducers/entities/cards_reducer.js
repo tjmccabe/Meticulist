@@ -2,9 +2,9 @@ import {
     RECEIVE_NEW_CARD,
     RECEIVE_UPDATED_CARD,
     REMOVE_CARD
-} from '../actions/card_actions';
-import { RECEIVE_BOARD } from '../actions/board_actions';
-import {LOGOUT_CURRENT_USER} from '../actions/session_actions'
+} from '../../actions/card_actions';
+import { RECEIVE_BOARD } from '../../actions/board_actions';
+import {LOGOUT_CURRENT_USER} from '../../actions/session_actions'
 
 const cardsReducer = (state = {}, action) => {
     Object.freeze(state);
