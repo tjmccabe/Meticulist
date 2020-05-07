@@ -12,7 +12,7 @@ class ListIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.boardId !== prevProps.boardId || !this.props.boardId) {
+        if (this.props.boardId !== prevProps.boardId) {
             // maybe save changes here?
             this.props.fetchBoard(this.props.boardId)
                 .then(this.setState({
@@ -20,7 +20,7 @@ class ListIndex extends React.Component {
                     cardOrders: this.props.cardOrders
                 }))
         };
-        if (!prevProps.cardOrders && this.props.cardOrders) {
+        if ((prevProps.cardOrders !== this.props.cardOrders) || (prevProps.listOrder !== this.props.listOrder)) {
             this.setState({
                 listOrder: this.props.listOrder,
                 cardOrders: this.props.cardOrders
@@ -33,17 +33,12 @@ class ListIndex extends React.Component {
             .then(this.setState({
                 listOrder: this.props.listOrder,
                 cardOrders: this.props.cardOrders
-                // }, () => {debugger}))
             }))
-        // debugger
     }
 
     render() {
-        // debugger
-        if (!this.state.listOrder) {
-            // this.props.fetchBoard(this.props.boardId);
-            return <div>BROKEN, YO</div>;
-        }
+        if (!this.state.listOrder) return null;
+        
         return(
             <div>
                 {JSON.stringify(this.state.listOrder)}

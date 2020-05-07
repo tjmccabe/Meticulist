@@ -59,7 +59,7 @@ export const updateBoard = (board) => (dispatch) => (
 export const reorderLists = (listOrder, boardId) => (dispatch, getState) => {
     dispatch(receiveListOrder(listOrder, boardId))
     bAPI.reorderLists(listOrder, boardId)
-        .then(res => console.log(res))
+        // .then(res => console.log(res))
         .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
 };
 

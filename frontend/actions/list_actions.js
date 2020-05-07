@@ -48,7 +48,7 @@ export const updateList = (list) => (dispatch) => {
 export const reorderCards = (cardOrder, listId) => (dispatch, getState) => {
     dispatch(receiveCardOrder(cardOrder, listId))
     ListAPI.reorderCards(cardOrder, listId)
-    .then(res => console.log(res))
+    // .then(res => console.log(res))
     .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
 };
 

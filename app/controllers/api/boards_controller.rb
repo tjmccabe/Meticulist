@@ -43,7 +43,6 @@ class Api::BoardsController < ApplicationController
             end
         # elsif @board.update(board: {list_order: params[:board][:list_order].to_json})
         elsif @board.update(board_params)
-            debugger
             render :show
         else
             render json: @board.errors.full_messages, status: 422

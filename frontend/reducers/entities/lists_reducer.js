@@ -25,7 +25,7 @@ const listsReducer = (state = {}, action) => {
             return newState;
         case RECEIVE_CARD_ORDER:
             let newishState1 = Object.assign({}, state)
-            newishState1[action.listId].cardOrder = action.cardOOrder;
+            newishState1[action.listId].cardOrder = action.cardOrder;
             return newishState1;
         case RECEIVE_NEW_CARD:
             let newishState = Object.assign({}, state)
