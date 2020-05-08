@@ -19,9 +19,9 @@ board1 = Board.create({
     admin_id: demo_user.id,
     title: 'General To Do',
     description: '',
-    bgp_big_url: "https://images.unsplash.com/photo-1464692805480-a69dfaafdb0d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjEzMTUxNH0",
-    bgp_small_url: "https://images.unsplash.com/photo-1464692805480-a69dfaafdb0d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjEzMTUxNH0",
-    bgp_alt_text: "balloon on sky"
+    bgp_big_url: "https://images.unsplash.com/photo-1554629942-0c17bf68b884?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjEzMTUxNH0",
+    bgp_small_url: "https://images.unsplash.com/photo-1554629942-0c17bf68b884?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjEzMTUxNH0",
+    bgp_alt_text: "snow-capped mountains near concrete road"
 })
 board2 = Board.create({
     admin_id: demo_user.id,

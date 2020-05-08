@@ -45,7 +45,7 @@ class ImageSearch extends React.Component {
                     <input
                         type="text"
                         value={this.state.text}
-                        placeholder="Search Photos by Unsplash"
+                        placeholder="Search Photos through Unsplash"
                         onChange={this.handleChange}
                     />
                     <div className="image-button-container">

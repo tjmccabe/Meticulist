@@ -59,7 +59,7 @@ export const reorderCards = (cardOrder, listId) => (dispatch, getState) => {
         .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
 };
 
-export const reorderTwoLists = (cardOrder1, listId1, cardOrder2, listId2) => (dispatch, getState) => {
+export const reorderTwoLists = (cardOrder1, listId1, cardOrder2, listId2) => (dispatch) => {
     dispatch(receiveTwoLists(cardOrder1, listId1, cardOrder2, listId2))
     ListAPI.reorderCards(cardOrder1, listId1)
         .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))

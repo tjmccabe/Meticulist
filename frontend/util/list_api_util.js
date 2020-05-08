@@ -19,9 +19,6 @@ export const reorderCards = (cardOrder, listId) => (
         method: "PATCH",
         url: `/api/lists/${listId}`,
         data: {list: {card_order: JSON.stringify(cardOrder)}}
-        // MAY HAVE TO REVISIT TO FORMAT DIFFERENTLY
-        
-        // data: {list: Object.assign(list, {cardOrder})}
     })
 );
 

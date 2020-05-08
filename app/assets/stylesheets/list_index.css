@@ -5,7 +5,7 @@
     box-sizing: border-box;
     padding: 0 0 8px 8px;
     height: calc(100vh - 90px);
-    transition: 0.1s ease-in;
+    transition: .1s ease-out;
 }
 
 .outer-list-index.tray-active {
@@ -42,7 +42,7 @@
     border-radius: 3px;
     min-height: 15px;
     box-sizing: border-box;
-    cursor: pointer;
+    cursor: grab;
     display: flex;
     align-items: center;
     margin: 0;
@@ -64,7 +64,7 @@
     padding: 4px 5px 7px;
     width: 215px;
     box-sizing: border-box;
-    cursor: pointer;
+    cursor: grab;
     resize: none;
     overflow: hidden;
 }
@@ -84,6 +84,7 @@
     max-width: 28px;
     box-sizing: border-box;
     cursor: pointer;
+    color: rgba(0, 0, 0, 0.6);
 }
 
 .list-header button:hover {

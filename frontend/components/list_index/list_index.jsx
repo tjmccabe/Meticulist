@@ -12,6 +12,7 @@ class ListIndex extends React.Component {
     }
 
     this.onDragEnd = this.onDragEnd.bind(this)
+    this.onDragStart = this.onDragStart.bind(this)
   }
 
   componentDidUpdate(prevProps) {
@@ -24,7 +25,7 @@ class ListIndex extends React.Component {
           cardOrders: cardOrders
         }))
     };
-    // debugger
+
     if (prevProps.listOrder !== this.props.listOrder) {
       this.setState({
         listOrder: listOrder,
@@ -48,7 +49,7 @@ class ListIndex extends React.Component {
   }
 
   onDragStart(start) {
-    // tilt the dragging list or card (but I think we're already using snapshot)
+    $(".outer-card-index").addClass("no-scroll")
   }
 
   onDragUpdate(update) {
@@ -56,6 +57,7 @@ class ListIndex extends React.Component {
   }
 
   onDragEnd(result) {
+    $(".outer-card-index").removeClass("no-scroll")
     const {draggableId, source, destination, type} = result
     const {listOrder, cardOrders} = this.state
     const {reorderLists, reorderCards, reorderTwoLists, boardId} = this.props
@@ -133,6 +135,7 @@ class ListIndex extends React.Component {
     return(
       <DragDropContext
         onDragEnd={this.onDragEnd}
+        onDragStart={this.onDragStart}
       >
         <Droppable
           droppableId="list-index"

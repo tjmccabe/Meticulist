@@ -10,6 +10,10 @@
     max-height: calc(100vh - 150px);
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 .card-index-item {
     border-radius: 3px;
     background-color: white;

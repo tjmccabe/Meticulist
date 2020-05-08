@@ -22,7 +22,6 @@ class Api::ListsController < ApplicationController
                     render json: @list.errors.full_messages, status: 422
                 end
             else
-                # if @list.update(list: {card_order: params[:list][:card_order].to_json})
                 if @list.update(list_params)
                     render :show
                 else
