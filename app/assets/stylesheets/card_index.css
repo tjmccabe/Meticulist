@@ -28,6 +28,7 @@
 
 .card-index-item:hover {
     cursor: pointer;
+    background-color: rgba(255, 255, 255, .5)
 }
 
 .card-title {

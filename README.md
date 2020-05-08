@@ -1,24 +1,93 @@
-# README
+# Meticulist
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A single page productivity application that uses a framework of boards, lists, and cards to give easily-accessible visual structure to projects and tasks.
 
-Things you may want to cover:
+### [Live Link](https://meticulist.herokuapp.com/#/)
 
-* Ruby version
+![Meticulist basics](https://meticulist-seeds.s3-us-west-1.amazonaws.com/Meticulist_basics.png)
 
-* System dependencies
+Meticulist is lovingly modeled after [Trello](www.trello.com) and is based on the same [kanban](https://en.wikipedia.org/wiki/Kanban_(development))-style approach to process management and improvement.
 
-* Configuration
+## Technologies
 
-* Database creation
+* Backend: Ruby on Rails, PostgreSQL
+* Frontend: React, Redux
+* Hosting: Heroku
+* Additional technologies:
+  * [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd): adds drag and drop functionality
+  * [throttle-debounce](https://www.npmjs.com/package/throttle-debounce): limits execution rate of event handlers
+  * [Unsplash API](https://unsplash.com/developers): provides access to Unsplash's free high-quality image database
 
-* Database initialization
+## Features
+### User Authentication
 
-* How to run the test suite
+Users sign-up or sign-in via a straightforward interface with dynamic error-handling to get started with Meticulist.
 
-* Services (job queues, cache servers, search engines, etc.)
+Passwords are secured with [bcrypt](https://rubygems.org/gems/bcrypt) and are not stored.
 
-* Deployment instructions
+### Boards
 
-* ...
+The main top-level element of Meticulist is the board. Boards are designed to contain all information about a particular project.
+
+Upon sign-in, users are presented with all of the boards they have access to along with a placeholder to create a new board. Board creation happens via a modal form that prompts the user to assign a title, an optional description, and an optional background photo to their new board.
+
+`2 pics side-by-side: 1 board index, 1 board creation`
+
+### Lists & Cards
+
+Selecting or creating a board leads to Meticulist's main interface, where users can define tasks for their board and group them into lists.
+
+Lists and cards can be easily reorganized thanks to react-beautiful-dnd's drag and drop functionality, allowing for a smooth and intuitive user interface.
+
+`gif of list and card movement`
+
+Behind the scenes, we've taken 2 key steps to ensure better performance and user experience:
+
+**1. Limiting the number of database calls after a drag**
+
+There are a number of ways to accomplish relative ordering, but many of them require many database calls whose successes are intertwined. For instance, if a card only stores one reference to its own relative index in a list, it's unwieldy to save a new location on the board. We have to make calls to save the new indices of every card that shifts during the drag (GIF 1). On the other hand, if a card stores references to the cards that come directly before and after it, we gain some performance: This time the worst case scenario involves 5 calls: the moving card itself, its former neighbors, and its new neighbors (GIF 2).
+
+Meticulist does a little better than this by abstracting the ordering away from the cards and to the lists that contain them. Each list has a reference to the ids of the cards contained within it and their relative order, while each card only has a reference to its list's id. Now the worst case scenario involves 3 calls: the card itself, its former list, and its new list (GIF 3).
+
+`3 gifs of reordering highlighting the number of saves`
+
+In addition to the card saving its new list id, we edit each list by making this call:
+```javascript
+export const reorderCards = (cardOrder, listId) => (
+    $.ajax({
+        method: "PATCH",
+        url: `/api/lists/${listId}`,
+        data: {list: {card_order: JSON.stringify(cardOrder)}}
+    })
+);
+```
+
+***
+
+**2. Optimistically updating the frontend**
+
+While a normal thunk action makes a database call, waits for confirmation, and then returns a response to be patched into our frontend state, waiting for that process to finish after every drag can be jarring to user experience. Meticulist therefore does not wait for backend confirmation- immediately after a user finishes a drag, we dispatch at most 3 actions: two to save the results to the backend, and one to update the frontend with the _assumed_ results of that drag.
+
+Only after a failed backend save will Meticulist render an error and attempt to refresh the page to sync the frontend with the backend state.
+
+```javascript
+export const reorderTwoLists = (cardOrder1, listId1, cardOrder2, listId2) => (dispatch) => {
+    dispatch(receiveTwoLists(cardOrder1, listId1, cardOrder2, listId2))
+    ListAPI.reorderCards(cardOrder1, listId1)
+        .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
+    ListAPI.reorderCards(cardOrder2, listId2)
+        .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
+};
+```
+
+***
+
+
+## Future Updates
+
+Meticulist's roadmap includes the following:
+* Sharing boards with other Meticulist users
+* Card comments
+* Card due dates
+* Card attachments
+* 'Tutorial' modal with basic Meticulist instructions
