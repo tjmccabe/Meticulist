@@ -5,9 +5,11 @@ import {getCards} from '../../reducers/selectors';
 import CardIndex from './card_index';
 
 const mSTP = (state, ownProps) => {
-  let cardOrder = ownProps.cardOrder;
+  //get listid
+  let cardOrder = state.entities.lists[ownProps.listId].cardOrder;
   let cards = getCards(state, cardOrder);
   return {
+    listId: ownProps.listId,
     cardOrder,
     cards
   }

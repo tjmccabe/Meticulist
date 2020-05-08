@@ -1,5 +1,5 @@
 import React from 'react';
-import { } from 'react-beautiful-dnd';
+import { Droppable } from 'react-beautiful-dnd';
 import CardIndexItemContainer from './card_index_item_container';
 
 class CardIndex extends React.Component {
@@ -12,17 +12,32 @@ class CardIndex extends React.Component {
     return this.props.cardOrder.map((cardId, cardIndex) => (
       <CardIndexItemContainer
         card={cards[cardId]}
-        key={cardIndex}
+        key={cardId}
+        index={cardIndex}
       />
     ))
   }
 
   render() {
+    const {listId} = this.props
+    // debugger
 
     return (
-      <div className="outer-card-index">
-        {this.makeCards()}
-      </div>
+      <Droppable
+        droppableId={`inner-list-${listId}`}
+        type="CARD"
+      >
+        {(provided) => (
+          <div
+            className="outer-card-index"
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
+            {this.makeCards()}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
     )
   }
 }

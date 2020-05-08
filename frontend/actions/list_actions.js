@@ -4,6 +4,7 @@ export const RECEIVE_NEW_LIST = 'RECEIVE_NEW_LIST';
 export const RECEIVE_UPDATED_LIST = 'RECEIVE_UPDATED_LIST';
 export const REMOVE_LIST = 'REMOVE_LIST';
 export const RECEIVE_CARD_ORDER = 'RECEIVE_CARD_ORDER';
+export const RECEIVE_TWO_LISTS = 'RECEIVE_TWO_LISTS';
 export const RECEIVE_LIST_ERRORS = 'RECEIVE_LIST_ERRORS';
 
 const receiveNewList = (list) => ({
@@ -27,6 +28,14 @@ const receiveCardOrder = (cardOrder, listId) => ({
     listId
 })
 
+const receiveTwoLists = (cardOrder1, listId1, cardOrder2, listId2) => ({
+    type: RECEIVE_TWO_LISTS,
+    cardOrder1,
+    listId1,
+    cardOrder2,
+    listId2
+})
+
 const receiveListErrors = (errors) => ({
     type: RECEIVE_LIST_ERRORS,
     errors
@@ -44,12 +53,18 @@ export const updateList = (list) => (dispatch) => {
         .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
 };
 
-// potentially dispatch this action to 2 different lists
 export const reorderCards = (cardOrder, listId) => (dispatch, getState) => {
     dispatch(receiveCardOrder(cardOrder, listId))
     ListAPI.reorderCards(cardOrder, listId)
-    // .then(res => console.log(res))
-    .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
+        .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
+};
+
+export const reorderTwoLists = (cardOrder1, listId1, cardOrder2, listId2) => (dispatch, getState) => {
+    dispatch(receiveTwoLists(cardOrder1, listId1, cardOrder2, listId2))
+    ListAPI.reorderCards(cardOrder1, listId1)
+        .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
+    ListAPI.reorderCards(cardOrder2, listId2)
+        .fail(errors => dispatch(receiveListErrors(errors.responseJSON)))
 };
 
 export const deleteList = (listId) => (dispatch) => {

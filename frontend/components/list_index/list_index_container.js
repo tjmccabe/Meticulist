@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import {createList} from '../../actions/list_actions';
-// maybe also updateList and/or reorderCards
+import {createList, reorderCards, reorderTwoLists} from '../../actions/list_actions';
+// maybe also updateList
 // all card actions in a deeper component
 import {fetchBoard, reorderLists} from '../../actions/board_actions';
 import {getCardOrders, getLists} from '../../reducers/selectors';
@@ -12,11 +12,13 @@ const mSTP = (state, ownProps) => {
     let listOrder = state.entities.boards[boardId] ? state.entities.boards[boardId].listOrder : [];
     let cardOrders = listOrder ? getCardOrders(state, listOrder) : null;
     let lists = listOrder ? getLists(state, listOrder) : null;
+
     return {
         listOrder,
         cardOrders,
         lists,
-        boardId
+        boardId,
+        trayActive: state.ui.trayActive
     }
 }
 
@@ -24,7 +26,9 @@ const mDTP = (dispatch) => ({
     fetchBoard: boardId => dispatch(fetchBoard(boardId)),
     reorderLists: (listOrder, boardId) => dispatch(reorderLists(listOrder, boardId)),
     createList: list => dispatch(createList(list)),
-    deleteList: listId => dispatch(deleteList(listId))
+    deleteList: listId => dispatch(deleteList(listId)),
+    reorderCards: (cardOrder, listId) => dispatch(reorderCards(cardOrder, listId)),
+    reorderTwoLists: (cO1, lI1, cO2, lI2) => dispatch(reorderTwoLists(cO1, lI1, cO2, lI2))
 })
 
 export default withRouter(connect(mSTP, mDTP)(ListIndex))

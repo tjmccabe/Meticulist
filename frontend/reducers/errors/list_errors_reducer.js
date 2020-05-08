@@ -3,6 +3,7 @@ import {
     RECEIVE_UPDATED_LIST,
     REMOVE_LIST,
     RECEIVE_CARD_ORDER,
+    RECEIVE_TWO_LISTS,
     RECEIVE_LIST_ERRORS
 } from '../../actions/list_actions'
 import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
@@ -20,6 +21,8 @@ const listErrorsReducer = (state = [], action) => {
         case REMOVE_LIST:
             return [];
         case RECEIVE_CARD_ORDER:
+            return [];
+        case RECEIVE_TWO_LISTS:
             return [];
         case LOGOUT_CURRENT_USER:
             return [];

@@ -2,6 +2,7 @@ import {
     RECEIVE_NEW_LIST,
     RECEIVE_UPDATED_LIST,
     RECEIVE_CARD_ORDER,
+    RECEIVE_TWO_LISTS,
     REMOVE_LIST,
 } from '../../actions/list_actions';
 import {
@@ -27,6 +28,11 @@ const listsReducer = (state = {}, action) => {
             let newishState1 = Object.assign({}, state)
             newishState1[action.listId].cardOrder = action.cardOrder;
             return newishState1;
+        case RECEIVE_TWO_LISTS:
+            let newWithTwo = Object.assign({}, state)
+            newWithTwo[action.listId1].cardOrder = action.cardOrder1;
+            newWithTwo[action.listId2].cardOrder = action.cardOrder2;
+            return newWithTwo;
         case RECEIVE_NEW_CARD:
             let newishState = Object.assign({}, state)
             let newCardOrder = state[action.card.listId].cardOrder.concat([action.card.id])
