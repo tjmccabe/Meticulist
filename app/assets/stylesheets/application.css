@@ -51,7 +51,3 @@ a:visited {
 section {
     box-sizing: border-box;
 }
-
-textarea, input {
-    spellcheck
-}
