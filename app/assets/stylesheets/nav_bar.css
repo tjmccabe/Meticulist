@@ -37,7 +37,7 @@
 }
 
 .met-icon {
-    background: url("whitelogo.png");
+    background: url("https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/whitelogo.png");
     background-size: contain;
     height: 22px;
     width: 22px;
@@ -108,7 +108,7 @@ button.image span {
 
 .boards-icon {
     margin-right: 10px;
-    background: url("whitelogo.png");
+    background: url("https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/whitelogo.png");
     background-size: contain;
     height: 16px;
     width: 16px;

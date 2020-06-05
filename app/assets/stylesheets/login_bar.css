@@ -22,7 +22,7 @@
 }
 
 .met-login-icon {
-    background: url("whitelogo.png");
+    background: url("https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/whitelogo.png");
     background-size: contain;
     height: 30px;
     width: 30px;

@@ -24,7 +24,7 @@
 
 .boards-title-logo {
     margin: 0 10px 0 5px;
-    background: url("purplelogo.png");
+    background: url("https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/purplelogo.png");
     background-size: contain;
     height: 22px;
     width: 22px;
@@ -50,7 +50,7 @@
 }
 
 .met-dd-icon {
-    background: url("purplelogo.png");
+    background: url("https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/purplelogo.png");
     background-size: contain;
     height: 14px;
     width: 14px;
