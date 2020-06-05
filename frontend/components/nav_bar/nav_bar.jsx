@@ -67,9 +67,7 @@ class NavBar extends React.Component {
                             onClick={() => this.dropdownCheck('boards')}
                         >
                             <div className="dropbtn">
-                                <span className="material-icons">
-                                    dashboard
-                                </span>
+                                <div className="boards-icon"></div>
                                 Boards
                             </div>
                         </button>
@@ -86,6 +84,7 @@ class NavBar extends React.Component {
                     </ul>
                 </div>
                 <Link className="nav-bar-middle" to="/">
+                    <div className="met-icon"></div>
                     <span id="logo">
                         Meticulist
                     </span>

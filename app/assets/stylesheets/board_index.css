@@ -22,9 +22,13 @@
     cursor: default;
 }
 
-.boards-title span {
-    margin-right: 10px;
-    color: #7E5A9B;
+.boards-title-logo {
+    margin: 0 10px 0 5px;
+    background: url("purplelogo.png");
+    background-size: contain;
+    height: 22px;
+    width: 22px;
+    display: block;
 }
 
 .boards-title h2 {
@@ -45,8 +49,15 @@
     font-size: 16px;
 }
 
-.boards-header span {
-    margin: 0 10px 0 5px;
+.met-dd-icon {
+    background: url("purplelogo.png");
+    background-size: contain;
+    height: 14px;
+    width: 14px;
+    display: block;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    margin: 0 10px 0 10px;
 }
 
 .boards-list {

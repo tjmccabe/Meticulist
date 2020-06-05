@@ -16,6 +16,20 @@
     box-shadow: 0 0 15px rgba(39, 29, 48, 0.6);
 }
 
+.login-bar-title {
+    display: flex;
+    align-items: center;
+}
+
+.met-login-icon {
+    background: url("whitelogo.png");
+    background-size: contain;
+    height: 30px;
+    width: 30px;
+    display: block;
+    margin: 0 2px 5px 5px;
+}
+
 #login-logo {
     font-family: 'Damion', cursive;
     font-size: 40px;

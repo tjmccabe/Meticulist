@@ -30,6 +30,23 @@
     box-sizing: border-box;
 }
 
+.nav-bar-middle {
+    display: flex;
+    align-items: center;
+    opacity: .5;
+}
+
+.met-icon {
+    background: url("whitelogo.png");
+    background-size: contain;
+    height: 22px;
+    width: 22px;
+    display: block;
+    z-index: 4;
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+
 .nav-bar-right button {
     margin-left: 4px;
 }
@@ -37,11 +54,10 @@
 .nav-bar #logo {
     font-size: 30px;
     width: 1px;
-    opacity: .5;
     color: white;
 }
 
-.nav-bar #logo:hover {
+.nav-bar-middle:hover {
     opacity: .8;
 }
 
@@ -87,11 +103,16 @@ button.image span {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 8px;
 }
 
-.boards span {
-    margin-right: 7px;
-    font-size: 20px;
+.boards-icon {
+    margin-right: 10px;
+    background: url("whitelogo.png");
+    background-size: contain;
+    height: 16px;
+    width: 16px;
+    display: block;
 }
 
 #add {

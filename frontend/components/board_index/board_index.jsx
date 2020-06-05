@@ -52,7 +52,7 @@ class BoardIndex extends React.Component {
     return(
       <div className="boards-container">
         <div className="boards-title">
-          <span className="material-icons">dashboard</span>
+          <div className="boards-title-logo"></div>
           <h2>Boards</h2>
         </div>
         <div className="board-index">

@@ -21,9 +21,7 @@ class BoardsDropdown extends React.Component {
         const PersonalBoardsEle = personalBoards[0] ? (
             <>
                 <div className="boards-header">
-                    <span className="material-icons img">
-                        dashboard
-                    </span>
+                    <div className="met-dd-icon"></div>
                     <span id="my-boards">
                         PERSONAL BOARDS
                     </span>
