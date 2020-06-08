@@ -13,10 +13,13 @@ class ListIndex extends React.Component {
 
     this.onDragEnd = this.onDragEnd.bind(this)
     this.onDragStart = this.onDragStart.bind(this)
+    this.orderingError = this.orderingError.bind(this)
   }
 
   componentDidUpdate(prevProps) {
     const {listOrder, cardOrders} = this.props;
+
+    if (this.orderingError()) return;
 
     if (this.props.boardId !== prevProps.boardId) {
       this.props.fetchBoard(this.props.boardId)
@@ -46,6 +49,58 @@ class ListIndex extends React.Component {
         })
       }
     }
+  }
+
+  orderingError() {
+    const { listOrder, cardOrders, reorderLists, reorderCards, boardId } = this.props;
+    if (!listOrder || !cardOrders) return false;
+
+    let incorrect = false;
+    let lists = new Set();
+    let newLO = [];
+
+    for (let i = 0; i < listOrder.length; i++) {
+      if (lists.has(listOrder[i])) {
+        incorrect = true;
+      } else {
+        newLO.push(listOrder[i])
+      }
+      lists.add(listOrder[i])
+    }
+
+    if (incorrect) {
+      reorderLists(newLO, boardId);
+      return true;
+    }
+
+    let cards = new Set();
+    let newCOs = [];
+    for (let i = 0; i < cardOrders.length; i++) {
+      let cO = cardOrders[i];
+      let newCO = [];
+      let needsUpdate = false;
+
+      for (let j = 0; j < cO.length; j++) {
+        if (cards.has(cO[j])) {
+          incorrect = true;
+          needsUpdate = true
+        } else {
+          newLO.push(cO[j])
+        }
+        cards.add(cO[j])
+      }
+
+      if (needsUpdate) newCOs.push([newCO, listOrder[i]]);
+    }
+
+    if (incorrect) {
+      newCOs.forEach(newCO => {
+        reorderCards(newCO[0], newCO[1])
+      })
+      return true;
+    }
+    
+    return false;
   }
 
   onDragStart(start) {
