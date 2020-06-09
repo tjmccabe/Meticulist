@@ -9,7 +9,8 @@ import ListIndexItem from './list_index_item';
 const mSTP = (state, ownProps) => {
   let listId = ownProps.list.id
   return {
-    title: state.entities.lists[listId].title
+    title: state.entities.lists[listId].title,
+    listId
   }
 }
 

@@ -10,7 +10,7 @@
     max-height: calc(100vh - 150px);
 }
 
-.no-scroll {
+.no-vert-scroll {
     overflow: hidden;
 }
 
@@ -23,7 +23,7 @@
     margin-bottom: 8px;
     /* min-height: 20px; */
     text-decoration: none;
-    padding: 8px;
+    padding: 6px 8px;
 }
 
 .card-index-item:hover {

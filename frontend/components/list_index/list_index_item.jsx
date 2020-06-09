@@ -7,28 +7,24 @@ class ListIndexItem extends React.Component {
     super(props)
 
     this.state = {
-      titleInput: this.props.list.title
+      titleInput: this.props.title
     }
 
     this.retitle = this.retitle.bind(this)
-    this.setHeight = this.setHeight.bind(this)
-  }
-
-  componentDidMount() {
-    this.setHeight(document.getElementById(`list-title-${this.props.list.id}`))
+    this.startEditing = this.startEditing.bind(this)
+    this.stopEditing = this.stopEditing.bind(this)
+    this.autoExpand = this.autoExpand.bind(this)
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps && this.props.title !== prevProps.title) {
       this.setState({ titleInput: this.props.title })
     }
-    this.setHeight(document.getElementById(`list-title-${this.props.list.id}`))
   }
 
   handleChange() {
     return e => {
-      this.setState({ titleInput: e.target.value })
-      this.setHeight(e.target);
+      this.setState({ titleInput: e.target.value }, this.autoExpand)
     }
   }
 
@@ -37,38 +33,62 @@ class ListIndexItem extends React.Component {
     if (this.state.titleInput.length > 0 && this.state.titleInput !== this.props.title) {
       let newList = Object.assign(this.props.list, { title: this.state.titleInput })
       this.props.updateList(newList)
+      this.setState({ titleInput: newList }, this.stopEditing)
     } else {
-      this.setState({ titleInput: this.props.title })
+      this.setState({ titleInput: this.props.title }, this.stopEditing)
     }
-    const title = document.getElementById(`list-title-${this.props.list.id}`)
-    title.blur()
   }
 
-  focusUp() {
-    return document.getElementById(`list-title-${this.props.list.id}`)
+  startEditing() {
+    let textArea = document.getElementById(`edit-title-${this.props.listId}`)
+    let displayTitle = document.getElementById(`display-title-${this.props.listId}`)
+    displayTitle.parentElement.classList.add("no-display")
+    textArea.parentElement.parentElement.classList.remove("no-display")
+    this.autoExpand()
+    textArea.select()
+  }
+  
+  stopEditing() {
+    let textArea = document.getElementById(`edit-title-${this.props.listId}`)
+    let displayTitle = document.getElementById(`display-title-${this.props.listId}`)
+    textArea.parentElement.parentElement.classList.add("no-display")
+    displayTitle.parentElement.classList.remove("no-display")
   }
 
   keyPress(e) {
-    if (e.key === 'Enter' || e.key === 'Escape') {
-      return e.target.blur();
+    if (e.keyCode === 13 || e.keyCode === 27) {
+      this.retitle(e);
     }
   }
 
-  setHeight(el) {
-    el.style.height = "1px";
-    el.style.height = el.scrollHeight + 'px';
-  }
+  autoExpand() {
+    let textArea = document.getElementById(`edit-title-${this.props.listId}`)
+    textArea.style.height = 0;
+    const height = textArea.scrollHeight + 4
+    textArea.style.height = height + 'px';
+  };
 
   render() {
-    const {list, index} = this.props
+    const {list, index, listId} = this.props
 
     const draggingClass = (snapshot) => {
       return snapshot.isDragging ? ("list-index-item dragged-list") : ("list-index-item")
     }
 
+    const editButton = (
+      <button
+        className="editing image"
+        onClick={this.startEditing}
+      >
+        <span className="material-icons">
+          edit
+        </span>
+      </button>
+    )
+
     return(
       <Draggable
-        draggableId={`outer-list-${list.id}`}
+        draggableId={`outer-list-${listId}`}
         index={index}
         type="LIST"
         disableInteractiveElementBlocking
@@ -80,34 +100,39 @@ class ListIndexItem extends React.Component {
             {...provided.draggableProps}
           >
             <div
-              className="list-header"
+              className="list-header-display"
               {...provided.dragHandleProps}
+            >
+              <div
+                id={`display-title-${listId}`}
+                className="list-index-item-title-display"
+                onClick={this.startEditing}
+              >
+                {list.title}
+              </div>
+              {editButton}
+            </div>
+            <div
+              className="list-header-edit no-display"
             >
               <form
                 className="list-index-item-title-wrapper"
                 onSubmit={(e) => this.retitle(e)}
               >
                 <textarea
-                  id={`list-title-${list.id}`}
-                  className="list-index-item-title"
+                  id={`edit-title-${listId}`}
+                  className="list-index-item-title-edit"
                   onChange={this.handleChange()}
                   value={this.state.titleInput}
-                  onBlur={this.retitle}
+                  onBlur={(e) => this.retitle(e)}
                   onKeyDown={(e) => this.keyPress(e)}
                   spellCheck="false"
                 />
               </form>
-              <button
-                className="editing image"
-                onClick={() => this.focusUp().select()}
-              >
-                <span className="material-icons">
-                  edit
-                </span>
-              </button>
+              {editButton}
             </div>
             <CardIndexContainer
-              listId={list.id}
+              listId={listId}
             />
             {/* {some new card form} */}
           </div>

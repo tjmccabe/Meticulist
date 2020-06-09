@@ -75,6 +75,7 @@ class ListIndex extends React.Component {
 
     let cards = new Set();
     let newCOs = [];
+
     for (let i = 0; i < cardOrders.length; i++) {
       let cO = cardOrders[i];
       let newCO = [];
@@ -99,12 +100,12 @@ class ListIndex extends React.Component {
       })
       return true;
     }
-    
+
     return false;
   }
 
   onDragStart(start) {
-    $(".outer-card-index").addClass("no-scroll")
+    $(".outer-card-index").addClass("no-vert-scroll")
   }
 
   onDragUpdate(update) {
@@ -112,7 +113,7 @@ class ListIndex extends React.Component {
   }
 
   onDragEnd(result) {
-    $(".outer-card-index").removeClass("no-scroll")
+    $(".outer-card-index").removeClass("no-vert-scroll")
     const {draggableId, source, destination, type} = result
     const {listOrder, cardOrders} = this.state
     const {reorderLists, reorderCards, reorderTwoLists, boardId} = this.props
