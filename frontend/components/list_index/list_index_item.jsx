@@ -1,19 +1,22 @@
 import React from 'react';
 import {Draggable, Droppable} from 'react-beautiful-dnd';
 import CardIndexContainer from '../card_index/card_index_container';
+import NewCardPlaceholder from './new_card_placeholder';
 
 class ListIndexItem extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      titleInput: this.props.title
+      titleInput: this.props.title,
+      addingCard: false
     }
 
     this.retitle = this.retitle.bind(this)
     this.startEditing = this.startEditing.bind(this)
     this.stopEditing = this.stopEditing.bind(this)
     this.autoExpand = this.autoExpand.bind(this)
+    this.toggleAddingCard = this.toggleAddingCard.bind(this)
   }
 
   componentDidUpdate(prevProps) {
@@ -67,6 +70,10 @@ class ListIndexItem extends React.Component {
     const height = textArea.scrollHeight + 4
     textArea.style.height = height + 'px';
   };
+
+  toggleAddingCard() {
+    this.setState({addingCard: !this.state.addingCard})
+  }
 
   render() {
     const {list, index, listId} = this.props
@@ -133,8 +140,13 @@ class ListIndexItem extends React.Component {
             </div>
             <CardIndexContainer
               listId={listId}
+              addingCard={this.state.addingCard}
+              toggleAddingCard={this.toggleAddingCard}
+              />
+            <NewCardPlaceholder
+              addingCard={this.state.addingCard}
+              toggleAddingCard={this.toggleAddingCard}
             />
-            {/* {some new card form} */}
           </div>
         )}
       </Draggable>

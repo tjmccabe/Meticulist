@@ -3,7 +3,7 @@
     margin: 0 4px;
     padding: 0 4px;
     box-sizing: border-box;
-    min-height: 20px;
+    min-height: 10px;
     white-space: normal;
     display: flex;
     flex-direction: column;
@@ -23,7 +23,7 @@
     margin-bottom: 8px;
     /* min-height: 20px; */
     text-decoration: none;
-    padding: 6px 8px;
+    padding: 7px 8px;
 }
 
 .card-index-item:hover {

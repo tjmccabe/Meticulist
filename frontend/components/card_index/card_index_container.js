@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { reorderCards } from '../../actions/list_actions';
+import { createCard } from '../../actions/card_actions';
 import {getCards} from '../../reducers/selectors';
 import CardIndex from './card_index';
 
@@ -16,6 +17,7 @@ const mSTP = (state, ownProps) => {
 }
 
 const mDTP = (dispatch) => ({
+  createCard: card => dispatch(createCard(card))
 })
 
 export default withRouter(connect(mSTP, mDTP)(CardIndex))
