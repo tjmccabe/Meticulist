@@ -71,12 +71,16 @@ class ListIndexItem extends React.Component {
 
   stopAddingCard() {
     this.setState({addingCard: false})
+    document.getElementById(`outer-card-index-${this.props.listId}`).classList.remove("adding")
   }
-
+  
   startAddingCard() {
     this.setState({addingCard: true}, () => {
-      document.getElementById(`new-card-${this.props.listId}`).select()
+      document.getElementById(`new-card-${this.props.listId}`).select();
+      let cardIndex = document.getElementById(`outer-card-index-${this.props.listId}`)
+      cardIndex.scrollTop = cardIndex.scrollHeight;
     })
+    document.getElementById(`outer-card-index-${this.props.listId}`).classList.add("adding")
   }
 
   render() {

@@ -10,14 +10,29 @@ class CardIndex extends React.Component {
       newCardTitle: ""
     }
 
+    this.shouldScroll = false;
+
     this.listener = this.listener.bind(this)
+    this.autoExpand = this.autoExpand.bind(this)
+    this.scroll = this.scroll.bind(this)
+  }
+  
+  scroll() {
+    let cardIndex = document.getElementById(`outer-card-index-${this.props.listId}`)
+    cardIndex.scrollTop = cardIndex.scrollHeight;
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.addingCard && !prevProps.addingCard) {
       document.addEventListener("click", this.listener)
+      this.autoExpand()
     } else if (!this.props.addingCard && prevProps.addingCard) {
       document.removeEventListener("click", this.listener)
+    }
+
+    if (prevProps.cardOrder.length < this.props.cardOrder.length) {
+      if (this.shouldScroll) this.scroll();
+      this.shouldScroll = false;
     }
   }
 
@@ -31,7 +46,10 @@ class CardIndex extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({ newCardTitle: e.target.value })
+    this.setState({ newCardTitle: e.target.value }, () => {
+      this.autoExpand()
+      this.scroll()
+    })
   }
 
   handleSubmit(e) {
@@ -41,7 +59,8 @@ class CardIndex extends React.Component {
 
     if (newCardTitle.length > 0) {
       createCard({ title: newCardTitle, list_id: listId })
-      this.setState({ newCardTitle: "" }, stopAddingCard())
+      this.shouldScroll = true;
+      this.setState({ newCardTitle: "" }, stopAddingCard)
     } else stopAddingCard();
   }
 
@@ -52,6 +71,13 @@ class CardIndex extends React.Component {
       this.props.stopAddingCard()
     }
   }
+
+  autoExpand() {
+    let textArea = document.getElementById(`new-card-${this.props.listId}`)
+    textArea.style.height = 0;
+    const height = textArea.scrollHeight
+    textArea.style.height = height > 60 ? height + "px" : "60px";
+  };
 
   makeCards() {
     const { cards } = this.props;
@@ -114,6 +140,7 @@ class CardIndex extends React.Component {
         {(provided) => (
           <div
             className="outer-card-index"
+            id={`outer-card-index-${listId}`}
             ref={provided.innerRef}
             {...provided.droppableProps}
           >

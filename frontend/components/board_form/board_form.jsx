@@ -83,7 +83,7 @@ class BoardForm extends React.Component {
                 id="board-delete-button"
                 onClick={this.handleDelete}
             >
-                    Delete Board<br/>(Permanent)
+                Delete Board<br/>(Permanent)
             </button>
         ) : null;
 
