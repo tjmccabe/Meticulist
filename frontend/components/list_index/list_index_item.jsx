@@ -12,7 +12,6 @@ class ListIndexItem extends React.Component {
       addingCard: false
     }
 
-    // this.retitle = this.retitle.bind(this)
     this.startEditing = this.startEditing.bind(this)
     this.stopEditing = this.stopEditing.bind(this)
     this.autoExpand = this.autoExpand.bind(this)
@@ -145,7 +144,7 @@ class ListIndexItem extends React.Component {
               listId={listId}
               addingCard={this.state.addingCard}
               stopAddingCard={this.stopAddingCard}
-              />
+            />
             <NewCardPlaceholder
               addingCard={this.state.addingCard}
               startAddingCard={this.startAddingCard}

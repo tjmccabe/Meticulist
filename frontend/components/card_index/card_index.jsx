@@ -10,7 +10,24 @@ class CardIndex extends React.Component {
       newCardTitle: ""
     }
 
-    this.listenerFunction = this.listenerFunction.bind(this)
+    this.listener = this.listener.bind(this)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.addingCard && !prevProps.addingCard) {
+      document.addEventListener("click", this.listener)
+    } else if (!this.props.addingCard && prevProps.addingCard) {
+      document.removeEventListener("click", this.listener)
+    }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("click", this.listener)
+  }
+
+  listener(e) {
+    let outerForm = document.getElementById(`new-card-form-${this.props.listId}`)
+    if (!outerForm.contains(e.target)) this.props.stopAddingCard();
   }
 
   handleChange(e) {
@@ -25,33 +42,16 @@ class CardIndex extends React.Component {
     if (newCardTitle.length > 0) {
       createCard({ title: newCardTitle, list_id: listId })
       this.setState({ newCardTitle: "" }, stopAddingCard())
-    }
+    } else stopAddingCard();
   }
 
   keyPress(e) {
     if (e.keyCode === 13) {
       this.handleSubmit(e);
     } else if (e.keyCode === 27) {
-      e.stopPropagation()
       this.props.stopAddingCard()
     }
   }
-
-  // startAdding() {
-  //   let textArea = document.getElementById(`edit-title-${this.props.listId}`)
-  //   let displayTitle = document.getElementById(`display-title-${this.props.listId}`)
-  //   displayTitle.parentElement.classList.add("no-display")
-  //   textArea.parentElement.parentElement.classList.remove("no-display")
-  //   this.autoExpand()
-  //   textArea.select()
-  // }
-
-  // stopAdding() {
-  //   let textArea = document.getElementById(`new-card-${this.props.listId}`)
-  //   let displayTitle = document.getElementById(`display-title-${this.props.listId}`)
-  //   textArea.parentElement.parentElement.classList.add("no-display")
-  //   displayTitle.parentElement.classList.remove("no-display")
-  // }
 
   makeCards() {
     const { cards } = this.props;
@@ -64,23 +64,13 @@ class CardIndex extends React.Component {
     ))
   }
 
-  listenerFunction() {
-    if (this.addingListener) document.removeEventListener("click", this.props.stopAddingCard)
-    this.addingListener = this.props.addingCard ? (
-      document.addEventListener("click", this.props.stopAddingCard)
-    ) : null
-  }
-
   render() {
     const { listId, addingCard, stopAddingCard } = this.props;
 
-    // this.listenerFunction()
-
     const cardForm = addingCard ? (
       <div
+        id={`new-card-form-${listId}`}
         className="new-card-form-container"
-        onClick={(e) => e.stopPropagation()}
-        onBlur={stopAddingCard}
       >
         <form
           className="new-card-form"
@@ -91,7 +81,6 @@ class CardIndex extends React.Component {
             className="new-card-title-edit"
             onChange={(e) => this.handleChange(e)}
             value={this.state.newCardTitle}
-            // onBlur={stopAddingCard}
             onKeyDown={(e) => this.keyPress(e)}
             placeholder="Enter a title for this card..."
             spellCheck="false"
