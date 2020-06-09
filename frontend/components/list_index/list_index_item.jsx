@@ -12,11 +12,12 @@ class ListIndexItem extends React.Component {
       addingCard: false
     }
 
-    this.retitle = this.retitle.bind(this)
+    // this.retitle = this.retitle.bind(this)
     this.startEditing = this.startEditing.bind(this)
     this.stopEditing = this.stopEditing.bind(this)
     this.autoExpand = this.autoExpand.bind(this)
-    this.toggleAddingCard = this.toggleAddingCard.bind(this)
+    this.startAddingCard = this.startAddingCard.bind(this)
+    this.stopAddingCard = this.stopAddingCard.bind(this)
   }
 
   componentDidUpdate(prevProps) {
@@ -25,10 +26,8 @@ class ListIndexItem extends React.Component {
     }
   }
 
-  handleChange() {
-    return e => {
-      this.setState({ titleInput: e.target.value }, this.autoExpand)
-    }
+  handleChange(e) {
+    this.setState({ titleInput: e.target.value }, this.autoExpand)
   }
 
   retitle(e) {
@@ -71,8 +70,12 @@ class ListIndexItem extends React.Component {
     textArea.style.height = height + 'px';
   };
 
-  toggleAddingCard() {
-    this.setState({addingCard: !this.state.addingCard})
+  stopAddingCard() {
+    this.setState({addingCard: false})
+  }
+
+  startAddingCard() {
+    this.setState({addingCard: true})
   }
 
   render() {
@@ -129,7 +132,7 @@ class ListIndexItem extends React.Component {
                 <textarea
                   id={`edit-title-${listId}`}
                   className="list-index-item-title-edit"
-                  onChange={this.handleChange()}
+                  onChange={(e) => this.handleChange(e)}
                   value={this.state.titleInput}
                   onBlur={(e) => this.retitle(e)}
                   onKeyDown={(e) => this.keyPress(e)}
@@ -141,11 +144,11 @@ class ListIndexItem extends React.Component {
             <CardIndexContainer
               listId={listId}
               addingCard={this.state.addingCard}
-              toggleAddingCard={this.toggleAddingCard}
+              stopAddingCard={this.stopAddingCard}
               />
             <NewCardPlaceholder
               addingCard={this.state.addingCard}
-              toggleAddingCard={this.toggleAddingCard}
+              startAddingCard={this.startAddingCard}
             />
           </div>
         )}

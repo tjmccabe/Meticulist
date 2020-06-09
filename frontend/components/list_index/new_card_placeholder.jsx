@@ -1,11 +1,11 @@
 import React from "react";
 
-const NewCardPlaceholder = ({ addingCard, toggleAddingCard }) => {
+const NewCardPlaceholder = ({ addingCard, startAddingCard }) => {
   return addingCard ? (
     null
   ) : (
     <div className="add-a-card"
-        onClick={toggleAddingCard}
+        onClick={startAddingCard}
     >
       <span className="material-icons">
         add
