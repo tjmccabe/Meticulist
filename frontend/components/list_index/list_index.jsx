@@ -17,7 +17,14 @@ class ListIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const {listOrder, cardOrders} = this.props;
+    const {listOrder, cardOrders, trayActive} = this.props;
+    const outerIndex = document.getElementById("outer-list-index")
+
+    if (trayActive && !prevProps.trayActive) {
+      setTimeout(() => outerIndex.classList.add("tray-active"), 100)
+    } else if (!trayActive && prevProps.trayActive) {
+      outerIndex.classList.remove("tray-active")
+    }
 
     if (this.orderingError()) return;
 
@@ -184,10 +191,6 @@ class ListIndex extends React.Component {
   render() {
     if (!this.props.lists || !this.state.listOrder) return null;
 
-    const outerClass = this.props.trayActive ? (
-      "outer-list-index tray-active"
-    ) : "outer-list-index";
-
     return(
       <DragDropContext
         onDragEnd={this.onDragEnd}
@@ -200,7 +203,7 @@ class ListIndex extends React.Component {
         >
           {(provided) => (
             <div 
-              className={outerClass}
+              id="outer-list-index"
               ref={provided.innerRef}
               {...provided.droppableProps}
             >

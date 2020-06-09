@@ -1,14 +1,14 @@
-.outer-list-index {
+#outer-list-index {
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
     box-sizing: border-box;
     padding: 0 0 8px 8px;
     height: calc(100vh - 90px);
-    transition: .1s ease-out;
+    transition: 0.1s ease-out;
 }
 
-.outer-list-index.tray-active {
+#outer-list-index.tray-active {
     width: calc(100% - 320px);
 }
 
@@ -50,8 +50,6 @@
     box-sizing: border-box;
     cursor: grab;
     line-height: 1.2em;
-    /* resize: none;
-    overflow: hidden; */
 }
 
 .list-index-item-title-edit.edit-active {
@@ -71,21 +69,14 @@
     border-radius: 3px;
     min-height: 15px;
     box-sizing: border-box;
-    /* cursor: grab; */
     display: flex;
     align-items: center;
     margin: 0;
 }
 
-/* .list-index-item-title-wrapper:focus {
-    cursor: text;
-} */
-
 .list-index-item-title-edit {
-    /* background: transparent; */
     background-color: white;
     box-sizing: border-box;
-    /* border: 2px solid rgba(0, 0, 0, 0); */
     border: 2px solid rgb(93, 169, 240);
     border-radius: 3px;
     font-size: 15px;
@@ -106,12 +97,6 @@
 .no-display {
     display: none;
 }
-
-/* .list-index-item-title-edit:focus {
-    cursor: text;
-    border: 2px solid rgb(93, 169, 240);
-    background-color: white;
-} */
 
 .list-header-display button, .list-header-edit button {
     background: transparent;
