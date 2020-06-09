@@ -74,7 +74,9 @@ class ListIndexItem extends React.Component {
   }
 
   startAddingCard() {
-    this.setState({addingCard: true})
+    this.setState({addingCard: true}, () => {
+      document.getElementById(`new-card-${this.props.listId}`).select()
+    })
   }
 
   render() {
