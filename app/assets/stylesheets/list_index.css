@@ -134,8 +134,9 @@
 }
 
 .list-dropdown {
-    width: 275px;
+    min-width: 250px;
     cursor: initial;
+    left: 100px;
 }
 
 .list-dropdown li {
