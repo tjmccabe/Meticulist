@@ -126,17 +126,20 @@
     max-width: 28px;
     box-sizing: border-box;
     cursor: pointer;
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.4);
 }
 
 .list-header-display button:hover, .list-header-edit button:hover {
     background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.6);
 }
 
-.list-dropdown {
+.list-dropdown.dropdown-content {
     min-width: 250px;
     cursor: initial;
-    left: 100px;
+    /* left: 100px; */
+    right: -20px;
+    top: 35px;
 }
 
 .list-dropdown li {

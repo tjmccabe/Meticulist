@@ -45,10 +45,14 @@ class BoardShowBar extends React.Component {
   }
 
   render() {
-    const {board, openModal, openTray} = this.props;
+    const {board, openModal, openTray, trayActive} = this.props;
     //Personal Just Me
     //Personal Shared with others
     //Shared with me
+
+    const classes = trayActive ? (
+      "menu-tray-button no-display"
+    ) : "menu-tray-button"
 
     this.resize();
 
@@ -97,7 +101,7 @@ class BoardShowBar extends React.Component {
         </div>
         <div className='board-show-bar-right'>
           <button
-            className='menu-tray-button'
+            className={classes}
             onClick={openTray}
           >
             <div className="menu-btn">

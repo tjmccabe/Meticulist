@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {createList, reorderCards, reorderTwoLists} from '../../actions/list_actions';
+import { updateCard } from "../../actions/card_actions"
 // maybe also updateList
 // all card actions in a deeper component
 import {fetchBoard, reorderLists} from '../../actions/board_actions';
@@ -28,7 +29,8 @@ const mDTP = (dispatch) => ({
     createList: list => dispatch(createList(list)),
     deleteList: listId => dispatch(deleteList(listId)),
     reorderCards: (cardOrder, listId) => dispatch(reorderCards(cardOrder, listId)),
-    reorderTwoLists: (cO1, lI1, cO2, lI2) => dispatch(reorderTwoLists(cO1, lI1, cO2, lI2))
+    reorderTwoLists: (cO1, lI1, cO2, lI2) => dispatch(reorderTwoLists(cO1, lI1, cO2, lI2)),
+    updateCard: card => dispatch(updateCard(card))
 })
 
 export default withRouter(connect(mSTP, mDTP)(ListIndex))

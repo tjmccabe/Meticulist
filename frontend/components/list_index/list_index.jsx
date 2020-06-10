@@ -114,6 +114,7 @@ class ListIndex extends React.Component {
 
   onDragStart(start) {
     $(".outer-card-index").addClass("no-vert-scroll")
+    // tilt the dragged item
   }
 
   onDragUpdate(update) {
@@ -124,7 +125,7 @@ class ListIndex extends React.Component {
     $(".outer-card-index").removeClass("no-vert-scroll")
     const {draggableId, source, destination, type} = result
     const {listOrder, cardOrders} = this.state
-    const {reorderLists, reorderCards, reorderTwoLists, boardId} = this.props
+    const {reorderLists, reorderCards, reorderTwoLists, updateCard, boardId} = this.props
 
     if (!destination) return;
 
@@ -172,6 +173,8 @@ class ListIndex extends React.Component {
           endCardOrder,
           endListId
         )
+
+        updateCard({ id: movingCardId, list_id: endListId})
       }
     }
   }

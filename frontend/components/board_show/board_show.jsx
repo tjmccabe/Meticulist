@@ -18,7 +18,7 @@ class BoardShow extends React.Component {
     }
 
     render() {
-        const {board, currentBoardId, openModal, updateBoard, openTray} = this.props;
+        const {board, currentBoardId, openModal, updateBoard, openTray, trayActive} = this.props;
 
         return board ? (
             <div id="outer-board-show">
@@ -33,6 +33,7 @@ class BoardShow extends React.Component {
                     updateBoard={updateBoard}
                     openModal={openModal}
                     openTray={openTray}
+                    trayActive={trayActive}
                 />
                 <ListIndexContainer/>
                 {/* {some new list form} */}

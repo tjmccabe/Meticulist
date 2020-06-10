@@ -10,6 +10,7 @@ const mSTP = (state, ownProps) => {
     let currentBoardId = ownProps.match.params.boardId
     return{
     board: state.entities.boards[currentBoardId],
+    trayActive: state.ui.trayActive,
     currentBoardId
 }};
 
