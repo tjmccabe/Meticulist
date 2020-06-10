@@ -2,14 +2,15 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import NewBoardFormContainer from '../board_form/new_board_form_container';
 import UpdateBoardFormContainer from '../board_form/update_board_form_container';
+import CardDetailsContainer from '../card_index/card_details_container';
 
-const Modal = ({modal, closeModal}) => {
+const Modal = ({modal, cardId, closeModal}) => {
   if (!modal) {
     return null;
   }
 
   let component;
-  let addClass = null;
+  let addClass = "";
 
   switch (modal) {
     case 'newBoard':
@@ -21,7 +22,7 @@ const Modal = ({modal, closeModal}) => {
       addClass = 'high-modal'
       break;
     case 'cardDetails':
-      component = null;
+      component = <CardDetailsContainer cardId={cardId}/>;
       break;
     default:
       return null;

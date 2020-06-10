@@ -1,7 +1,7 @@
 import React from 'react';
 import {Draggable} from 'react-beautiful-dnd';
 
-const CardIndexItem = ({card, index}) => {
+const CardIndexItem = ({card, index, openModal}) => {
   if (!card) return null;
 
   const draggingClass = (snapshot) => {
@@ -20,6 +20,7 @@ const CardIndexItem = ({card, index}) => {
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
+          onClick={() => openModal("cardDetails", card.id)}
         >
           <div className="card-title" >
             {card.title}

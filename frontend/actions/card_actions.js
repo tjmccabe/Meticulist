@@ -20,7 +20,7 @@ const removeCard = (card) => ({
     card
 });
 
-const receiveCardErrors = (errors) => ({
+export const receiveCardErrors = (errors) => ({
     type: RECEIVE_CARD_ERRORS,
     errors
 })
