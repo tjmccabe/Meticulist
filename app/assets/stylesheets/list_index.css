@@ -4,8 +4,27 @@
     overflow-y: hidden;
     box-sizing: border-box;
     padding: 0 0 8px 8px;
-    height: calc(100vh - 90px);
+    height: calc(100vh - 94px);
     transition: 0.1s ease-out;
+}
+
+#outer-list-index::-webkit-scrollbar {
+    height: 10px;
+    padding: 10px;
+}
+
+#outer-list-index::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, .4);
+    border-radius: 4px;
+}
+
+#outer-list-index::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 4px;
+}
+
+#outer-list-index::-webkit-scrollbar-button {
+  width: 5px;
 }
 
 #outer-list-index.tray-active {

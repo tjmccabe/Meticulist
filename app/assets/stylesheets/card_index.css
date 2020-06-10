@@ -10,6 +10,24 @@
     max-height: calc(100vh - 188px);
 }
 
+.outer-card-index::-webkit-scrollbar {
+    width: 5px;
+}
+
+.outer-card-index::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 2px;
+}
+
+.outer-card-index::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 2px;
+}
+
+.outer-card-index::-webkit-scrollbar-button {
+  height: 2px;
+}
+
 .outer-card-index.adding {
     max-height: calc(100vh - 150px);
 }
