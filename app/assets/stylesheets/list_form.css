@@ -1,42 +1,58 @@
-.add-a-card {
+#list-form-container {
+  margin-right: 8px;
+  width: 275px;
+  min-width: 275px;
+  box-sizing: border-box;
+  height: fit-content;
+  border-radius: 3px;
+  transition: all .25s;
+}
+
+.add-a-list {
+  background-color: rgba(255, 255, 255, .65);
   display: flex;
   align-items: center;
+  width: 100%;
+  max-height: 40px;
+  height: 40px;
   font-size: 14px;
-  margin: 2px 8px 8px;
+  padding: 10px 15px;
   padding: 4px 8px;
-  color: gray;
+  color: rgb(50, 50, 50);
   border-radius: 3px;
 }
 
-.add-a-card span {
+.add-a-list span {
   font-size: 20px;
   margin-right: 2px;
 }
 
-.add-a-card:hover {
+.add-a-list:hover {
   cursor: pointer;
-  background-color: rgba(0, 0, 0, .1);
-  color: rgb(50, 50, 50);
+  background-color: rgba(255, 255, 255, .8);
 }
 
-.new-card-form-container {
+.new-list-form-container {
+  padding: 8px;
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
+  background-color: rgba(245, 245, 245, .9);
+  border-radius: 3px;
 }
 
-.add-card-buttons {
+.add-list-buttons {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2px;
 }
 
-.new-card-title-edit {
+.new-list-title-edit {
   border-radius: 3px;
   background-color: white;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, .2);
+  border: 2px solid #0079bf;
   width: 100%;
-  min-height: 60px;
+  min-height: 36px;
   margin-bottom: 6px;
   text-decoration: none;
   padding: 6px 8px;
@@ -47,7 +63,7 @@
   overflow: hidden;
 }
 
-.add-card-buttons button {
+.add-list-buttons button {
   cursor: pointer;
   border-radius: 3px;
   position: relative;
@@ -58,13 +74,13 @@
   transition: all .15s;
 }
   
-.add-card-button {
+.add-list-button {
   color: white;
   padding: .5em 1em;
   background-color: #6F5187;
 }
 
-.add-card-button:hover {
+.add-list-button:hover {
   background-color: #7f6295;
 }
   

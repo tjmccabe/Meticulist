@@ -1,13 +1,13 @@
 .outer-card-index {
     overflow-y: auto;
-    margin: 0 4px;
+    margin: 0 4px 6px;
     padding: 0 4px;
     box-sizing: border-box;
     min-height: 10px;
     white-space: normal;
     display: flex;
     flex-direction: column;
-    max-height: calc(100vh - 188px);
+    max-height: calc(100vh - 194px);
 }
 
 .outer-card-index::-webkit-scrollbar {
@@ -24,12 +24,8 @@
     border-radius: 2px;
 }
 
-.outer-card-index::-webkit-scrollbar-button {
-  height: 2px;
-}
-
 .outer-card-index.adding {
-    max-height: calc(100vh - 150px);
+    max-height: calc(100vh - 156px);
 }
 
 .no-vert-scroll {
@@ -47,9 +43,13 @@
     padding: 6px 8px;
 }
 
+.card-index-item:last-child {
+    margin-bottom: 2px;
+}
+
 .card-index-item:hover {
     cursor: pointer;
-    background-color: rgba(255, 255, 255, .5)
+    background-color: rgb(245, 245, 245)
 }
 
 .card-title {

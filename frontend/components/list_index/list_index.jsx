@@ -1,6 +1,7 @@
 import React from 'react';
 import {DragDropContext, Droppable} from 'react-beautiful-dnd';
 import ListIndexItemContainer from './list_index_item_container';
+import ListFormContainer from './list_form_container';
 
 class ListIndex extends React.Component {
   constructor(props) {
@@ -208,8 +209,9 @@ class ListIndex extends React.Component {
               {...provided.droppableProps}
             >
               {this.makeLists()}
-              <div className="phantom"></div>
               {provided.placeholder}
+              <ListFormContainer boardId={this.props.boardId}/>
+              <div className="phantom"></div>
             </div>
           )}
         </Droppable>

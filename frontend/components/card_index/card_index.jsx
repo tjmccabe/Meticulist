@@ -10,7 +10,7 @@ class CardIndex extends React.Component {
       newCardTitle: ""
     }
 
-    this.shouldScroll = false;
+    this.keepGoing = false;
 
     this.listener = this.listener.bind(this)
     this.autoExpand = this.autoExpand.bind(this)
@@ -31,8 +31,8 @@ class CardIndex extends React.Component {
     }
 
     if (prevProps.cardOrder.length < this.props.cardOrder.length) {
-      if (this.shouldScroll) this.scroll();
-      this.shouldScroll = false;
+      if (this.keepGoing) this.props.startAddingCard();
+      this.keepGoing = false;
     }
   }
 
@@ -59,7 +59,7 @@ class CardIndex extends React.Component {
 
     if (newCardTitle.length > 0) {
       createCard({ title: newCardTitle, list_id: listId })
-      this.shouldScroll = true;
+      this.keepGoing = true;
       this.setState({ newCardTitle: "" }, stopAddingCard)
     } else stopAddingCard();
   }

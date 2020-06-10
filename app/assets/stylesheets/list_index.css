@@ -40,7 +40,7 @@
     width: 275px;
     min-width: 275px;
     box-sizing: border-box;
-    background-color: rgba(245, 245, 245, .85);
+    background-color: rgba(245, 245, 245, .9);
     height: fit-content;
     display: flex;
     flex-direction: column;

@@ -150,6 +150,7 @@ class ListIndexItem extends React.Component {
               listId={listId}
               addingCard={this.state.addingCard}
               stopAddingCard={this.stopAddingCard}
+              startAddingCard={this.startAddingCard}
             />
             <NewCardPlaceholder
               addingCard={this.state.addingCard}
