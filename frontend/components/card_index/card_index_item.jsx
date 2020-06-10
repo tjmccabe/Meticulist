@@ -2,6 +2,7 @@ import React from 'react';
 import {Draggable} from 'react-beautiful-dnd';
 
 const CardIndexItem = ({card, index}) => {
+  if (!card) return null;
 
   const draggingClass = (snapshot) => {
     return snapshot.isDragging ? ("card-index-item dragged-card") : ("card-index-item")

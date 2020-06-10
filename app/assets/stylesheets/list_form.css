@@ -5,11 +5,11 @@
   box-sizing: border-box;
   height: fit-content;
   border-radius: 3px;
-  transition: all .25s;
+  transition: all .2s;
 }
 
 .add-a-list {
-  background-color: rgba(255, 255, 255, .65);
+  background-color: rgba(255, 255, 255, .6);
   display: flex;
   align-items: center;
   width: 100%;
@@ -29,11 +29,12 @@
 
 .add-a-list:hover {
   cursor: pointer;
-  background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, .75);
+  color: rgb(25, 25, 25);
 }
 
 .new-list-form-container {
-  padding: 8px;
+  padding: 6px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -53,7 +54,7 @@
   border: 2px solid #0079bf;
   width: 100%;
   min-height: 36px;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   text-decoration: none;
   padding: 6px 8px;
   font-size: 14px;

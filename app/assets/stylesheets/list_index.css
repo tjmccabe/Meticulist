@@ -132,3 +132,17 @@
 .list-header-display button:hover, .list-header-edit button:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+.list-dropdown {
+    width: 275px;
+    cursor: initial;
+}
+
+.list-dropdown li {
+    list-style: none;
+}
+
+.dropdown-options .delete-list {
+    font-weight: bold;
+    color: darkred;
+}

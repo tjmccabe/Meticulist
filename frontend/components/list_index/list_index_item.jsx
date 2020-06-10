@@ -2,6 +2,7 @@ import React from 'react';
 import {Draggable, Droppable} from 'react-beautiful-dnd';
 import CardIndexContainer from '../card_index/card_index_container';
 import NewCardPlaceholder from './new_card_placeholder';
+import ListEditDropdown from './list_edit_dropdown';
 
 class ListIndexItem extends React.Component {
   constructor(props) {
@@ -84,7 +85,8 @@ class ListIndexItem extends React.Component {
   }
 
   render() {
-    const {list, index, listId} = this.props
+    const {title, index, listId} = this.props;
+    if ( listId === null || !title) return null;
 
     const draggingClass = (snapshot) => {
       return snapshot.isDragging ? ("list-index-item dragged-list") : ("list-index-item")
@@ -93,7 +95,7 @@ class ListIndexItem extends React.Component {
     const editButton = (
       <button
         className="editing image"
-        onClick={this.startEditing}
+        onClick={() => this.props.openDropdown(`list-${listId}`)}
       >
         <span className="material-icons">
           edit
@@ -123,10 +125,18 @@ class ListIndexItem extends React.Component {
                 className="list-index-item-title-display"
                 onClick={this.startEditing}
               >
-                {list.title}
+                {title}
               </div>
               {editButton}
             </div>
+            <ListEditDropdown
+              listId={listId}
+              closeDropdowns={this.props.closeDropdowns}
+              currentDropdown={this.props.currentDropdown}
+              deleteList={this.props.deleteList}
+              startEditing={this.startEditing}
+              startAddingCard={this.startAddingCard}
+            />
             <div
               className="list-header-edit no-display"
             >
