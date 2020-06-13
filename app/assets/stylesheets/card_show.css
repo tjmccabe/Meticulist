@@ -112,6 +112,11 @@
 
 .card-action span {
   font-size: 18px;
+  margin-right: 5px;
+}
+
+#delete-action {
+  color: darkred;
 }
 
 #card-show-attributes {
@@ -143,8 +148,6 @@
 
 #card-show-description-edit {
   background: transparent;
-  /* padding: 6px 20px 6px 0; */
-  /* margin-bottom: 20px; */
   padding: 2px 6px;
   border: 2px solid transparent;
   position: relative;
@@ -210,4 +213,14 @@
 #description-save {
   position: relative;
   left: -8px;
+}
+
+#new-comment {
+  background: white;
+  padding: 2px 6px;
+  border: 2px solid transparent;
+}
+
+#new-comment:focus {
+  border: 2px solid #0079bf;
 }

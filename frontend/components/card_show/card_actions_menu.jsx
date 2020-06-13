@@ -27,7 +27,7 @@ const CardActions = ({card, deleteCard, updateCard, closeModal}) => {
         >
           <div className="menu-btn">
             <span className="material-icons">
-              label
+              video_label
             </span>
             <div className="btntxt">
               Edit Title
@@ -40,7 +40,7 @@ const CardActions = ({card, deleteCard, updateCard, closeModal}) => {
         >
           <div className="menu-btn">
             <span className="material-icons">
-              subject
+              notes
             </span>
             <div className="btntxt">
               Edit Description
@@ -66,7 +66,7 @@ const CardActions = ({card, deleteCard, updateCard, closeModal}) => {
         >
           <div className="menu-btn">
             <span className="material-icons">
-              chat
+              chat_bubble_outline
             </span>
             <div className="btntxt">
               Write Comment
@@ -77,7 +77,7 @@ const CardActions = ({card, deleteCard, updateCard, closeModal}) => {
           className="card-action"
           onClick={() => {deleteCard(card.id); closeModal()}}
         >
-          <div className="menu-btn">
+          <div id="delete-action" className="menu-btn">
             <span className="material-icons">
               delete_forever
             </span>

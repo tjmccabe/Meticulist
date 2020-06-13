@@ -64,7 +64,7 @@ class CommentBlock extends React.Component {
       <div id="card-show-comments" className="card-show-container">
         <div className="card-show-heading">
           <span className="material-icons">
-            chat
+            chat_bubble_outline
           </span>
           <div>Comments</div>
         </div>

@@ -52,12 +52,29 @@
     background-color: rgb(245, 245, 245)
 }
 
-.card-title {
+.card-index-item:focus {
+    outline: none;
+}
+
+.card-index-item-inner {
     overflow: hidden;
     z-index: 5;
     width: 100%;
     height: 100%;
     cursor: pointer;
+}
+
+.card-title {
+    width: 100%;
     font-size: 14px;
     line-height: 1.5em;
+}
+
+.card-icons {
+    color: rgb(100, 100, 100);
+    display: flex;
+}
+
+.card-icons span {
+    font-size: 16px;
 }

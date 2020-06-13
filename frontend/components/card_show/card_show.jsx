@@ -105,7 +105,7 @@ class CardShow extends React.Component {
     const titleBlock = (
       <div id="card-show-title" className="card-show-container">
         <span className="material-icons">
-          label
+          video_label
         </span>
         <textarea
           id="card-show-title-edit"
@@ -126,7 +126,7 @@ class CardShow extends React.Component {
       <div id="card-show-description" className="card-show-container">
         <div className="card-show-heading">
           <span className="material-icons">
-            subject
+            notes
           </span>
           <div>Description</div>
         </div>
@@ -143,7 +143,6 @@ class CardShow extends React.Component {
             onKeyDown={(e) => this.keyPress(e, "description")}
             onBlur={(e) => this.rename(e, "description")}
             onFocus={this.showSave}
-            spellCheck="false"
           />
         </form>
         <div id="description-save" className="card-show-save no-height">Save</div>
