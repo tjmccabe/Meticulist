@@ -2,7 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import NewBoardFormContainer from '../board_form/new_board_form_container';
 import UpdateBoardFormContainer from '../board_form/update_board_form_container';
-import CardDetailsContainer from '../card_index/card_details_container';
+import CardShowContainer from '../card_show/card_show_container';
 
 const Modal = ({modal, cardId, closeModal}) => {
   if (!modal) {
@@ -10,27 +10,29 @@ const Modal = ({modal, cardId, closeModal}) => {
   }
 
   let component;
-  let addClass = "";
+  let childClass = "";
+  let parentClass = "";
 
   switch (modal) {
     case 'newBoard':
       component = <NewBoardFormContainer/>;
-      addClass = 'high-modal'
+      childClass = 'high-modal'
       break;
     case 'updateBoard':
       component = <UpdateBoardFormContainer/>;
-      addClass = 'high-modal'
+      childClass = 'high-modal'
       break;
-    case 'cardDetails':
-      component = <CardDetailsContainer cardId={cardId}/>;
+    case 'cardShow':
+      component = <CardShowContainer cardId={cardId}/>;
+      childClass = 'scrollable-modal'
       break;
     default:
       return null;
   }
 
   return (
-    <div className="modal-background" onClick={closeModal}>
-      <div className={`modal-child ${addClass}`} onClick={e => e.stopPropagation()}>
+    <div className={`modal-background ${parentClass}`} onMouseDown={closeModal}>
+      <div className={`modal-child ${childClass}`} onMouseDown={e => e.stopPropagation()}>
         { component }
       </div>
     </div>

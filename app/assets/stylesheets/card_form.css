@@ -19,6 +19,12 @@
   color: rgb(50, 50, 50);
 }
 
+.add-a-card.no-hover:hover {
+  cursor: initial;
+  background: transparent;
+  color: gray;
+}
+
 .new-card-form-container {
   display: flex;
   flex-direction: column;

@@ -2,14 +2,17 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { updateCard, deleteCard, receiveCardErrors } from '../../actions/card_actions';
 import { closeModal } from '../../actions/modal_actions';
-import CardDetails from './card_details';
+import CardShow from './card_show';
 
 const mSTP = (state, ownProps) => {
   let { cardId } = ownProps;
   let card = cardId ? state.entities.cards[cardId] : null;
+  let listId = card ? card.listId : null
+  let listTitle = state.entities.lists[listId] ? state.entities.lists[listId].title : null;
   return {
     cardId,
     card,
+    listTitle,
     errors: state.errors.card,
     currentUserId: state.session.id,
   }
@@ -22,4 +25,4 @@ const mDTP = (dispatch) => ({
   clearErrors: () => dispatch(receiveCardErrors([]))
 })
 
-export default withRouter(connect(mSTP, mDTP)(CardDetails))
+export default withRouter(connect(mSTP, mDTP)(CardShow))

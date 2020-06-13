@@ -20,7 +20,7 @@ const CardIndexItem = ({card, index, openModal}) => {
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          onClick={() => openModal("cardDetails", card.id)}
+          onClick={() => openModal("cardShow", card.id)}
         >
           <div className="card-title" >
             {card.title}

@@ -15,6 +15,7 @@ class ListIndex extends React.Component {
     this.onDragEnd = this.onDragEnd.bind(this)
     this.onDragStart = this.onDragStart.bind(this)
     this.orderingError = this.orderingError.bind(this)
+    // this.listenForScroll = this.listenForScroll.bind(this)
   }
 
   componentDidUpdate(prevProps) {
@@ -112,18 +113,39 @@ class ListIndex extends React.Component {
     return false;
   }
 
+  // listenForScroll(e) {
+  //   let listIndex = document.getElementById("outer-list-index");
+  //   let listIndexWidth = listIndex.clientWidth;
+
+  //   if (e.clientX > listIndexWidth * 0.8 && e.clientX < listIndexWidth) {
+  //     console.log("scroll right" + listIndexWidth)
+  //     listIndex.scrollBy({
+  //       left: 50,
+  //       behavior: 'smooth'
+  //     });
+  //   } else if (e.clientX < listIndexWidth * 0.2 && e.clientX > 0) {
+  //     console.log("scroll left")
+  //   } else {
+  //     console.log("stop scrolling")
+  //   }
+  // }
+
   onDragStart(start) {
     $(".outer-card-index").addClass("no-vert-scroll")
+    $(".add-a-card").addClass("no-hover")
+    // if (start.type === "CARD") window.addEventListener("mousemove", this.listenForScroll)
     // tilt the dragged item
   }
-
+  
   onDragUpdate(update) {
     // add shading to the active placeholder
   }
-
+  
   onDragEnd(result) {
     $(".outer-card-index").removeClass("no-vert-scroll")
+    $(".add-a-card").removeClass("no-hover")
     const {draggableId, source, destination, type} = result
+    // if (type === "CARD") window.removeEventListener("mousemove", this.listenForScroll)
     const {listOrder, cardOrders} = this.state
     const {reorderLists, reorderCards, reorderTwoLists, updateCard, boardId} = this.props
 

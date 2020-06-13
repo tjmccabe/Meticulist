@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.bActs = bActs;
     window.lActs = lActs;
     window.cActs = cActs;
+    // window['__react-beautiful-dnd-disable-dev-warnings'] = true
     //testing above
     
     const root = document.getElementById("root");
