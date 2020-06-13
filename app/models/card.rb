@@ -5,12 +5,10 @@
 #  id          :bigint           not null, primary key
 #  list_id     :integer          not null
 #  title       :string           not null
-#  description :text
+#  description :string           default("")
 #  due_date    :datetime
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  next_id     :integer
-#  prev_id     :integer
 #
 class Card < ApplicationRecord
     validates :list_id, :title, presence: true
@@ -20,6 +18,10 @@ class Card < ApplicationRecord
     belongs_to :list,
         foreign_key: :list_id,
         class_name: :List
+
+    has_many :comments, dependent: :destroy,
+        foreign_key: :card_id,
+        class_name: :Comment
 
     has_one_attached :image
 

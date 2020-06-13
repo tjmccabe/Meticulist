@@ -35,9 +35,9 @@ board3 = Board.create({
     admin_id: demo_user.id,
     title: 'School',
     description: 'App Academy\'s always keepin\' us busy',
-    bgp_big_url: "",
-    bgp_small_url: "",
-    bgp_alt_text: ""
+    bgp_big_url: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjEzMTUxNH0",
+    bgp_small_url: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjEzMTUxNH0",
+    bgp_alt_text: "colored pencil lined up on top of white surface"
 })
 board4 = Board.create({
     admin_id: demo_user.id,

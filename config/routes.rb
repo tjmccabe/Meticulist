@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :boards, except: [:new, :edit]
     resources :lists, only: [:create, :update, :destroy]
     resources :cards, only: [:create, :update, :destroy]
+    resources :comments, only: [:create, :update, :destroy]
   end
 
   

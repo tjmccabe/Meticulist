@@ -18,9 +18,9 @@ class User < ApplicationRecord
     validates :username, :password_digest, :session_token, presence: true
     validates :username, length: {minimum: 2, message: "must be at least 2 characters."}
     validates :password, length: {
-        minimum: 8,
+        minimum: 6,
         allow_nil: true,
-        message: "must be at least 8 characters."
+        message: "must be at least 6 characters."
     }
     validates :username, :email, :session_token, uniqueness: {
         message: "already in use by another account."
@@ -31,6 +31,10 @@ class User < ApplicationRecord
     has_many :admined_boards,
         foreign_key: :admin_id,
         class_name: :Board
+
+    has_many :comments, dependent: :destroy,
+        foreign_key: :author_id,
+        class_name: :Comment
 
     def check_email
         unless /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i.match?(self.email)

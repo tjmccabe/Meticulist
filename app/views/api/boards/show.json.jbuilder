@@ -21,4 +21,16 @@ json.cards do
     end
 end
 
+json.comments do
+    @board.lists.each do |list|
+        list.cards.each do |card|
+            card.comments.each do |comment|
+                json.set! comment.id do
+                    json.partial! '/api/comments/comment', comment: comment
+                end
+            end
+        end
+    end
+end
+
 # users top-level key for members?

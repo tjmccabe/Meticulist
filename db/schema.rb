@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_171935) do
+ActiveRecord::Schema.define(version: 2020_06_13_224634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_05_06_171935) do
   create_table "boards", force: :cascade do |t|
     t.integer "admin_id", null: false
     t.string "title", null: false
-    t.text "description"
+    t.text "description", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "bgp_big_url"
@@ -52,13 +52,21 @@ ActiveRecord::Schema.define(version: 2020_05_06_171935) do
   create_table "cards", force: :cascade do |t|
     t.integer "list_id", null: false
     t.string "title", null: false
-    t.text "description"
+    t.text "description", default: ""
     t.datetime "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "next_id"
-    t.integer "prev_id"
     t.index ["list_id"], name: "index_cards_on_list_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "author_id", null: false
+    t.integer "card_id", null: false
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_comments_on_author_id"
+    t.index ["card_id"], name: "index_comments_on_card_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -66,8 +74,6 @@ ActiveRecord::Schema.define(version: 2020_05_06_171935) do
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "next_id"
-    t.integer "prev_id"
     t.text "card_order", default: "[]", null: false
     t.index ["board_id"], name: "index_lists_on_board_id"
   end
