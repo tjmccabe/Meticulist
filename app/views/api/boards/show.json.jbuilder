@@ -1,6 +1,6 @@
 json.board do
     json.partial! 'board', board: @board
-    json.listOrder JSON.parse(@board.list_order)
+    # json.listOrder JSON.parse(@board.list_order)
 end
 
 json.lists do
