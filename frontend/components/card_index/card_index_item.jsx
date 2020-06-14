@@ -9,17 +9,17 @@ const CardIndexItem = ({card, index, openModal}) => {
   }
 
   const dueDateIcon = card.dueDate ? (
-    <div>DD</div>
+    <div className="due-date-icon">DD</div>
   ) : null;
 
   const descriptionIcon = card.description ? (
-    <div>
+    <div className="description-icon">
       <span className="material-icons">notes</span>
     </div>
   ) : null;
 
   const commentIcon = card.commentIds && card.commentIds.length ? (
-    <div>
+    <div className="comment-icon">
       <span className="material-icons">
         chat_bubble_outline
       </span>
