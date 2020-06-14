@@ -9,7 +9,7 @@ export const boardShowPageSelector = (state, ownProps) => {
 }
 
 export const getCardOrders = (state, listOrder) => {
-    if (!listOrder) return {};
+    if (!listOrder || listOrder.length === 0 ) return {};
     let h = {}
     listOrder.forEach(listId => { h[parseInt(listId)] = state.entities.lists[listId].cardOrder})
     return h;

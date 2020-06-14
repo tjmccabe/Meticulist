@@ -31,8 +31,18 @@ class CommentBlock extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const {currentUserId, cardId} = this.props; 
-    // add comment to card
+    const {currentUserId, cardId, createComment} = this.props; 
+    if (this.state.newComment) {
+      let newComment = {
+        author_id: currentUserId,
+        card_id: cardId,
+        body: this.state.newComment
+      }
+      createComment(newComment)
+      this.setState({ newComment: "" })
+    }
+    let commentBox = document.getElementById(`new-comment`)
+    commentBox.blur();
 
     let save = document.getElementById(`comment-save`)
     save.classList.add("no-height")

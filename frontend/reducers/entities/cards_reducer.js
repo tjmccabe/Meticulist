@@ -4,6 +4,7 @@ import {
     REMOVE_CARD
 } from '../../actions/card_actions';
 import { RECEIVE_BOARD } from '../../actions/board_actions';
+import { RECEIVE_NEW_COMMENT, REMOVE_COMMENT } from '../../actions/comment_actions';
 import {LOGOUT_CURRENT_USER} from '../../actions/session_actions'
 
 const cardsReducer = (state = {}, action) => {
@@ -20,6 +21,16 @@ const cardsReducer = (state = {}, action) => {
             return newState
         case RECEIVE_BOARD:
             return Object.assign({}, state, action.payload.cards);
+        case RECEIVE_NEW_COMMENT:
+            let newCommentIds = [...state[action.comment.cardId].commentIds]
+            newCommentIds.push(action.comment.id)
+            let newCard = Object.assign({}, state[action.comment.cardId], {commentIds: newCommentIds})
+            return Object.assign({}, state, { [action.comment.cardId]: newCard });
+        case REMOVE_COMMENT:
+            let newCommentIds2 = [...state[action.comment.cardId].commentIds]
+            newCommentIds2.filter(id => id !== action.comment.id)
+            let newCard2 = Object.assign({}, state[action.comment.cardId], { commentIds: newCommentIds2 })
+            return Object.assign({}, state, { [action.comment.cardId]: newCard2 });
         case LOGOUT_CURRENT_USER:
             return {};
         default:

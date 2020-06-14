@@ -9,7 +9,7 @@ json.extract! board,
 json.admin do
     json.extract! board.admin, :id, :username, :email
 end
-json.listOrder JSON.parse(board.list_order)
+# json.listOrder JSON.parse(board.list_order)
 # json.listIds board.list_ids
 # json.memberIds do
 #     json.array! board.members, :id

@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-// import { fetchUser } from '../../actions/user_actions';
+import {
+  createComment,
+  updateComment,
+  deleteComment,
+  receiveCommentErrors } from '../../actions/comment_actions';
 import CommentBlock from './comment_block';
 
 const mSTP = (state, ownProps) => {
@@ -16,7 +20,10 @@ const mSTP = (state, ownProps) => {
 }
 
 const mDTP = (dispatch) => ({
-  // clearErrors: () => dispatch(receiveCommentErrors([]))
+  createComment: comment => dispatch(createComment(comment)),
+  updateComment: comment => dispatch(updateComment(comment)),
+  deleteComment: commentId => dispatch(deleteComment(commentId)),
+  clearErrors: () => dispatch(receiveCommentErrors([]))
 })
 
 export default withRouter(connect(mSTP, mDTP)(CommentBlock))
