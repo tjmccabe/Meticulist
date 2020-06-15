@@ -214,13 +214,3 @@
   position: relative;
   left: -8px;
 }
-
-#new-comment {
-  background: white;
-  padding: 2px 6px;
-  border: 2px solid transparent;
-}
-
-#new-comment:focus {
-  border: 2px solid #0079bf;
-}

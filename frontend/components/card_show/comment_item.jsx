@@ -11,6 +11,8 @@ class CommentItem extends React.Component {
     this.startEditing = this.startEditing.bind(this)
     this.stopEditing = this.stopEditing.bind(this)
     this.autoExpand = this.autoExpand.bind(this)
+    this.showSave = this.showSave.bind(this)
+    this.hideSave = this.hideSave.bind(this)
   }
 
   componentDidMount() {
@@ -45,6 +47,7 @@ class CommentItem extends React.Component {
     displayTitle.classList.add("no-display")
     textArea.parentElement.classList.remove("no-display")
     this.autoExpand()
+    this.showSave();
     textArea.select()
   }
 
@@ -52,6 +55,7 @@ class CommentItem extends React.Component {
     let { comment } = this.props
     let textArea = document.getElementById(`edit-comment-${comment.id}`)
     let displayTitle = document.getElementById(`display-comment-${comment.id}`)
+    this.hideSave();
     textArea.parentElement.classList.add("no-display")
     displayTitle.classList.remove("no-display")
   }
@@ -72,29 +76,51 @@ class CommentItem extends React.Component {
     textArea.style.height = height + 'px';
   };
 
+  showSave() {
+    let save = document.getElementById(`comment-edit-${this.props.comment.id}`)
+    save.classList.remove("no-height")
+  }
+
+  hideSave() {
+    let save = document.getElementById(`comment-edit-${this.props.comment.id}`)
+    save.classList.remove("no-height")
+  }
+
+  formatTime(time) {
+    const date = new Date(time)
+    const dateTimeFormat = new Intl.DateTimeFormat('en', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour12: true,
+      hour: 'numeric',
+      minute: 'numeric'
+    })
+
+    const [
+      { value: month },,
+      { value: day },,
+      { value: year },,
+      { value: hour },,
+      { value: minute },,
+      { value: dayPeriod }
+    ] = dateTimeFormat.formatToParts(date)
+
+    return (`${month} ${day}, ${year} at ${hour}:${minute} ${dayPeriod}`)
+  }
+
   render() {
-    const { comment, currentUserId, updateComment, deleteComment } = this.props
+    const { comment, currentUserId, deleteComment } = this.props
 
-    const editLink = currentUserId === comment.authorId ? (
-      <div
-        onClick={this.startEditing}
-      >
-        Edit
-      </div>
-    ) : null;
-
-    const deleteLink = currentUserId === comment.authorId ? (
-      <div
-        onClick={() => deleteComment(comment.id)}
-      >
-        Delete
-      </div>
-    ) : null;
-
-    const commentLinks = (editLink || deleteLink) ? (
+    const commentLinks = currentUserId === comment.authorId ? (
       <div className="comment-links">
-        {editLink}
-        {deleteLink}
+        <div onClick={this.startEditing}>
+          Edit
+        </div>
+        <span>-</span>
+        <div onClick={() => deleteComment(comment.id)}>
+          Delete
+        </div>
       </div>
     ) : null;
 
@@ -110,14 +136,40 @@ class CommentItem extends React.Component {
           value={this.state.body}
           onKeyDown={(e) => this.keyPress(e)}
         />
+        <div
+          id={`comment-edit-${this.props.comment.id}`}
+          className="card-show-save no-height"
+          onClick={(e) => this.rebody(e)}
+        >
+          Save
+        </div>
+        <span
+          className="material-icons stop-editing-comment"
+          onClick={() => this.setState({ body: this.props.comment.body }, this.stopEditing)}
+        >
+          clear
+        </span>
       </form>
-    ) : null
+    ) : null;
+
+    const edited = comment.createdAt !== comment.updatedAt ? (
+      <div className="comment-edited">(edited)</div>
+    ) : null;
 
     return(
       <div className="comment-item">
         <span className="card-show-name-circle">
           {comment.authorName.substring(0, 2)}
         </span>
+        <div className="basic-comment-info">
+          <div className="comment-author-name">
+            {comment.authorName}
+          </div>
+          <div className="comment-created-at">
+            {this.formatTime(comment.createdAt)}
+          </div>
+          {edited}
+        </div>
         <div
           className="display-comment-body"
           id={`display-comment-${comment.id}`}
