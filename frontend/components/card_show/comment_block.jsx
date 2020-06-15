@@ -70,11 +70,19 @@ class CommentBlock extends React.Component {
   }
 
   makeComments() {
-    const {comments} = this.props
+    const {comments, currentUserId, updateComment, deleteComment} = this.props
     return comments.length ? (
     <div id="comment-container">
       {comments.map((comment, idx) => {
-        return <CommentItem key={idx} comment={comment}/>
+        return (
+          <CommentItem
+            key={idx}
+            comment={comment}
+            currentUserId={currentUserId}
+            updateComment={updateComment}
+            deleteComment={deleteComment}
+          />
+        )
       })}
     </div>
     ) : null;

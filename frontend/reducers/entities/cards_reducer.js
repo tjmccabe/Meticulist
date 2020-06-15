@@ -28,7 +28,7 @@ const cardsReducer = (state = {}, action) => {
             return Object.assign({}, state, { [action.comment.cardId]: newCard });
         case REMOVE_COMMENT:
             let newCommentIds2 = [...state[action.comment.cardId].commentIds]
-            newCommentIds2.filter(id => id !== action.comment.id)
+            newCommentIds2 = newCommentIds2.filter(id => id !== action.comment.id)
             let newCard2 = Object.assign({}, state[action.comment.cardId], { commentIds: newCommentIds2 })
             return Object.assign({}, state, { [action.comment.cardId]: newCard2 });
         case LOGOUT_CURRENT_USER:

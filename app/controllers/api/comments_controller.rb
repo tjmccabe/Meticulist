@@ -33,7 +33,7 @@ class Api::CommentsController < ApplicationController
     elsif @comment.author_id != current_user.id
       render json: ["Comment may only be deleted by author"], status: 403
     else
-      if @list.destroy
+      if @comment.destroy
         render :show
       else
         render json: @comment.errors.full_messages, status: 422
