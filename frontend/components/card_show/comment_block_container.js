@@ -5,14 +5,17 @@ import {
   updateComment,
   deleteComment,
   receiveCommentErrors } from '../../actions/comment_actions';
+import {getComments} from "../../reducers/selectors"
 import CommentBlock from './comment_block';
 
 const mSTP = (state, ownProps) => {
   let { card } = ownProps;
+  let comments = getComments(state, card)
   let currentUserId = state.session.id;
   return {
     card,
     cardId: card.id,
+    comments,
     errors: state.errors.comments ? state.errors.comments : [], // change after errors exist
     currentUserId,
     currentUser: state.entities.users[currentUserId]

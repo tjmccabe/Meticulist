@@ -26,3 +26,9 @@ export const getCards = (state, cardOrder) => {
     cardOrder.forEach(cardId => h[parseInt(cardId)] = state.entities.cards[cardId])
     return h;
 }
+
+export const getComments = (state, card) => {
+    let comments = [];
+    card.commentIds.forEach(commentId => comments.push(state.entities.comments[commentId]))
+    return comments.reverse();
+}

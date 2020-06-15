@@ -1,5 +1,6 @@
 import React from "react";
 import { debounce } from "throttle-debounce";
+import CommentItem from "./comment_item";
 
 class CommentBlock extends React.Component {
   constructor(props) {
@@ -13,16 +14,17 @@ class CommentBlock extends React.Component {
     this.autoExpand = this.autoExpand.bind(this)
     this.showSave = this.showSave.bind(this)
     this.handleBlur = this.handleBlur.bind(this)
+    this.makeComments = this.makeComments.bind(this)
   }
 
   componentDidMount() {
     this.autoExpand()
-    window.addEventListener("resize", debounce(300, this.autoExpand))
+    // window.addEventListener("resize", debounce(300, this.autoExpand))
     // if no currentUser, fetch them via currentUserId
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", debounce(300, this.autoExpand))
+    // window.removeEventListener("resize", debounce(300, this.autoExpand))
   }
 
   handleChange(e) {
@@ -67,8 +69,21 @@ class CommentBlock extends React.Component {
     }
   }
 
+  makeComments() {
+    const {comments} = this.props
+    return comments.length ? (
+    <div id="comment-container">
+      {comments.map((comment, idx) => {
+        return <CommentItem key={idx} comment={comment}/>
+      })}
+    </div>
+    ) : null;
+  }
+
   render() {
     const {newComment} = this.state
+
+    const commentContainer = this.makeComments()
 
     return (
       <div id="card-show-comments" className="card-show-container">
@@ -102,9 +117,7 @@ class CommentBlock extends React.Component {
             Save
           </div>
         </form>
-        <div id="comment-container">
-  
-        </div>
+        {commentContainer}
       </div>
     )
   }
