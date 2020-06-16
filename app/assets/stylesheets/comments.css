@@ -41,12 +41,9 @@
   background-color: white;
   border-radius: 3px;
   box-shadow: 0 1px 2px -1px rgba(0,0,0,.2), 0 0 0 1px rgba(0,0,0,.1);
-  box-sizing: border-box;
-  display: inline-block;
+  width: fit-content;
   margin: 8px 0 6px;
   overflow: hidden;
-  /* text-overflow: ellipsis; */
-  /* max-width: 100%; */
 }
 
 .comment-links {
@@ -58,4 +55,42 @@
 
 .comment-links span {
   margin: 0 5px;
+}
+
+.comment-links>div:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.comment-body-edit {
+  padding: 6px 10px;
+  font-size: 14px;
+  line-height: 1.5em;
+  background-color: white;
+  border-radius: 3px;
+  width: 100%;
+  margin: 8px 0 0;
+  overflow: hidden;
+  resize: none;
+  /* padding: 2px 6px; */
+  border: 2px solid transparent;
+}
+
+.comment-body-edit:focus {
+  border: 2px solid #0079bf;
+}
+
+.comment-edit-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.stop-editing-comment {
+  margin-left: 10px;
+  color: gray;
+}
+
+.stop-editing-comment:hover {
+  color: rgb(80, 80, 80);
+  cursor: pointer;
 }

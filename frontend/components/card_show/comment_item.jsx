@@ -136,19 +136,21 @@ class CommentItem extends React.Component {
           value={this.state.body}
           onKeyDown={(e) => this.keyPress(e)}
         />
-        <div
-          id={`comment-edit-${this.props.comment.id}`}
-          className="card-show-save no-height"
-          onClick={(e) => this.rebody(e)}
-        >
-          Save
+        <div className="comment-edit-buttons">
+          <div
+            id={`comment-edit-${this.props.comment.id}`}
+            className="card-show-save no-height"
+            onClick={(e) => this.rebody(e)}
+          >
+            Save
+          </div>
+          <span
+            className="material-icons stop-editing-comment"
+            onClick={() => this.setState({ body: this.props.comment.body }, this.stopEditing)}
+          >
+            clear
+          </span>
         </div>
-        <span
-          className="material-icons stop-editing-comment"
-          onClick={() => this.setState({ body: this.props.comment.body }, this.stopEditing)}
-        >
-          clear
-        </span>
       </form>
     ) : null;
 
