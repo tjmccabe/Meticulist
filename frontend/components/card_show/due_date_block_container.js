@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import DueDateBlock from './due_date_block';
+import { openDropdown } from "../../actions/dropdown_actions"
 
 const mSTP = (state, ownProps) => {
   let { card } = ownProps;
@@ -8,14 +9,13 @@ const mSTP = (state, ownProps) => {
   return {
     card,
     cardId: card.id,
-    errors: state.errors.dueDate ? state.errors.dueDate : [], // change after errors exist
-    currentUserId,
-    currentUser: state.entities.users[currentUserId]
+    dueDate: card.dueDate,
+    errors: state.errors.dueDate ? state.errors.dueDate : [] // change after errors exist
   }
 }
 
 const mDTP = (dispatch) => ({
-  // clearErrors: () => dispatch(receiveDueDateErrors([]))
+  openDropdown: (dropdown) => dispatch(openDropdown(dropdown))
 })
 
 export default withRouter(connect(mSTP, mDTP)(DueDateBlock))

@@ -11,8 +11,6 @@ class CommentItem extends React.Component {
     this.startEditing = this.startEditing.bind(this)
     this.stopEditing = this.stopEditing.bind(this)
     this.autoExpand = this.autoExpand.bind(this)
-    this.showSave = this.showSave.bind(this)
-    this.hideSave = this.hideSave.bind(this)
   }
 
   componentDidMount() {
@@ -47,7 +45,6 @@ class CommentItem extends React.Component {
     displayTitle.classList.add("no-display")
     textArea.parentElement.classList.remove("no-display")
     this.autoExpand()
-    this.showSave();
     textArea.select()
   }
 
@@ -55,7 +52,6 @@ class CommentItem extends React.Component {
     let { comment } = this.props
     let textArea = document.getElementById(`edit-comment-${comment.id}`)
     let displayTitle = document.getElementById(`display-comment-${comment.id}`)
-    this.hideSave();
     textArea.parentElement.classList.add("no-display")
     displayTitle.classList.remove("no-display")
   }
@@ -75,16 +71,6 @@ class CommentItem extends React.Component {
     const height = textArea.scrollHeight + 4
     textArea.style.height = height + 'px';
   };
-
-  showSave() {
-    let save = document.getElementById(`comment-edit-${this.props.comment.id}`)
-    save.classList.remove("no-height")
-  }
-
-  hideSave() {
-    let save = document.getElementById(`comment-edit-${this.props.comment.id}`)
-    save.classList.remove("no-height")
-  }
 
   formatTime(time) {
     const date = new Date(time)
@@ -139,7 +125,7 @@ class CommentItem extends React.Component {
         <div className="comment-edit-buttons">
           <div
             id={`comment-edit-${this.props.comment.id}`}
-            className="card-show-save no-height"
+            className="card-show-save"
             onClick={(e) => this.rebody(e)}
           >
             Save

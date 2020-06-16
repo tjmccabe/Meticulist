@@ -159,8 +159,9 @@ class CardShow extends React.Component {
         </div>
         <div id="card-show-body">
           <div id="card-show-attributes">
-            {descriptionBlock}
             <DueDateBlockContainer card={card} />
+            <input type="datetime-local"></input>
+            {descriptionBlock}
             <CommentBlockContainer card={card} />
           </div>
           <CardActions
