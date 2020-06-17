@@ -75,6 +75,7 @@
     display: flex;
     align-items: center;
     margin-top: 4px;
+    /* max-height: 22px; */
 }
 
 .card-icons>div {
@@ -84,6 +85,9 @@
 
 .card-icons span {
     font-size: 16px;
+}
+.description-icon {
+    max-height: 22px;
 }
 
 .comment-icon {
@@ -116,6 +120,6 @@
 
 #due-date-icon.overdue, #due-date-icon.due-soon {
     color: white;
-    padding: 3px 6px;
+    padding: 3px 5px;
     margin-right: 8px;
 }

@@ -13,8 +13,6 @@ class CardShow extends React.Component {
       description: this.props.card.description,
     }
 
-    // this.startEditing = this.startEditing.bind(this)
-    // this.stopEditing = this.stopEditing.bind(this)
     this.autoExpand = this.autoExpand.bind(this)
     this.showSave = this.showSave.bind(this)
   }
@@ -22,13 +20,9 @@ class CardShow extends React.Component {
   componentDidMount() {
     this.autoExpand();
     window.addEventListener("resize", debounce(300, this.autoExpand))
-    // fetch comments
   }
 
   componentDidUpdate(prevProps) {
-    // if the description, title, etc. is changed, fetch card
-    // if the comments are changed, fetch comments
-    //maybe not to the above. just ensure the props are based on state that would change
     if (prevProps && this.props.title !== prevProps.title) {
       this.setState({ titleInput: this.props.title })
     }
@@ -76,11 +70,13 @@ class CardShow extends React.Component {
 
   autoExpand() {
     let titleText = document.getElementById(`card-show-title-edit`)
+    if (!titleText) return;
     titleText.style.height = 0;
     const heightT = titleText.scrollHeight + 4
     titleText.style.height = heightT + 'px';
 
     let descriptionText = document.getElementById(`card-show-description-edit`)
+    if (!descriptionText) return;
     descriptionText.style.height = 0;
     const heightD = Math.max(descriptionText.scrollHeight + 4, 50)
     descriptionText.style.height = heightD + 'px';

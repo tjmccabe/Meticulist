@@ -6,6 +6,7 @@
   left: 0;
   background: rgba(0, 0, 0, 0.7);
   z-index: 1000;
+  overflow-y: auto;
 }
 
 .modal-child {
@@ -23,4 +24,5 @@
 .scrollable-modal {
   top: 50px;
   transform: translate(-50%, 0);
+  margin-bottom: 60px;
 }

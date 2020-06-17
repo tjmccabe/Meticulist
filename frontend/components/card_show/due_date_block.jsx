@@ -72,7 +72,7 @@ class DueDateBlock extends React.Component {
       minute: 'numeric'
     })
 
-    const [
+    let [
       { value: month }, ,
       { value: day }, ,
       { value: year }, ,
@@ -81,7 +81,10 @@ class DueDateBlock extends React.Component {
       { value: dayPeriod }
     ] = dateTimeFormat.formatToParts(this.state.date)
 
-    return (`${month} ${day}, ${year} at ${hour}:${minute} ${dayPeriod}`)
+    let thisYear = new Date().getFullYear()
+    year = parseInt(year) !== parseInt(thisYear) ? `, ${year}` : ""
+
+    return (`${month} ${day}${year} at ${hour}:${minute} ${dayPeriod}`)
   }
 
   render() {

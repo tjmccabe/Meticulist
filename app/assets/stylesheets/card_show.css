@@ -348,9 +348,10 @@
 
 .due-date-label {
   margin-left: 10px;
-  font-size: 12px;
+  font-size: 14px;
   border-radius: 2px;
   padding: 2px 4px 1px;
+  color: white;
 }
 
 .overdue {
