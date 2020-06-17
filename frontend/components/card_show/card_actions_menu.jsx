@@ -1,6 +1,7 @@
 import React from "react";
+import DueDateDropdownContainer from "./due_date_dropdown_container";
 
-const CardActions = ({card, deleteCard, updateCard, closeModal}) => {
+const CardActions = ({card, deleteCard, closeModal, openDropdown, dueDate}) => {
   const ddText = card.dueDate ? "Edit Due Date" : "Add Due Date";
 
   const titleFocus = () => {
@@ -49,7 +50,7 @@ const CardActions = ({card, deleteCard, updateCard, closeModal}) => {
         </button>
         <button
           className="card-action"
-          onClick={() => { }}
+          onClick={() => openDropdown("due-date-right")}
         >
           <div className="menu-btn">
             <span className="material-icons">
@@ -59,6 +60,10 @@ const CardActions = ({card, deleteCard, updateCard, closeModal}) => {
               {ddText}
             </div>
           </div>
+          <DueDateDropdownContainer
+            dropdownId="due-date-right"
+            card={card}
+          />
         </button>
         <button
           className="card-action"

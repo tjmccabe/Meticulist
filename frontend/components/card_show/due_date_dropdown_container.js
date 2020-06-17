@@ -5,9 +5,10 @@ import { closeDropdowns } from "../../actions/dropdown_actions";
 import { updateCard } from "../../actions/card_actions";
 
 const mSTP = (state, ownProps) => {
-  let { currentDueDate, dropdownId, card } = ownProps;
+  let {dropdownId} = ownProps;
+  let cardId = ownProps.card.id;
+  let card = state.entities.cards[cardId]
   return {
-    currentDueDate,
     dropdownId,
     card,
     currentDropdown: state.ui.dropdown,

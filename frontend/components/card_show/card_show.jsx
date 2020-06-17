@@ -96,7 +96,9 @@ class CardShow extends React.Component {
             listTitle,
             closeModal,
             updateCard,
-            deleteCard 
+            deleteCard,
+            openDropdown,
+            dueDate
           } = this.props;
 
     let {title, description} = this.state;
@@ -143,6 +145,7 @@ class CardShow extends React.Component {
             onKeyDown={(e) => this.keyPress(e, "description")}
             onBlur={(e) => this.rename(e, "description")}
             onFocus={this.showSave}
+            spellCheck="false"
           />
         </form>
         <div id="description-save" className="card-show-save no-height">Save</div>
@@ -160,7 +163,6 @@ class CardShow extends React.Component {
         <div id="card-show-body">
           <div id="card-show-attributes">
             <DueDateBlockContainer card={card} />
-            <input type="datetime-local"></input>
             {descriptionBlock}
             <CommentBlockContainer card={card} />
           </div>
@@ -169,6 +171,7 @@ class CardShow extends React.Component {
             updateCard={updateCard}
             deleteCard={deleteCard}
             closeModal={closeModal}
+            openDropdown={openDropdown}
           />
         </div>
       </div>

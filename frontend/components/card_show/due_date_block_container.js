@@ -4,13 +4,13 @@ import DueDateBlock from './due_date_block';
 import { openDropdown } from "../../actions/dropdown_actions"
 
 const mSTP = (state, ownProps) => {
-  let { card } = ownProps;
-  let currentUserId = state.session.id;
+  let cardId = ownProps.card.id;
+  let card = state.entities.cards[cardId]
+  // let dueDateString = JSON.stringify(card.dueDate)
   return {
     card,
-    cardId: card.id,
     dueDate: card.dueDate,
-    errors: state.errors.dueDate ? state.errors.dueDate : [] // change after errors exist
+    errors: state.errors.card
   }
 }
 

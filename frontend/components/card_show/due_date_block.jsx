@@ -7,10 +7,12 @@ class DueDateBlock extends React.Component {
 
     this.state = {
       overdue: false,
-      dueSoon: false
+      dueSoon: false,
+      date: new Date(this.props.dueDate)
     }
 
     this.setTimers = this.setTimers.bind(this)
+    this.formatTime = this.formatTime.bind(this)
   }
 
   componentDidMount() {
@@ -19,7 +21,7 @@ class DueDateBlock extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.dueDate !== prevProps.dueDate) {
-      this.setTimers()
+      this.setState({date: new Date(this.props.dueDate)}, this.setTimers)
     }
   }
 
@@ -33,30 +35,30 @@ class DueDateBlock extends React.Component {
     if (this.timeout2) clearTimeout(this.timeout2)
     if (!this.props.dueDate) return;
 
-    this.date = new Date(this.props.dueDate);
     this.now = new Date()
 
-    let overdue = this.date - this.now < 0
-    let notSoon = this.date - this.now > 86400000;
+    let overdue = this.state.date - this.now < 0
+    let notSoon = this.state.date - this.now > 86400000;
 
     if (notSoon) {
+      this.setState({ dueSoon: false, overdue: false })
       this.timeout1 = setTimeout(() => {
-        this.setState({ dueSoon: true })
-      }, date - now - 86400000)
+        this.setState({ dueSoon: true, overdue: false})
+      }, this.state.date - this.now - 86400000)
       this.timeout2 = setTimeout(() => {
         this.setState({ dueSoon: false, overdue: true })
-      }, date - now)
+      }, this.state.date - this.now)
     }
 
     if (!overdue && !notSoon) {
-      this.setState({ dueSoon: true })
+      this.setState({ dueSoon: true, overdue: false })
       this.timeout1 = setTimeout(() => {
         this.setState({ dueSoon: false, overdue: true })
-      }, date - now)
+      }, this.state.date - this.now)
     }
 
     if (overdue) {
-      this.setState({ overdue: true })
+      this.setState({ dueSoon: false, overdue: true })
     }
   }
 
@@ -77,17 +79,18 @@ class DueDateBlock extends React.Component {
       { value: hour }, ,
       { value: minute }, ,
       { value: dayPeriod }
-    ] = dateTimeFormat.formatToParts(date)
+    ] = dateTimeFormat.formatToParts(this.state.date)
 
     return (`${month} ${day}, ${year} at ${hour}:${minute} ${dayPeriod}`)
   }
 
 
   render() {
-    const {card, dueDate} = this.props;
+    const {card, dueDate, openDropdown} = this.props;
     if (!card || !dueDate) return null;
 
-    const {overdue, dueSoon} = this.state;
+    const {overdue, dueSoon, date} = this.state;
+
     const dueDateLabel = overdue ? (
       <span id="overdue" className="due-date-label overdue">OVERDUE</span>
     ) : dueSoon ? (
@@ -105,17 +108,16 @@ class DueDateBlock extends React.Component {
         <div className="card-show-sub">
           <div
             id="display-due-date"
-            onClick={() => openDropdown("dueDateLeft")}
+            onClick={() => openDropdown("due-date-left")}
           >
             <div>
-              {formatTime()}
+              {this.formatTime()}
             </div>
             {dueDateLabel}
           </div>
         </div>
         <DueDateDropdownContainer
-          currentDueDate={dueDate}
-          dropdownId="dueDateLeft"
+          dropdownId="due-date-left"
           card={card}
         />
       </div>

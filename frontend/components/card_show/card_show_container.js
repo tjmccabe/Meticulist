@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { updateCard, deleteCard, receiveCardErrors } from '../../actions/card_actions';
 import { closeModal } from '../../actions/modal_actions';
+import { openDropdown } from '../../actions/dropdown_actions';
 import CardShow from './card_show';
 
 const mSTP = (state, ownProps) => {
@@ -10,6 +11,7 @@ const mSTP = (state, ownProps) => {
   let listId = card ? card.listId : null
   let listTitle = state.entities.lists[listId] ? state.entities.lists[listId].title : null;
   return {
+    dueDate: card.dueDate,
     cardId,
     card,
     listTitle,
@@ -22,6 +24,7 @@ const mDTP = (dispatch) => ({
   closeModal: () => dispatch(closeModal()),
   updateCard: (card) => dispatch(updateCard(card)),
   deleteCard: (cardId) => dispatch(deleteCard(cardId)),
+  openDropdown: (dropdown) => dispatch(openDropdown(dropdown)),
   clearErrors: () => dispatch(receiveCardErrors([]))
 })
 
