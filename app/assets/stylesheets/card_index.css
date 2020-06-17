@@ -73,10 +73,13 @@
 .card-icons {
     color: rgb(100, 100, 100);
     display: flex;
+    align-items: center;
+    margin-top: 4px;
 }
 
 .card-icons>div {
-    margin-right: 12px;
+    margin-right: 10px;
+    padding: 3px 0;
 }
 
 .card-icons span {
@@ -84,7 +87,9 @@
 }
 
 .comment-icon {
-    display: flex
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .comment-icon span {
@@ -92,5 +97,25 @@
 }
 
 .comment-icon div {
-    font-size: 14px;
+    font-size: 12px;
+}
+
+#due-date-icon {
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+}
+
+#due-date-icon span {
+    margin-right: 3px
+}
+
+#due-date-icon div {
+    font-size: 12px;
+}
+
+#due-date-icon.overdue, #due-date-icon.due-soon {
+    color: white;
+    padding: 3px 6px;
+    margin-right: 8px;
 }

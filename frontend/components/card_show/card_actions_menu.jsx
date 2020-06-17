@@ -27,7 +27,7 @@ const CardActions = ({card, deleteCard, closeModal, openDropdown, dueDate}) => {
           onClick={titleFocus}
         >
           <div className="menu-btn">
-            <span className="material-icons">
+            <span className="material-icons card-action-span">
               video_label
             </span>
             <div className="btntxt">
@@ -40,7 +40,7 @@ const CardActions = ({card, deleteCard, closeModal, openDropdown, dueDate}) => {
           onClick={descriptionFocus}
         >
           <div className="menu-btn">
-            <span className="material-icons">
+            <span className="material-icons card-action-span">
               notes
             </span>
             <div className="btntxt">
@@ -49,11 +49,12 @@ const CardActions = ({card, deleteCard, closeModal, openDropdown, dueDate}) => {
           </div>
         </button>
         <button
+          id="due-date-action"
           className="card-action"
           onClick={() => openDropdown("due-date-right")}
         >
           <div className="menu-btn">
-            <span className="material-icons">
+            <span className="material-icons card-action-span">
               alarm
             </span>
             <div className="btntxt">
@@ -70,7 +71,7 @@ const CardActions = ({card, deleteCard, closeModal, openDropdown, dueDate}) => {
           onClick={commentFocus}
         >
           <div className="menu-btn">
-            <span className="material-icons">
+            <span className="material-icons card-action-span">
               chat_bubble_outline
             </span>
             <div className="btntxt">
@@ -83,7 +84,7 @@ const CardActions = ({card, deleteCard, closeModal, openDropdown, dueDate}) => {
           onClick={() => {deleteCard(card.id); closeModal()}}
         >
           <div id="delete-action" className="menu-btn">
-            <span className="material-icons">
+            <span className="material-icons card-action-span">
               delete_forever
             </span>
             <div className="btntxt">

@@ -84,7 +84,6 @@ class DueDateBlock extends React.Component {
     return (`${month} ${day}, ${year} at ${hour}:${minute} ${dayPeriod}`)
   }
 
-
   render() {
     const {card, dueDate, openDropdown} = this.props;
     if (!card || !dueDate) return null;
@@ -110,9 +109,9 @@ class DueDateBlock extends React.Component {
             id="display-due-date"
             onClick={() => openDropdown("due-date-left")}
           >
-            <div>
+            <span id="">
               {this.formatTime()}
-            </div>
+            </span>
             {dueDateLabel}
           </div>
         </div>
