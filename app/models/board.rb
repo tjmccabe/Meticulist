@@ -31,4 +31,7 @@ class Board < ApplicationRecord
     def ensure_ordering
         self.list_order ||= "[]"
     end
+
+    def board_pull_placeholder
+    end
 end
