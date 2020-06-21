@@ -89,15 +89,15 @@ class BoardShowBar extends React.Component {
           </button>
           <hr/>
           <div className="members-container">
-            <div className="dropbtn name-circle">
+            <div className="dropbtn name-circle no-hover">
               { board.admin ? board.admin.username.substring(0,2) : null}
             </div>
           </div>
-          <button className="invite-button dropdown dropbtn">
+          {/* <button className="invite-button dropdown dropbtn">
             <div className="dropbtn btntxt">
               Invite
             </div>
-          </button>
+          </button> */}
         </div>
         <div className='board-show-bar-right'>
           <button

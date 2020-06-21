@@ -37,8 +37,4 @@ class Board < ApplicationRecord
     def ensure_ordering
         self.list_order ||= "[]"
     end
-
-    # def self.board_pull(id)
-    #     return Board.includes(:admin, :lists, :cards, :comments, :authors).find_by(id: id)
-    # end
 end

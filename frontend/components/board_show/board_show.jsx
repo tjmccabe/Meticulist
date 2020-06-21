@@ -37,7 +37,6 @@ class BoardShow extends React.Component {
                     trayActive={trayActive}
                 />
                 <ListIndexContainer/>
-                {/* {some new list form} */}
             </div>
         ) : null
     }

@@ -23,11 +23,12 @@
     border-radius: 3px;
     height: 32px;
     box-sizing: border-box;
-    cursor: pointer;
+    
 }
 
 .board-show-bar button:hover {
     background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
 }
 
 .board-show-bar-left > hr {
@@ -104,14 +105,21 @@
     height: 28px;
     font-family: 'Lato', sans-serif;
     font-size: 12px;
-    cursor: pointer;
 }
 
 .name-circle:hover {
     background-color: rgb(165, 165, 165);
+    cursor: pointer;
 }
 
-#shared-indicator {
+.name-circle.no-hover:hover {
+    background-color: lightgray;
+    cursor: default;
+}
+
+#shared-indicator:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: default;
     /* background-color: rgba(255, 255, 255, 0.35); */
     /* width: 100%; */
     /* height: 32px; */
