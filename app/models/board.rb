@@ -31,10 +31,14 @@ class Board < ApplicationRecord
     has_many :comments,
         through: :cards
 
+    has_many :authors,
+        through: :comments
+
     def ensure_ordering
         self.list_order ||= "[]"
     end
 
-    def board_pull_placeholder
-    end
+    # def self.board_pull(id)
+    #     return Board.includes(:admin, :lists, :cards, :comments, :authors).find_by(id: id)
+    # end
 end

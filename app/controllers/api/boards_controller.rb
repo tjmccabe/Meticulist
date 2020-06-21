@@ -2,7 +2,7 @@ class Api::BoardsController < ApplicationController
     before_action :require_logged_in
 
     def index
-        @boards = Board.where(admin_id: current_user.id)
+        @boards = Board.includes(:admin).where(admin_id: current_user.id)
         # will change to finding by board memberships
         # maybe find 2 tiers based on whether they created the board
         render :index
@@ -18,7 +18,9 @@ class Api::BoardsController < ApplicationController
     end
     
     def show
-        @board = Board.find_by(id: params[:id])
+        puts "about to pull"
+        @board = Board.includes(:admin, :lists, :cards, :comments, :authors).find_by(id: params[:id])
+        puts "pulled"
         if @board.nil?
             render json: ["Board not found"], status: 404
         elsif @board.admin_id != current_user.id
