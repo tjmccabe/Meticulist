@@ -12,7 +12,7 @@
 class List < ApplicationRecord
     validates :board_id, :title, :card_order, presence: true
     after_initialize :ensure_ordering
-    after_create :stack
+    after_create :append
     after_destroy :splice
 
     belongs_to :board,
@@ -27,7 +27,7 @@ class List < ApplicationRecord
         self.card_order ||= "[]"
     end
 
-    def stack
+    def append
         board = Board.find_by(id: self.board_id)
         board.list_order = JSON.parse(board.list_order).push(self.id).to_json
         board.save

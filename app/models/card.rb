@@ -12,7 +12,7 @@
 #
 class Card < ApplicationRecord
     validates :list_id, :title, presence: true
-    after_create :stack
+    after_create :append
     after_destroy :splice
 
     belongs_to :list,
@@ -25,7 +25,7 @@ class Card < ApplicationRecord
 
     has_one_attached :image
 
-    def stack
+    def append
         list = List.find_by(id: self.list_id)
         list.card_order = JSON.parse(list.card_order).push(self.id).to_json
         list.save

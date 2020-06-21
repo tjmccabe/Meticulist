@@ -28,6 +28,9 @@ class Board < ApplicationRecord
     has_many :cards,
         through: :lists
 
+    has_many :comments,
+        through: :cards
+
     def ensure_ordering
         self.list_order ||= "[]"
     end
