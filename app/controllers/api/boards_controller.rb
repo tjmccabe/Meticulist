@@ -18,9 +18,8 @@ class Api::BoardsController < ApplicationController
     end
     
     def show
-        puts "about to pull"
         @board = Board.includes(:admin, :lists, :cards, :comments, :authors).find_by(id: params[:id])
-        puts "pulled"
+        
         if @board.nil?
             render json: ["Board not found"], status: 404
         elsif @board.admin_id != current_user.id

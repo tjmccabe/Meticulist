@@ -31,6 +31,7 @@ class ListIndex extends React.Component {
     if (this.orderingError()) return;
 
     if (this.props.boardId !== prevProps.boardId) {
+      // console.log("list index fetch")
       this.props.fetchBoard(this.props.boardId)
         .then(this.setState({
           listOrder: listOrder,

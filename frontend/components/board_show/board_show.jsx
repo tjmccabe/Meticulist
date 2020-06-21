@@ -13,6 +13,7 @@ class BoardShow extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.currentBoardId !== this.props.currentBoardId) {
+            // console.log("mismatch")
             this.props.fetchBoard(this.props.currentBoardId)
         }
     }

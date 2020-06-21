@@ -35,7 +35,7 @@ class BoardsDropdown extends React.Component {
                         >
                             <button
                                 style={{ 'backgroundImage': `url("${board.bgpSmallUrl}")`}}
-                                onClick={() => fetchBoard(board.id)}
+                                // onClick={() => fetchBoard(board.id)}
                             >
                                 <Link to={`/boards/${board.id}`} className="dimmer">
                                     <div className="tiny-board"></div>
