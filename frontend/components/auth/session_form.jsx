@@ -106,33 +106,42 @@ class SessionForm extends React.Component {
 
         return (
             <div className="outer-session-form">
-                <div className="session-header">
-                    <h1 id='session-logo'>Meticulist</h1>
+                <div id="session-form-top">
+
+                    <div className="session-header">
+                        <h1 id='session-logo'>Meticulist</h1>
+                    </div>
+                    <div className="account-form">
+                        <form className={["session-form", `${this.disabled()}`].join(' ')} onSubmit={this.handleSubmit}>
+                            {SessionErrors}
+                            <div className='top-text'>{TopText}</div>
+                            <input
+                                id="email-input"
+                                type="text"
+                                value={this.state.email}
+                                placeholder="Enter email"
+                                onChange={this.handleChange('email')}
+                            />
+                            {UsernameField}
+                            <input
+                                id="password-input"
+                                type="password"
+                                value={this.state.password}
+                                placeholder={formType === 'Sign Up' ? "Create password" : "Enter password"}
+                                onChange={this.handleChange('password')}
+                            />
+                            <button className={this.disabled()}>{formType}</button>
+                        </form>
+                        {DemoButton}
+                        <hr/>
+                        {AltFormLink}
+                    </div>
                 </div>
-                <div className="account-form">
-                    <form className={["session-form", `${this.disabled()}`].join(' ')} onSubmit={this.handleSubmit}>
-                        {SessionErrors}
-                        <div className='top-text'>{TopText}</div>
-                        <input
-                            id="email-input"
-                            type="text"
-                            value={this.state.email}
-                            placeholder="Enter email"
-                            onChange={this.handleChange('email')}
-                        />
-                        {UsernameField}
-                        <input
-                            id="password-input"
-                            type="password"
-                            value={this.state.password}
-                            placeholder={formType === 'Sign Up' ? "Create password" : "Enter password"}
-                            onChange={this.handleChange('password')}
-                        />
-                        <button className={this.disabled()}>{formType}</button>
-                    </form>
-                    {DemoButton}
-                    <hr></hr>
-                    {AltFormLink}
+                <div id="session-form-bottom">
+                    <hr/>
+                    <div id="session-footer">
+
+                    </div>
                 </div>
                 <div id="session-background">
                     <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/list.png" alt="list" />
