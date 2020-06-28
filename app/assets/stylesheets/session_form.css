@@ -147,10 +147,36 @@ button.disabled {
 
 #session-form-bottom hr {
     width: 400px;
-    margin: 30px 0;
+    margin: 30px 0 15px;
 }
 
+#session-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
 
+#footer-heading {
+    margin-bottom: 15px;
+    text-align: center;
+    line-height: 2em;
+}
+
+#my-name {
+    font-size: 22px;
+    font-weight: bold;
+    color: #601962;
+}
+
+#footer-links {
+    display: flex;
+}
+
+.footer-link {
+    margin: 0 10px;
+    list-style: none;
+}
 
 #session-background {
     position: fixed;

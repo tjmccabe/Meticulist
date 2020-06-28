@@ -140,26 +140,27 @@ class SessionForm extends React.Component {
                 <div id="session-form-bottom">
                     <hr/>
                     <div id="session-footer">
-                        <div>
+                        <div id="footer-heading">
                             Created by
                             <br/>
-                            <br/>
-                            TJ McCABE
+                            <span id="my-name">
+                                TJ McCABE
+                            </span>
                         </div>
-                        <ul>
-                            <li>
+                        <div id="footer-links">
+                            <li className="footer-link">
                                 Portfolio
                             </li>
-                            <li>
+                            <li className="footer-link">
                                 LinkedIn
                             </li>
-                            <li>
+                            <li className="footer-link">
                                 GitHub
                             </li>
-                            <li>
+                            <li className="footer-link">
                                 AngelList
                             </li>
-                        </ul>
+                        </div>
                     </div>
                 </div>
                 <div id="session-background">
