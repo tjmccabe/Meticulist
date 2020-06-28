@@ -147,7 +147,7 @@ button.disabled {
 
 #session-form-bottom hr {
     width: 400px;
-    margin: 30px 0 15px;
+    margin: 20px 0 15px;
 }
 
 #session-footer {
@@ -161,21 +161,44 @@ button.disabled {
     margin-bottom: 15px;
     text-align: center;
     line-height: 2em;
+    display: flex;
+    align-items: center;
 }
+
+/* #foot-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+} */
 
 #my-name {
     font-size: 22px;
     font-weight: bold;
     color: #601962;
+    /* margin-left: 15px;
+    margin-top: 5px; */
 }
 
 #footer-links {
     display: flex;
+    color: rgb(70, 70, 70);
+    margin-bottom: 30px;
 }
 
 .footer-link {
     margin: 0 10px;
     list-style: none;
+    color: rgb(70, 70, 70);
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#copyright {
+    color: rgb(120, 120, 120);
+    font-size: 14px;
 }
 
 #session-background {

@@ -141,25 +141,47 @@ class SessionForm extends React.Component {
                     <hr/>
                     <div id="session-footer">
                         <div id="footer-heading">
-                            Created by
-                            <br/>
+                            {/* <img
+                                id="foot-pic"
+                                src="https://distansing-dev.s3-us-west-1.amazonaws.com/tj.png"
+                                alt="TJ McCabe"
+                            /> */}
                             <span id="my-name">
                                 TJ McCABE
                             </span>
                         </div>
                         <div id="footer-links">
-                            <li className="footer-link">
+                            <a
+                                className="footer-link"
+                                href="https://tjmccabe.me/"
+                                target="_blank"
+                            >
                                 Portfolio
-                            </li>
-                            <li className="footer-link">
+                            </a>
+                            <a
+                                className="footer-link"
+                                href="https://www.linkedin.com/in/tj-mccabe/"
+                                target="_blank"
+                            >
                                 LinkedIn
-                            </li>
-                            <li className="footer-link">
+                            </a>
+                            <a
+                                className="footer-link"
+                                href="https://github.com/tjmccabe/Meticulist"
+                                target="_blank"
+                            >
                                 GitHub
-                            </li>
-                            <li className="footer-link">
+                            </a>
+                            <a
+                                className="footer-link"
+                                href="https://angel.co/u/tj-mccabe-3"
+                                target="_blank"
+                            >
                                 AngelList
-                            </li>
+                            </a>
+                        </div>
+                        <div id="copyright">
+                            © Copyright 2020. All rights reserved.
                         </div>
                     </div>
                 </div>
