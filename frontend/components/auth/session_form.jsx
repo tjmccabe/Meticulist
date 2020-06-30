@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { FaLinkedin, FaGithub, FaAngellist, FaUserCircle } from "react-icons/fa";
+import Footer from './footer'
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -140,55 +140,7 @@ class SessionForm extends React.Component {
                 </div>
                 <div id="session-form-bottom">
                     <hr/>
-                    <div id="session-footer">
-                        <div id="footer-heading">
-                            {/* <img
-                                id="foot-pic"
-                                src="https://distansing-dev.s3-us-west-1.amazonaws.com/tj.png"
-                                alt="TJ McCabe"
-                            /> */}
-                            <span id="my-name">
-                                TJ McCABE
-                            </span>
-                        </div>
-                        <div id="footer-links">
-                            <a
-                                className="footer-link"
-                                href="https://tjmccabe.me/"
-                                target="_blank"
-                            >
-                                <FaUserCircle className="footer-logo footer-id-logo" />
-                                Portfolio
-                            </a>
-                            <a
-                                className="footer-link"
-                                href="https://www.linkedin.com/in/tj-mccabe/"
-                                target="_blank"
-                            >
-                                <FaLinkedin className="footer-logo footer-li-logo" />
-                                LinkedIn
-                            </a>
-                            <a
-                                className="footer-link"
-                                href="https://github.com/tjmccabe/Meticulist"
-                                target="_blank"
-                            >
-                                <FaGithub className="footer-logo footer-git-logo" />
-                                GitHub
-                            </a>
-                            <a
-                                className="footer-link"
-                                href="https://angel.co/u/tj-mccabe-3"
-                                target="_blank"
-                            >
-                                <FaAngellist className="footer-logo footer-al-logo" />
-                                AngelList
-                            </a>
-                        </div>
-                        <div id="copyright">
-                            © Copyright 2020. All rights reserved.
-                        </div>
-                    </div>
+                    <Footer/>
                 </div>
                 <div id="session-background">
                     <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/list.png" alt="list" />

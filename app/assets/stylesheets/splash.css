@@ -1,11 +1,16 @@
+#splash {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #hero {
     background: linear-gradient(170deg, #7E5A9B, #5067c5);
-    display: block;
+    width: 100%;
     min-height: 600px;
 }
 
 #collaborate {
-    background-color: lightpink;
     display: block;
     min-height: 900px;
 }
@@ -26,20 +31,49 @@
     margin: 150px 10px 50px;
 }
 
-.hero-text h1 {
+#hero h1 {
     font-size: 54px;
     line-height: 4rem;
 }
 
-.hero-text p {
+#hero p {
     font-size: 32px;
     line-height: 3rem;
     margin-top: 10px;
 }
 
-.container img {
+#hero img {
     object-fit: contain;
     width: 450px;
     max-width: 57%;
     margin-top: 50px;
+}
+
+#get-started {
+    background: linear-gradient(rgb(255, 211, 218) 0%, transparent 95%);
+    width: 100%;
+    min-height: 300px;
+}
+
+#get-started .container {
+    display: flex;
+    flex-direction: column;
+}
+
+#get-started h1 {
+    margin-top: 50px;
+    font-size: 36px;
+    line-height: 4rem;
+}
+
+#get-started p {
+    font-size: 20px;
+    line-height: 2rem;
+    text-align: center;
+    width: 500px;
+}
+
+#splash hr {
+    width: 400px;
+    margin: 20px 0 10px;
 }
