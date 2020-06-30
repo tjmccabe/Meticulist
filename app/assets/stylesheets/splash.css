@@ -13,16 +13,11 @@
     align-items: center;
 }
 
-#collaborate {
-    display: block;
-    min-height: 900px;
-}
-
 .container {
     padding: 0;
     display: flex;
+    width: 100%;
     max-width: 1200px;
-    margin: auto;
     box-sizing: border-box;
     align-items: center;
     justify-content: space-around;
@@ -83,16 +78,98 @@
     background-color: #54a344;
 }
 
+#collaborate {
+    background: linear-gradient(rgba(221, 255, 211, 0.7) 0%, transparent 50%, rgba(255, 211, 218, 0.40) 100%);
+    width: 100%;
+    /* min-height: 600px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#collaborate .container {
+    height: 100%;
+    margin: 0 20px -10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.collaborate-text {
+    width: 40%;
+    min-width: 375px;
+    color: black;
+    margin-left: 10px;
+}
+
+#collaborate h1 {
+    font-size: 42px;
+    line-height: 3rem;
+}
+
+#collaborate p {
+    font-size: 24px;
+    line-height: 2rem;
+    margin-top: 10px;
+}
+
+#collaborate img {
+    object-fit: contain;
+    min-width: 450px;
+    width: 55%;
+}
+
+#relax {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(rgba(255, 211, 218, 0.40) 0%, transparent 50%,  rgba(211, 248, 255, 0.6) 100%);
+}
+
+#relax .container {
+    height: 100%;
+    margin: -10px 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.relax-text {
+    width: 40%;
+    min-width: 375px;
+    color: black;
+    margin-right: 10px;
+}
+
+#relax h1 {
+    font-size: 42px;
+    line-height: 3rem;
+}
+
+#relax p {
+    font-size: 24px;
+    line-height: 2rem;
+    margin-top: 10px;
+}
+
+#relax img {
+    object-fit: contain;
+    min-width: 450px;
+    width: 55%;
+}
+
 #get-started {
-    background: linear-gradient(rgb(255, 211, 218) 0%, transparent 100%);
+    background: linear-gradient(rgba(211, 248, 255, 0.6) 50%, transparent 100%);
     width: 100%;
     margin-bottom: 20px;
-    /* min-height: 300px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #get-started .container {
     display: flex;
     flex-direction: column;
+    margin: 0 20px;
 }
 
 #get-started h1 {
@@ -105,7 +182,7 @@
     font-size: 20px;
     line-height: 2rem;
     text-align: center;
-    width: 480px;
+    width: 550px;
     margin-bottom: 20px;
 }
 
@@ -120,4 +197,8 @@
 #splash hr {
     width: 400px;
     margin: 20px 0 10px;
+}
+
+.strike {
+    text-decoration: line-through;
 }

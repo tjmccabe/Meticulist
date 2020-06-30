@@ -83,19 +83,36 @@ class Splash extends React.Component {
         </section>
         <section id="collaborate">
           <div className='container'>
-
+            <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/expense-tracking.png" alt="tracking" />
+            <div className="collaborate-text">
+              <h1>Information at a glance</h1>
+              <p>
+                Track your nittiest and grittiest details by adding descriptions,
+                due dates, and comments directly to Meticulist cards.
+              </p>
+            </div>
           </div>
         </section>
-        <section id="see-how">
+        <section id="relax">
           <div className='container'>
+            <div className="relax-text">
+              <h1>Peace of mind</h1>
+              <p>
+                Rest easy and let us keep track of your projects and tasks
+                for you, freeing your mind up for more important things.
+              </p>
+            </div>
+            <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/waiting.png" alt="tracking" />
           </div>
         </section>
         <section id="get-started">
           <div className='container'>
-            <h1>Start Planning Today</h1>
+            <h1>Start Meticulisting Today</h1>
             <p>
-              Sign up and become one of the dozens of people around
-              the world using Meticulist to get more done.
+              Sign up and become one of the dozens of people around the{" "}
+              <span className="strike">world</span>{" "}
+              <span className="strike">country</span>{" "}
+              local area using Meticulist to get things done.
             </p>
             <button
               className="sign-up-button down-button"
