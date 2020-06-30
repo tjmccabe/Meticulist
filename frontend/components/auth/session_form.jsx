@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { FaLinkedin, FaGithub, FaAngellist, FaUserCircle } from "react-icons/fa";
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -156,6 +157,7 @@ class SessionForm extends React.Component {
                                 href="https://tjmccabe.me/"
                                 target="_blank"
                             >
+                                <FaUserCircle className="footer-logo footer-id-logo" />
                                 Portfolio
                             </a>
                             <a
@@ -163,6 +165,7 @@ class SessionForm extends React.Component {
                                 href="https://www.linkedin.com/in/tj-mccabe/"
                                 target="_blank"
                             >
+                                <FaLinkedin className="footer-logo footer-li-logo" />
                                 LinkedIn
                             </a>
                             <a
@@ -170,6 +173,7 @@ class SessionForm extends React.Component {
                                 href="https://github.com/tjmccabe/Meticulist"
                                 target="_blank"
                             >
+                                <FaGithub className="footer-logo footer-git-logo" />
                                 GitHub
                             </a>
                             <a
@@ -177,6 +181,7 @@ class SessionForm extends React.Component {
                                 href="https://angel.co/u/tj-mccabe-3"
                                 target="_blank"
                             >
+                                <FaAngellist className="footer-logo footer-al-logo" />
                                 AngelList
                             </a>
                         </div>
