@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginBar from './login_bar';
 import Footer from './footer'
+import { withRouter } from 'react-router-dom';
 import { throttle } from 'throttle-debounce';
 
 class Splash extends React.Component {
@@ -40,8 +41,9 @@ class Splash extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault()
     const {email} = this.state;
-    
+    this.props.history.push(`/signup?email=${email}`)
   }
 
   render() {
@@ -61,22 +63,23 @@ class Splash extends React.Component {
                   Our boards, lists, and cards can help you 
                   organize and prioritize your life.
               </p>
-              <form
-                onSubmit={this.handleSubmit}
-              >
-                <input
-                  type="text"
-                  placeholder="Email"
-                  value={email}
-                  onChange={this.handleInput}
-                />
-                <button className="sign-up-button">
-                  Sign Up - It's Free!
-                </button>
-              </form>
             </div>
             <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/coworkers.png" alt="coworkers" />
           </div>
+          <form
+            onSubmit={(e) => this.handleSubmit(e)}
+          >
+            <input
+              id="splash-input"
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={this.handleInput}
+            />
+            <button className="sign-up-button">
+              Sign Up - It's Free!
+                </button>
+          </form>
         </section>
         <section id="collaborate">
           <div className='container'>
@@ -94,7 +97,10 @@ class Splash extends React.Component {
               Sign up and become one of the dozens of people around
               the world using Meticulist to get more done.
             </p>
-            <button className="sign-up-button">
+            <button
+              className="sign-up-button down-button"
+              onClick={() => this.props.history.push("/signup")}
+            >
               Get Started - It's Free!
             </button>
           </div>
@@ -106,4 +112,4 @@ class Splash extends React.Component {
   }
 }
 
-export default Splash;
+export default withRouter(Splash);

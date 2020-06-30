@@ -8,6 +8,9 @@
     background: linear-gradient(170deg, #7E5A9B, #5067c5);
     width: 100%;
     min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #collaborate {
@@ -28,7 +31,7 @@
 .hero-text {
     width: 43%;
     color: white;
-    margin: 150px 10px 50px;
+    margin: 150px 10px 40px;
 }
 
 #hero h1 {
@@ -49,10 +52,42 @@
     margin-top: 50px;
 }
 
+#hero form {
+    margin-bottom: 40px;
+}
+
+#splash-input {
+    width: 350px;
+    border-radius: 5px;
+    line-height: 2em;
+    padding: 4px;
+    padding-left: 12px;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.sign-up-button {
+    /* width: 300px; */
+    border-radius: 5px;
+    line-height: 2em;
+    padding: 4px 20px;
+    /* padding-left: 12px; */
+    font-size: 20px;
+    border: none;
+    color: white;
+    background-color: #60bd4e;
+}
+
+.sign-up-button:hover {
+    cursor: pointer;
+    background-color: #54a344;
+}
+
 #get-started {
-    background: linear-gradient(rgb(255, 211, 218) 0%, transparent 95%);
+    background: linear-gradient(rgb(255, 211, 218) 0%, transparent 100%);
     width: 100%;
-    min-height: 300px;
+    margin-bottom: 20px;
+    /* min-height: 300px; */
 }
 
 #get-started .container {
@@ -61,7 +96,7 @@
 }
 
 #get-started h1 {
-    margin-top: 50px;
+    margin-top: 30px;
     font-size: 36px;
     line-height: 4rem;
 }
@@ -70,7 +105,16 @@
     font-size: 20px;
     line-height: 2rem;
     text-align: center;
-    width: 500px;
+    width: 480px;
+    margin-bottom: 20px;
+}
+
+.sign-up-button.down-button {
+    line-height: 2em;
+    padding: 0 15px;
+    /* padding-left: 12px; */
+    font-size: 20px;
+    margin-bottom: 30px;
 }
 
 #splash hr {
