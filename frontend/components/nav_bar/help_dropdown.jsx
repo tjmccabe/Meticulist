@@ -58,12 +58,12 @@ const HelpDropdown = ({
                     <FaTrello className="help-logo" />
                     Inspired by Trello
                 </li>
-                <hr />
+                {/* <hr />
                 <li
                     onClick={() => {closeDropdowns(); openModal("instructions")}}
                 >
                     Meticulist Instructions
-                </li>
+                </li> */}
             </div>
         </div>
     )
