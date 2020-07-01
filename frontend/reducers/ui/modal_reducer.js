@@ -6,7 +6,7 @@ const modalReducer = (state = [""], action) => {
 
     switch (action.type) {
         case OPEN_MODAL:
-            return [action.modal, action.cardId];
+            return [action.modal, action.identifier];
         case CLOSE_MODAL:
             return [""];
         case LOGOUT_CURRENT_USER:

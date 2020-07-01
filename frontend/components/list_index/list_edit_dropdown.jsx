@@ -29,7 +29,12 @@ const ListEditDropdown = ({ closeDropdowns,
         <li onClick={() => {startAddingCard(); closeDropdowns()}}>Add Card...</li>
         <li onClick={() => {startEditing(); closeDropdowns()}}>Edit List Name...</li>
         <hr />
-        <li className="delete-list" onClick={() => openModal("delete", ["list", listId])}>Delete List</li>
+        <li
+          className="delete-list"
+          onClick={() => { closeDropdowns(); openModal("delete", ["list", listId])}}
+        >
+          Delete List
+        </li>
       </div>
     </div>
   )
