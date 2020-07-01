@@ -134,6 +134,9 @@ class SessionForm extends React.Component {
                             <button className={this.disabled()}>{formType}</button>
                         </form>
                         {DemoButton}
+                        <a href="/users/auth/facebook">
+                           Continue with Facebook
+                        </a>
                         <hr/>
                         {AltFormLink}
                     </div>
