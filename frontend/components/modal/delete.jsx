@@ -12,14 +12,24 @@ const Delete = ({
   }) => {
   
   const deleteText = type === "board" ? (
-    `Are you sure you want to permanently delete the "${entity.title}" board?
-    This will also delete all associated lists and cards.`
+    `Are you sure you want to permanently delete this board?`
   ) : type === "list" ? (
-    `Are you sure you want to permanently delete the "${entity.title}" list?
-    This will also delete all associated cards.`
+    `Are you sure you want to permanently delete this list?`
   ) : type === "card" ? (
-    `Are you sure you want to permanently delete the "${entity.title}" card?`
+    `Are you sure you want to permanently delete this card?`
   ) : null;
+
+  const altText = type === "board" ? (
+    `This will also delete all associated lists and cards.`
+  ) : type === "list" ? (
+    `This will also delete all associated cards.`
+  ) : null
+
+  const alt = altText ? (
+    <div id="side-effects">
+      {altText}
+    </div>
+  ) : null
 
   const deleteNow = () => {
     type === "board" ? (
@@ -42,6 +52,7 @@ const Delete = ({
       <div id="are-you-sure">
         {deleteText}
       </div>
+      {alt}
       <button
         id="delete-button"
         onClick={() => {closeModal(); deleteNow()}}

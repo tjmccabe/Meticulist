@@ -73,7 +73,7 @@ class BoardForm extends React.Component {
         const DeleteButton = updating ? (
             <button
                 id="board-delete-button"
-                onClick={() => {debugger;openModal("delete", ["board", boardId])}}
+                onClick={() => openModal("delete", ["board", boardId])}
             >
                 Delete Board
             </button>
