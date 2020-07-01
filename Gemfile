@@ -38,7 +38,10 @@ gem 'jquery-rails'
 
 gem "aws-sdk-s3"
 
-# gem 'dynopoker'
+# gem "actionpack", ">= 5.2.4.3"
+# gem "activesupport", ">= 5.2.4.3"
+# gem "activestorage", ">= 5.2.4.3"
+# gem "rack", ">= 2.2.3"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
