@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom';
 import NewBoardFormContainer from '../board_form/new_board_form_container';
 import UpdateBoardFormContainer from '../board_form/update_board_form_container';
 import CardShowContainer from '../card_show/card_show_container';
+import DeleteContainer from './delete_container';
 import SiteInstructions from './instructions';
 
 const Modal = ({modal, identifier, closeModal}) => {
@@ -31,7 +32,7 @@ const Modal = ({modal, identifier, closeModal}) => {
       component = <SiteInstructions/>;
       break;
     case 'delete':
-      component = <DeleteContainer element={identifier[0]} id={identifier[1]}/>;
+      component = <DeleteContainer type={identifier[0]} id={identifier[1]}/>;
       break;
     default:
       return null;

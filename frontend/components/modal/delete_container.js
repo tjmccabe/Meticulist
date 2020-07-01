@@ -3,15 +3,17 @@ import { closeModal } from '../../actions/modal_actions';
 import {deleteBoard} from '../../actions/board_actions'
 import {deleteList} from '../../actions/list_actions'
 import {deleteCard} from '../../actions/card_actions'
-import {deleteComment} from '../../actions/comment_actions'
+import {getEntity} from '../../reducers/selectors'
 import { connect } from 'react-redux';
 import Delete from './delete';
 
 const mapStateToProps = (state, ownProps) => {
-  let {identifier} = ownProps
+  let {type, id} = ownProps
+  let entity = getEntity(state, type, id)
   return {
-    type: identifier[0],
-    id: identifier[1]
+    type,
+    id,
+    entity
   };
 };
 
@@ -20,8 +22,7 @@ const mapDispatchToProps = dispatch => {
     closeModal: () => dispatch(closeModal()),
     deleteBoard: (boardId) => dispatch(deleteBoard(boardId)),
     deleteList: (listId) => dispatch(deleteList(listId)),
-    deleteCard: (cardId) => dispatch(deleteCard(cardId)),
-    deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+    deleteCard: (cardId) => dispatch(deleteCard(cardId))
   };
 };
 

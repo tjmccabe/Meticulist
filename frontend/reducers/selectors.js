@@ -32,3 +32,13 @@ export const getComments = (state, card) => {
     card.commentIds.forEach(commentId => comments.push(state.entities.comments[commentId]))
     return comments.reverse();
 }
+
+export const getEntity = (state, type, id) => {
+    return type === "board" ? (
+        state.entities.boards[id]
+    ) : type === "list" ? (
+        state.entities.lists[id]
+    ) : type === "card" ? (
+        state.entities.cards[id]
+    ) : null;
+}

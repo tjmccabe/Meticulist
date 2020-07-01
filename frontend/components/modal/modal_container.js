@@ -6,7 +6,7 @@ const mapStateToProps = state => {
   let identifier = state.ui.modal[1] ? state.ui.modal[1] : null
   return {
     modal: state.ui.modal[0],
-    cardId: identifier
+    identifier
   };
 };
 
