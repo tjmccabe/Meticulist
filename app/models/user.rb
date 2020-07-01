@@ -22,13 +22,14 @@ class User < ApplicationRecord
         allow_nil: true,
         message: "must be at least 6 characters."
     }
+    
     validates :username, :email, :session_token, uniqueness: {
         message: "already in use by another account."
     }
     
     before_validation :ensure_session_token
 
-    has_many :admined_boards,
+    has_many :admined_boards, dependent: :destroy,
         foreign_key: :admin_id,
         class_name: :Board
 
