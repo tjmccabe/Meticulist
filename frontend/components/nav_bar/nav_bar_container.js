@@ -22,7 +22,7 @@ const mDTP = (dispatch) => ({
     logout: () => dispatch(logout()),
     fetchBoards: () => dispatch(fetchBoards()),
     fetchBoard: (boardId) => dispatch(fetchBoard(boardId)),
-    openModal: () => dispatch(openModal('newBoard')),
+    openModal: modal => dispatch(openModal(modal)),
     openDropdown: (dropdown) => dispatch(openDropdown(dropdown)),
     closeDropdowns: () => dispatch(closeDropdowns())
 });

@@ -273,3 +273,14 @@ button.image span {
 #create-new-board {
     text-decoration: underline;
 }
+
+.help-link {
+    display: flex;
+    align-items: center;
+}
+
+.help-logo {
+    margin-right: 8px;
+    font-size: 16px;
+    color: rgb(70, 70, 70);
+}

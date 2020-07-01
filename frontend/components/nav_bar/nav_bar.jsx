@@ -93,7 +93,7 @@ class NavBar extends React.Component {
                     <ul className="nav-bar-list">
                         <button
                             className='modal image'
-                            onClick={openModal}
+                            onClick={() => openModal("newBoard")}
                         >
                             <span className="material-icons" id="add">
                                 add
@@ -112,6 +112,7 @@ class NavBar extends React.Component {
                         <HelpDropdown
                             closeDropdowns={closeDropdowns}
                             currentDropdown={currentDropdown}
+                            openModal={openModal}
                         />
                         <button
                             id="options"
@@ -127,6 +128,7 @@ class NavBar extends React.Component {
                             logout={logout}
                             closeDropdowns={closeDropdowns}
                             currentDropdown={currentDropdown}
+                            openModal={openModal}
                         />
                     </ul>
                 </div>

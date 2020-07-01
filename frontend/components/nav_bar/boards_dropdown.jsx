@@ -14,8 +14,7 @@ class BoardsDropdown extends React.Component {
             currentDropdown,
             openModal,
             personalBoards,
-            sharedBoards,
-            fetchBoard
+            sharedBoards
         } = this.props
 
         const PersonalBoardsEle = personalBoards[0] ? (
@@ -35,7 +34,6 @@ class BoardsDropdown extends React.Component {
                         >
                             <button
                                 style={{ 'backgroundImage': `url("${board.bgpSmallUrl}")`}}
-                                // onClick={() => fetchBoard(board.id)}
                             >
                                 <Link to={`/boards/${board.id}`} className="dimmer">
                                     <div className="tiny-board"></div>
@@ -45,7 +43,7 @@ class BoardsDropdown extends React.Component {
                         </div>
                     ))}
                     <li
-                        onClick={openModal}
+                        onClick={() => openModal("newBoard")}
                         id='create-new-board'
                     >
                         Create new board...
