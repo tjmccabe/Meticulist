@@ -1,11 +1,10 @@
 import React from 'react';
 import { FaLinkedin, FaGithub, FaAngellist, FaUserCircle, FaTrello } from "react-icons/fa";
 
-const HelpDropdown = ({ currentDropdown,
-    currentUser,
-    logout,
-    closeDropdowns,
-    openModal
+const HelpDropdown = ({
+        currentDropdown,
+        closeDropdowns,
+        openModal
     }) => {
     const classes = (currentDropdown === 'help') ?
         "dropdown-content right-set shown"

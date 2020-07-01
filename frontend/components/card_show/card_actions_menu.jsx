@@ -1,7 +1,7 @@
 import React from "react";
 import DueDateDropdownContainer from "./due_date_dropdown_container";
 
-const CardActions = ({card, openModal, closeModal, openDropdown, dueDate}) => {
+const CardActions = ({card, openModal, openDropdown}) => {
   const ddText = card.dueDate ? "Edit Due Date" : "Add Due Date";
 
   const titleFocus = () => {

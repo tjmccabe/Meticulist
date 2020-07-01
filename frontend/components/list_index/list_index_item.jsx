@@ -133,7 +133,7 @@ class ListIndexItem extends React.Component {
               listId={listId}
               closeDropdowns={this.props.closeDropdowns}
               currentDropdown={this.props.currentDropdown}
-              deleteList={this.props.deleteList}
+              openModal={this.props.openModal}
               startEditing={this.startEditing}
               startAddingCard={this.startAddingCard}
             />

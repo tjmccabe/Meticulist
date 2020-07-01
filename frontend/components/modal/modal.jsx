@@ -13,7 +13,6 @@ const Modal = ({modal, identifier, closeModal}) => {
 
   let component;
   let childClass = "";
-  let parentClass = "";
 
   switch (modal) {
     case 'newBoard':
@@ -39,7 +38,7 @@ const Modal = ({modal, identifier, closeModal}) => {
   }
 
   return (
-    <div className={`modal-background ${parentClass}`} onMouseDown={closeModal}>
+    <div className={`modal-background`} onMouseDown={closeModal}>
       <div className={`modal-child ${childClass}`} onMouseDown={e => e.stopPropagation()}>
         { component }
       </div>

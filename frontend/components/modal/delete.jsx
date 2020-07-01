@@ -1,14 +1,15 @@
 import React from 'react';
 
 const Delete = ({
-  type,
-  id,
-  entity,
-  closeModal,
-  deleteBoard,
-  deleteList,
-  deleteCard
-}) => {
+    type,
+    id,
+    entity,
+    closeModal,
+    deleteBoard,
+    deleteList,
+    deleteCard,
+    history
+  }) => {
   
   const deleteText = type === "board" ? (
     `Are you sure you want to permanently delete the "${entity.title}" board?
@@ -23,6 +24,7 @@ const Delete = ({
   const deleteNow = () => {
     type === "board" ? (
       deleteBoard(id)
+        .then(() => history.push(`/boards/`))
     ) : type === "list" ? (
       deleteList(id)
     ) : type === "card" ? (

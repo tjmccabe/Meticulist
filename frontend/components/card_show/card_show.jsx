@@ -164,9 +164,7 @@ class CardShow extends React.Component {
           </div>
           <CardActions
             card={card}
-            updateCard={updateCard}
             openModal={openModal}
-            closeModal={closeModal}
             openDropdown={openDropdown}
           />
         </div>

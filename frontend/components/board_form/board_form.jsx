@@ -9,15 +9,12 @@ class BoardForm extends React.Component {
 
         // this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
         this.updateBackground = this.updateBackground.bind(this);
         this.disabled = this.disabled.bind(this);
     }
 
     componentWillUnmount() {
         this.props.clearErrors();
-        // this.props.clearImages();
-        // maybe clear images after leaving the modal
     }
 
     handleSubmit(e) {
@@ -28,13 +25,6 @@ class BoardForm extends React.Component {
             this.props.submitForm(this.state)
                 .then((res) => this.props.history.push(`/boards/${res.payload.board.id}`))
         }
-    }
-
-    handleDelete(e) {
-        e.preventDefault();
-        this.props.closeModal()
-        this.props.deleteBoard(this.state.id)
-            .then(() => this.props.history.push(`/boards/`))
     }
 
     handleChange(field) {
@@ -66,10 +56,12 @@ class BoardForm extends React.Component {
     render() {
         const {
             closeModal,
+            openModal,
             errors,
             fetchSearchResults,
             fetchRandomResults,
-            updating
+            updating,
+            boardId
         } = this.props;
 
         const BoardErrors = errors[0] ? (
@@ -81,9 +73,9 @@ class BoardForm extends React.Component {
         const DeleteButton = updating ? (
             <button
                 id="board-delete-button"
-                onClick={this.handleDelete}
+                onClick={() => {debugger;openModal("delete", ["board", boardId])}}
             >
-                Delete Board<br/>(Permanent)
+                Delete Board
             </button>
         ) : null;
 
