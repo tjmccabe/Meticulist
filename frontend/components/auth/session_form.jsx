@@ -83,7 +83,11 @@ class SessionForm extends React.Component {
 
         const AltFormLink = formType === 'Sign Up' ? (
             <Link className="alt-form-link" to="/login">
-                Already have an account? Log In
+                Want to demo the site?
+                <br/>
+                Already have an account? 
+                <br/>
+                Log In
             </Link>
         ) : (
             <Link className="alt-form-link" to="/signup">
