@@ -8,6 +8,7 @@ class DueDateBlock extends React.Component {
     this.state = {
       overdue: false,
       dueSoon: false,
+      notSoon: false,
       date: new Date(this.props.dueDate)
     }
 
@@ -42,24 +43,24 @@ class DueDateBlock extends React.Component {
     let notSoon = ((this.state.date - this.now) / 100000 > 864) && ((this.state.date - this.now) / 100000 < 1864)
 
     if (notSoon) {
-      this.setState({ dueSoon: false, overdue: false })
+      this.setState({ dueSoon: false, overdue: false, notSoon: true })
       this.timeout1 = setTimeout(() => {
-        this.setState({ dueSoon: true, overdue: false})
+        this.setState({ dueSoon: true, overdue: false, notSoon: false })
       }, this.state.date - this.now - 86400000)
       this.timeout2 = setTimeout(() => {
-        this.setState({ dueSoon: false, overdue: true })
+        this.setState({ dueSoon: false, overdue: true, notSoon: false })
       }, this.state.date - this.now)
     }
 
     if (dueSoon) {
-      this.setState({ dueSoon: true, overdue: false })
+      this.setState({ dueSoon: true, overdue: false, notSoon: false })
       this.timeout1 = setTimeout(() => {
-        this.setState({ dueSoon: false, overdue: true })
+        this.setState({ dueSoon: false, overdue: true, notSoon: false })
       }, this.state.date - this.now)
     }
 
     if (overdue) {
-      this.setState({ dueSoon: false, overdue: true })
+      this.setState({ dueSoon: false, overdue: true, notSoon: false })
     }
   }
 
@@ -92,7 +93,7 @@ class DueDateBlock extends React.Component {
     const {card, dueDate, openDropdown} = this.props;
     if (!card || !dueDate) return null;
 
-    const {overdue, dueSoon, date} = this.state;
+    const {overdue, dueSoon, notSoon, date} = this.state;
 
     const dueDateLabel = overdue ? (
       <span id="overdue" className="due-date-label overdue">OVERDUE</span>

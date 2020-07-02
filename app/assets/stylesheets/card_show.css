@@ -303,6 +303,14 @@
   font-size: 14px;
   font-weight: bold;
   text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+#date-range {
+  font-size: 12px;
+  font-weight: normal;
+  margin-left: 15px;
 }
 
 .due-date-button {

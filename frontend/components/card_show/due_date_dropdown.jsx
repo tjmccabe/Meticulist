@@ -79,6 +79,14 @@ class DueDateDropdown extends React.Component {
       updateCard({ id: card.id, due_date: null })
     } else {
       let {year, month, day, hour, minute} = this.state;
+      if (parseInt(year) > 2060) {
+        this.setState({ year: 2060});
+        return;
+      } else if (parseInt(year) < 1980) {
+        this.setState({ year: 1980});
+        return;
+      }
+      // year = parseInt(year) > 2060 ? 2060 : parseInt(year) < 1980 ? 1980 : year
       let newDueDate = new Date(`${year}-${month}-${day}T${hour}:${minute}:00`)
   
       if (JSON.stringify(newDueDate) === JSON.stringify(this.cdd)) return;
@@ -119,7 +127,7 @@ class DueDateDropdown extends React.Component {
           >
             <div>
               <div className="dd-input-title">
-                Date
+                Date<span id="date-range">(1980 - 2060)</span>
               </div>
               <input
                 id={`${dropdownId}-date`}
