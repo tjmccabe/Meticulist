@@ -31,7 +31,6 @@ class ListIndex extends React.Component {
     if (this.orderingError()) return;
 
     if (this.props.boardId !== prevProps.boardId) {
-      // console.log("list index fetch")
       this.props.fetchBoard(this.props.boardId)
         .then(this.setState({
           listOrder: listOrder,
@@ -113,23 +112,6 @@ class ListIndex extends React.Component {
 
     return false;
   }
-
-  // listenForScroll(e) {
-  //   let listIndex = document.getElementById("outer-list-index");
-  //   let listIndexWidth = listIndex.clientWidth;
-
-  //   if (e.clientX > listIndexWidth * 0.8 && e.clientX < listIndexWidth) {
-  //     console.log("scroll right" + listIndexWidth)
-  //     listIndex.scrollBy({
-  //       left: 50,
-  //       behavior: 'smooth'
-  //     });
-  //   } else if (e.clientX < listIndexWidth * 0.2 && e.clientX > 0) {
-  //     console.log("scroll left")
-  //   } else {
-  //     console.log("stop scrolling")
-  //   }
-  // }
 
   onDragStart(start) {
     $(".outer-card-index").addClass("no-vert-scroll")
@@ -248,39 +230,39 @@ class ListIndex extends React.Component {
 
 export default ListIndex;
 
-const exResult = {
-  draggableId: 'list-1',
-  type: 'LIST',
-  reason: 'DROP',  // or 'CANCEL'
-  source: {
-    droppableId: 'list-index',
-    index: 0
-  },
-  destination: {
-    droppableId: 'list-index',
-    index: 2
-  }
-}
+// const exResult = {
+//   draggableId: 'list-1',
+//   type: 'LIST',
+//   reason: 'DROP',  // or 'CANCEL'
+//   source: {
+//     droppableId: 'list-index',
+//     index: 0
+//   },
+//   destination: {
+//     droppableId: 'list-index',
+//     index: 2
+//   }
+// }
 
-const exStart = {
-  draggableId: 'list-1',
-  type: 'LIST',
-  source: {
-    droppableId: 'list-index',
-    index: 0
-  }
-}
+// const exStart = {
+//   draggableId: 'list-1',
+//   type: 'LIST',
+//   source: {
+//     droppableId: 'list-index',
+//     index: 0
+//   }
+// }
 // update also has destination
 
-const exDraggableSnapshot = {
-  isDragging: true,
-  draggingOver: 'list-index'
-}
+// const exDraggableSnapshot = {
+//   isDragging: true,
+//   draggingOver: 'list-index'
+// }
 
-const exDroppableSnapshot = {
-  isDraggingOver: true,
-  draggingOverWith: 'list-1'
-}
+// const exDroppableSnapshot = {
+//   isDraggingOver: true,
+//   draggingOverWith: 'list-1'
+// }
 
 
 // example state:

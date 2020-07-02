@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import Modal from './modal';
 
 const mapStateToProps = state => {
-  let cardId = state.ui.modal[1] ? state.ui.modal[1] : null
+  let identifier = state.ui.modal[1] ? state.ui.modal[1] : null
   return {
     modal: state.ui.modal[0],
-    cardId
+    identifier
   };
 };
 

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import { closeModal } from '../../actions/modal_actions';
-import { receiveErrors, updateBoard, deleteBoard } from '../../actions/board_actions';
+import { closeModal, openModal } from '../../actions/modal_actions';
+import { receiveErrors, updateBoard } from '../../actions/board_actions';
 import {
     fetchSearchResults,
     fetchRandomResults,
@@ -15,6 +15,7 @@ const mSTP = (state) => {
         errors: state.errors.board,
         currentUserId: state.session.id,
         updating: true,
+        boardId,
         board: {
             title: boardState.title,
             description: boardState.description,
@@ -29,8 +30,8 @@ const mSTP = (state) => {
 
 const mDTP = dispatch => ({
     submitForm: (board) => dispatch(updateBoard(board)),
-    deleteBoard: (boardId) => dispatch(deleteBoard(boardId)),
     closeModal: () => dispatch(closeModal()),
+    openModal: (modal, identifier) => dispatch(openModal(modal, identifier)),
     clearErrors: () => dispatch(receiveErrors([])),
     fetchSearchResults: (query) => dispatch(fetchSearchResults(query)),
     fetchRandomResults: () => dispatch(fetchRandomResults()),

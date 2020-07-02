@@ -1,6 +1,14 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom'
 
-const AccountDropdown = ({currentUser, currentDropdown, logout, closeDropdowns}) => {
+const AccountDropdown = ({
+    currentUser,
+    currentDropdown,
+    logout,
+    closeDropdowns,
+    openModal,
+    history }) => {
+
     const classes = (currentDropdown === 'account') ?
         "dropdown-content right-set shown"
         : "dropdown-content right-set"
@@ -17,9 +25,16 @@ const AccountDropdown = ({currentUser, currentDropdown, logout, closeDropdowns})
             </div>
             <hr/>
             <div className="dropdown-options">
-                <li>Stuff</li>
-                <li>More stuff</li>
-                <li>Even more stuff</li>
+                <li
+                    onClick={() => {closeDropdowns(); history.push('/boards')}}
+                >
+                    View all my boards
+                </li>
+                <li
+                    onClick={() => {closeDropdowns(); openModal("newBoard")}}
+                >
+                    Create a new board
+                </li>
                 <hr/>
                 <li onClick={logout}>Log Out</li>
             </div>
@@ -27,4 +42,4 @@ const AccountDropdown = ({currentUser, currentDropdown, logout, closeDropdowns})
     )
 }
 
-export default AccountDropdown;
+export default withRouter(AccountDropdown);

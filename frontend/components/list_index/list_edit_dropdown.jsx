@@ -3,7 +3,7 @@ import React from 'react';
 const ListEditDropdown = ({ closeDropdowns,
                             currentDropdown,
                             listId,
-                            deleteList,
+                            openModal,
                             startAddingCard,
                             startEditing }) => {
 
@@ -29,7 +29,12 @@ const ListEditDropdown = ({ closeDropdowns,
         <li onClick={() => {startAddingCard(); closeDropdowns()}}>Add Card...</li>
         <li onClick={() => {startEditing(); closeDropdowns()}}>Edit List Name...</li>
         <hr />
-        <li className="delete-list" onClick={() => deleteList(listId)}>Delete List & its Cards (Permanent)</li>
+        <li
+          className="delete-list"
+          onClick={() => { closeDropdowns(); openModal("delete", ["list", listId])}}
+        >
+          Delete List
+        </li>
       </div>
     </div>
   )

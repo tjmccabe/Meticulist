@@ -29,9 +29,11 @@ Passwords are secured with [bcrypt](https://rubygems.org/gems/bcrypt) and are no
 
 The central top-level element of Meticulist is the board. Boards are designed to contain all information about a particular project.
 
+![Board index](https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/Board+index.png)
+
 Upon sign-in, users are presented with all of the boards they have access to along with the option to create a new board. Board creation happens via a modal form that prompts the user to assign a title, an optional description, and an optional background photo to their new board.
 
-`2 pics side-by-side: 1 board index, 1 board creation`
+![Board create](https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/Board+create.png)
 
 ### Lists & Cards
 
@@ -39,7 +41,7 @@ Selecting or creating a board leads to Meticulist's main interface, where users 
 
 Lists and cards can be easily reorganized thanks to react-beautiful-dnd's drag and drop functionality, allowing for a smooth and intuitive user interface.
 
-`gif of list and card movement`
+![Drag and drop](https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/Kapture+2020-07-01+at+2.35.38.gif)
 
 Behind the scenes, we've taken 2 key steps to ensure better performance and user experience:
 
@@ -90,11 +92,11 @@ Every card is a repository of information for one particular task. Users can add
 
 These fields are referenced below the title of the card in the board show view, and users can see & change all of a card's information in that card's dedicated card show modal view.
 
-`image of card show view including desc, due date, and comment sections`
+<img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/Card+show.png" width="800">
 
-Due dates will dynamically change color based on how soon each card is due. If the card is due within 24 hours, the due date background will appear 🟡yellow🟡, while overdue cards will be marked with 🔴red🔴
+Due dates will dynamically change color based on how soon each card is due, both on the card show modal and in the indicator on the overall board view. If the card is due within 24 hours, the due date background will appear 🟡yellow🟡, while overdue cards will be marked with 🔴red🔴
 
-`image of 3 cards with diff due dates on top of each other`
+<img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/Due+dates.png" width="350">
 
 ## Future Updates
 

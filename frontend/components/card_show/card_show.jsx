@@ -92,7 +92,7 @@ class CardShow extends React.Component {
             listTitle,
             closeModal,
             updateCard,
-            deleteCard,
+            openModal,
             openDropdown,
             dueDate
           } = this.props;
@@ -164,9 +164,7 @@ class CardShow extends React.Component {
           </div>
           <CardActions
             card={card}
-            updateCard={updateCard}
-            deleteCard={deleteCard}
-            closeModal={closeModal}
+            openModal={openModal}
             openDropdown={openDropdown}
           />
         </div>

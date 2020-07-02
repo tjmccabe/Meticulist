@@ -1,13 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 
-const BoardMenuTray = ({board, openModal, deleteBoard, trayActive, closeTray, history}) => {
-    const redirectOnDelete = (boardId) => {
-        return () => {
-            deleteBoard(boardId)
-                .then(() => history.push(`/boards/`));
-        }
-    }
+const BoardMenuTray = ({board, openModal, trayActive, closeTray, history}) => {
 
     const TrayList = board.admin ? (
         <div className="tray-list">
@@ -24,8 +18,22 @@ const BoardMenuTray = ({board, openModal, deleteBoard, trayActive, closeTray, hi
                 <div className="stat-content">{board.admin.username}</div>
                 <div className="stat-content">{board.admin.email}</div>
             </div>
-            <div ><button className="tray-button edit" onClick={openModal}>Edit Board</button></div>
-            <div ><button className="tray-button delete" onClick={redirectOnDelete(board.id)}>Delete Board (Permanent)</button></div>
+            <div >
+                <button
+                    className="tray-button edit"
+                    onClick={() => openModal("updateBoard")}
+                >
+                    Edit Board
+                </button>
+            </div>
+            <div >
+                <button
+                    className="tray-button delete"
+                    onClick={() => openModal("delete", ["board", board.id])}
+                >
+                    Delete Board
+                </button>
+            </div>
         </div>
     ) : null;
 

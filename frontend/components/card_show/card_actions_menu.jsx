@@ -1,7 +1,7 @@
 import React from "react";
 import DueDateDropdownContainer from "./due_date_dropdown_container";
 
-const CardActions = ({card, deleteCard, closeModal, openDropdown, dueDate}) => {
+const CardActions = ({card, openModal, openDropdown}) => {
   const ddText = card.dueDate ? "Edit Due Date" : "Add Due Date";
 
   const titleFocus = () => {
@@ -81,7 +81,7 @@ const CardActions = ({card, deleteCard, closeModal, openDropdown, dueDate}) => {
         </button>
         <button
           className="card-action"
-          onClick={() => {deleteCard(card.id); closeModal()}}
+          onClick={() => {openModal("delete", ["card", card.id])}}
         >
           <div id="delete-action" className="menu-btn">
             <span className="material-icons card-action-span">

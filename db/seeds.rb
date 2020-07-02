@@ -8,6 +8,9 @@
 
 require 'open-uri'
 
+existing_demo = User.find_by(email: 'demo@user.com')
+existing_demo.destroy
+
 demo_user = User.create({ email: 'demo@user.com', username: 'DemoUser', password: '12345678' })
 
 users = User.create([
@@ -18,7 +21,7 @@ users = User.create([
 board1 = Board.create({
     admin_id: demo_user.id,
     title: 'General To Do',
-    description: '',
+    description: 'Just your basic run of the mill to-do list. On steroids.',
     bgp_big_url: "https://images.unsplash.com/photo-1554629942-0c17bf68b884?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjEzMTUxNH0",
     bgp_small_url: "https://images.unsplash.com/photo-1554629942-0c17bf68b884?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjEzMTUxNH0",
     bgp_alt_text: "snow-capped mountains near concrete road"
@@ -26,7 +29,7 @@ board1 = Board.create({
 board2 = Board.create({
     admin_id: demo_user.id,
     title: 'Work',
-    description: 'Just developer things',
+    description: 'Developer things',
     bgp_big_url: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjEzMTUxNH0",
     bgp_small_url: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjEzMTUxNH0",
     bgp_alt_text: "turned-on gray laptop computer"
@@ -72,7 +75,7 @@ list3 = List.create({
 })
 
 list4 = List.create({
-    board_id: board1.id,
+    board_id: board2.id,
     title: "Nothin"
 })
 
