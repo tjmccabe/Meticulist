@@ -552,7 +552,27 @@ list12 = List.create({
 
 # BOARD 5
 
-list10 = List.create({
+list13 = List.create({
     board_id: board5.id,
-    title: "Beverages"
+    title: "Potluck beverages"
+})
+
+list14 = List.create({
+    board_id: board5.id,
+    title: "Potluck food"
+})
+
+list15 = List.create({
+    board_id: board5.id,
+    title: "Setup"
+})
+
+list16 = List.create({
+    board_id: board5.id,
+    title: "Logistics"
+})
+
+list17 = List.create({
+    board_id: board5.id,
+    title: "Activity ideas"
 })
