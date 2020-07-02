@@ -9,7 +9,7 @@
 require 'open-uri'
 
 existing_demo = User.find_by(email: 'demo@user.com')
-existing_demo.destroy if existing_demo
+existing_demo.destroy if !existing_demo.nil?
 
 demo_user = User.create({ email: 'demo@user.com', username: 'DemoUser', password: '12345678' })
 
@@ -21,10 +21,10 @@ last_week = Time.at(this_minute.to_i - 604800)
 next_year = Time.at(this_minute.to_i + 31236000)
 last_year = Time.at(this_minute.to_i - 32736000)
 
-users = User.create([
-    {email: 'teejay@teejay.com', username: 'teejay', password: 'teejayem'},
-    {email: 'yeet@yeet.com', username: 'yeet', password: 'yeetyeet'}
-])
+# users = User.create([
+#     {email: 'teejay@teejay.com', username: 'teejay', password: 'teejayem'},
+#     {email: 'yeet@yeet.com', username: 'yeet', password: 'yeetyeet'}
+# ])
 
 board1 = Board.create({
     admin_id: demo_user.id,
@@ -535,7 +535,7 @@ list12 = List.create({
 
     card57 = Card.create({
         list_id: list11.id,
-        title: "Defy a little bit of gravity"
+        title: "Defy gravity"
     })
 
     # LIST 12
@@ -564,7 +564,7 @@ list14 = List.create({
 
 list15 = List.create({
     board_id: board5.id,
-    title: "Setup"
+    title: "Supplies"
 })
 
 list16 = List.create({
@@ -576,3 +576,205 @@ list17 = List.create({
     board_id: board5.id,
     title: "Activity ideas"
 })
+
+    # LIST 13
+
+    card60 = Card.create({
+        list_id: list13.id,
+        title: "Cream soda - Michael"
+    })
+
+    card61 = Card.create({
+        list_id: list13.id,
+        title: "Sangria - Flo"
+    })
+
+    card62 = Card.create({
+        list_id: list13.id,
+        title: "Fireball - Josh & Katie"
+    })
+
+    card63 = Card.create({
+        list_id: list13.id,
+        title: "Mulled wine - Caitlin"
+    })
+
+    card64 = Card.create({
+        list_id: list13.id,
+        title: "Sparkling cider - Kira"
+    })
+
+    card65 = Card.create({
+        list_id: list13.id,
+        title: "Various beers - Various people"
+    })
+
+    card66 = Card.create({
+        list_id: list13.id,
+        title: "Various wines - Various people"
+    })
+
+    # LIST 14
+
+    card67 = Card.create({
+        list_id: list14.id,
+        title: "Turkey - TJ"
+    })
+
+    card68 = Card.create({
+        list_id: list14.id,
+        title: "Spaghetti (bagged) - Russ"
+    })
+
+    card69 = Card.create({
+        list_id: list14.id,
+        title: "Mashed potatoes - Kaitlyn"
+    })
+
+    card70 = Card.create({
+        list_id: list14.id,
+        title: "Arepas - Noël"
+    })
+
+    card71 = Card.create({
+        list_id: list14.id,
+        title: "Green bean casserole - Simón & Shiv"
+    })
+
+    card72 = Card.create({
+        list_id: list14.id,
+        title: "Sage stuffing - Caitlin"
+    })
+
+    card73 = Card.create({
+        list_id: list14.id,
+        title: "Ham - Josh & Catherine"
+    })
+
+    card74 = Card.create({
+        list_id: list14.id,
+        title: "Cranberries - Rob"
+    })
+
+    card75 = Card.create({
+        list_id: list14.id,
+        title: "Candied yams - EJ & Flo"
+    })
+
+    card76 = Card.create({
+        list_id: list14.id,
+        title: "Pumpkin pie - Anthony"
+    })
+
+    card77 = Card.create({
+        list_id: list14.id,
+        title: "Apple pie - Will"
+    })
+
+    card78 = Card.create({
+        list_id: list14.id,
+        title: "Cookies and surprise candy - Michael & Kira"
+    })
+
+    # LIST 15
+
+    card79 = Card.create({
+        list_id: list15.id,
+        title: "Utensils - Erica"
+    })
+
+    card80 = Card.create({
+        list_id: list15.id,
+        title: "Plates - Erica"
+    })
+
+    card81 = Card.create({
+        list_id: list15.id,
+        title: "Ice - Chandler"
+    })
+
+    card82 = Card.create({
+        list_id: list15.id,
+        title: "Cups - undecided"
+    })
+
+    card83 = Card.create({
+        list_id: list15.id,
+        title: "Charcoal - undecided"
+    })
+
+    # LIST 16
+
+    card84 = Card.create({
+        list_id: list16.id,
+        title: "Put up tables - everyone"
+    })
+
+    card85 = Card.create({
+        list_id: list16.id,
+        title: "Get tarp for rain - undecided"
+    })
+
+    card86 = Card.create({
+        list_id: list16.id,
+        title: "Bring speaker - undecided"
+    })
+
+    card87 = Card.create({
+        list_id: list16.id,
+        title: "Playlist - TJ"
+    })
+
+    card88 = Card.create({
+        list_id: list16.id,
+        title: "Good vibes - Everyone"
+    })
+
+    # LIST 17
+
+    card89 = Card.create({
+        list_id: list17.id,
+        title: "Smoke or fire"
+    })
+
+    card90 = Card.create({
+        list_id: list17.id,
+        title: "Horse races"
+    })
+
+    card91 = Card.create({
+        list_id: list17.id,
+        title: "I'm not terribly fond of you"
+    })
+
+    card92 = Card.create({
+        list_id: list17.id,
+        title: "Rage cage"
+    })
+
+    card93 = Card.create({
+        list_id: list17.id,
+        title: "Cornhole"
+    })
+
+    card94 = Card.create({
+        list_id: list17.id,
+        title: "Pong"
+    })
+
+    card95 = Card.create({
+        list_id: list17.id,
+        title: "Mario Kart"
+    })
+
+    card96 = Card.create({
+        list_id: list17.id,
+        title: "Quarters"
+    })
+
+    # Additional
+
+    card97 = Card.create({
+        list_id: list14.id,
+        title: "Guac - Simón & Shiv"
+    })
