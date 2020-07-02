@@ -9,7 +9,7 @@
 require 'open-uri'
 
 existing_demo = User.find_by(email: 'demo@user.com')
-existing_demo.destroy
+existing_demo.destroy if existing_demo
 
 demo_user = User.create({ email: 'demo@user.com', username: 'DemoUser', password: '12345678' })
 
@@ -554,14 +554,4 @@ list12 = List.create({
 list10 = List.create({
     board_id: board2.id,
     title: "Beverages"
-})
-
-list11 = List.create({
-    board_id: board2.id,
-    title: ""
-})
-
-list12 = List.create({
-    board_id: board2.id,
-    title: ""
 })
