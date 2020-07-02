@@ -109,10 +109,11 @@ class Splash extends React.Component {
           <div className='container'>
             <h1>Start Meticulisting Today</h1>
             <p>
-              Sign up and become one of the dozens of people around the{" "}
-              <span className="strike">world</span>{" "}
-              <span className="strike">country</span>{" "}
-              local area using Meticulist to get things done.
+              Sign up and become one of the{" "}
+              <span className="strike">millions</span>{" "}
+              <span className="strike">hundreds</span>{" "}
+              dozens of people around the world
+              using Meticulist to get things done.
             </p>
             <button
               className="sign-up-button down-button"
