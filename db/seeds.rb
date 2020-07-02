@@ -14,11 +14,12 @@ existing_demo.destroy if existing_demo
 demo_user = User.create({ email: 'demo@user.com', username: 'DemoUser', password: '12345678' })
 
 right_now = Time.now
-tomorrow = Time.at(right_now.to_i + 86400)
-next_week = Time.at(right_now.to_i + 604800)
-last_week = Time.at(right_now.to_i - 604800)
-next_year = Time.at(right_now.to_i + 32736000)
-last_year = Time.at(right_now.to_i - 32736000)
+this_minute = right_now.to_i - (right_now.to_i % 60)
+tomorrow = Time.at(this_minute.to_i + 86400)
+next_week = Time.at(this_minute.to_i + 604800)
+last_week = Time.at(this_minute.to_i - 604800)
+next_year = Time.at(this_minute.to_i + 31236000)
+last_year = Time.at(this_minute.to_i - 32736000)
 
 users = User.create([
     {email: 'teejay@teejay.com', username: 'teejay', password: 'teejayem'},
@@ -352,7 +353,7 @@ list9 = List.create({
 
     card28 = Card.create({
         list_id: list8.id,
-        title: "Map of the Africa",
+        title: "Map of Africa",
         description: "Focusing on Algeria"
     })
 
@@ -552,6 +553,6 @@ list12 = List.create({
 # BOARD 5
 
 list10 = List.create({
-    board_id: board2.id,
+    board_id: board5.id,
     title: "Beverages"
 })

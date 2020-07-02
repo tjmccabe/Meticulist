@@ -25,13 +25,15 @@ const CardIndexItem = ({card, index, openModal}) => {
     thisYear = localNow.getFullYear()
     year = year !== thisYear ? `, ${year}` : null
 
-    if (localDueDate - localNow < 0) {
+    if ((localDueDate - localNow) / 10000 < 0) {
       if (timing !== "overdue") updateTiming("overdue")
-    } else if (localDueDate - localNow > 86400000) {
+    } else if ((localDueDate - localNow) / 100000 > 864) {
       if (timing !== "okay") updateTiming("okay")
-      setTimeout(() => {
-        updateTiming("dueSoon")
-      }, localDueDate - localNow - 86400000)
+      if ((localDueDate - localNow)/100000 < 1864) {
+        setTimeout(() => {
+          updateTiming("dueSoon")
+        }, localDueDate - localNow - 86400000)
+      }
     } else {
       if (timing !== "dueSoon") updateTiming("dueSoon")
       setTimeout(() => {

@@ -37,8 +37,9 @@ class DueDateBlock extends React.Component {
 
     this.now = new Date()
 
-    let overdue = this.state.date - this.now < 0
-    let notSoon = this.state.date - this.now > 86400000;
+    let overdue = (this.state.date - this.now) / 100000 < 0
+    let dueSoon = ((this.state.date - this.now) / 100000 < 864) && ((this.state.date - this.now) / 100000 > 0)
+    let notSoon = ((this.state.date - this.now) / 100000 > 864) && ((this.state.date - this.now) / 100000 < 1864)
 
     if (notSoon) {
       this.setState({ dueSoon: false, overdue: false })
@@ -50,7 +51,7 @@ class DueDateBlock extends React.Component {
       }, this.state.date - this.now)
     }
 
-    if (!overdue && !notSoon) {
+    if (dueSoon) {
       this.setState({ dueSoon: true, overdue: false })
       this.timeout1 = setTimeout(() => {
         this.setState({ dueSoon: false, overdue: true })
