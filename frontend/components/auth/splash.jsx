@@ -81,6 +81,18 @@ class Splash extends React.Component {
                 </button>
           </form>
         </section>
+        <section id="drag-n-drop">
+          <div className='container vertical-container'>
+            <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/Kapture+2020-07-01+at+2.35.38.gif" alt="drag and drop" />
+            <div className="drag-text">
+              <h1>Different tiers of organization</h1>
+              <p>
+                Drag and drop your tasks into different lists when their status changes.
+                You can even reorder the lists themselves!
+              </p>
+            </div>
+          </div>
+        </section>
         <section id="collaborate">
           <div className='container'>
             <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/expense-tracking.png" alt="tracking" />

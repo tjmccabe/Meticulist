@@ -78,6 +78,37 @@
     background-color: #54a344;
 }
 
+.vertical-container {
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.vertical-container img {
+    margin: 40px 0 20px;
+    border-radius: 4px;
+    box-shadow: black;
+    width: 90%;
+    max-width: 900px;
+    min-width: 400px;
+}
+
+.drag-text {
+    text-align: center;
+    width: 70%;
+    min-width: 400px;
+}
+
+.drag-text h1 {
+    font-size: 42px;
+    line-height: 3rem;
+}
+
+.drag-text p {
+    font-size: 24px;
+    line-height: 2rem;
+    margin-top: 10px;
+}
+
 #collaborate {
     background: linear-gradient(transparent 50%, rgba(255, 211, 218, 0.40) 100%);
     width: 100%;
