@@ -78,13 +78,21 @@
     background-color: #54a344;
 }
 
-.vertical-container {
+#drag-n-drop {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vertical-container.container {
+    width: 100%;
     flex-direction: column;
     padding-bottom: 20px;
 }
 
 .vertical-container img {
-    margin: 40px 0 20px;
+    margin: 50px 0 20px;
     border-radius: 4px;
     box-shadow: black;
     width: 90%;
@@ -94,7 +102,7 @@
 
 .drag-text {
     text-align: center;
-    width: 70%;
+    width: 80%;
     min-width: 400px;
 }
 
@@ -104,8 +112,9 @@
 }
 
 .drag-text p {
+    width: 100%;;
     font-size: 24px;
-    line-height: 2rem;
+    line-height: 3rem;
     margin-top: 10px;
 }
 
@@ -139,7 +148,7 @@
 
 #collaborate p {
     font-size: 24px;
-    line-height: 2rem;
+    line-height: 2.3rem;
     margin-top: 10px;
 }
 
@@ -178,7 +187,7 @@
 
 #relax p {
     font-size: 24px;
-    line-height: 2rem;
+    line-height: 2.3rem;
     margin-top: 10px;
 }
 
@@ -211,7 +220,7 @@
 
 #get-started p {
     font-size: 20px;
-    line-height: 2rem;
+    line-height: 2.2rem;
     text-align: center;
     width: 550px;
     margin-bottom: 20px;
