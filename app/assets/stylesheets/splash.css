@@ -92,9 +92,9 @@
 }
 
 .vertical-container img {
-    margin: 50px 0 20px;
+    margin: 50px 0 30px;
     border-radius: 4px;
-    box-shadow: black;
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
     width: 90%;
     max-width: 900px;
     min-width: 400px;
@@ -114,7 +114,7 @@
 .drag-text p {
     width: 100%;;
     font-size: 24px;
-    line-height: 3rem;
+    line-height: 2.5rem;
     margin-top: 10px;
 }
 

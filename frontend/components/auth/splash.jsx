@@ -87,6 +87,8 @@ class Splash extends React.Component {
             <div className="drag-text">
               <h1>Multiple tiers of organization</h1>
               <p>
+                Cards live in lists - they represent individual tasks.
+                <br/>
                 Drag and drop your cards into different lists when their status changes.
                 <br/>
                 You can even reorder the lists themselves!
