@@ -49,11 +49,9 @@ Behind the scenes, we've taken 2 key steps to ensure better performance and user
 
 **1. Limiting the number of database calls after a drag**
 
-There are a number of ways to accomplish relative ordering, but many of them require many database calls whose successes are intertwined. For instance, if a card only stores a reference to its own relative index in a list, it's unwieldy to save a new location on the board. We have to make calls to save the new indices of every card that shifts during the drag (GIF 1). On the other hand, if a card stores references to the cards that come directly before and after it, we gain some performance: This time the worst case scenario involves 5 calls: the moving card itself, its former neighbors, and its new neighbors (GIF 2).
+There are a number of ways to accomplish relative ordering, but many of them require many database calls whose successes are intertwined. For instance, if a card only stores a reference to its own relative index in a list, it's unwieldy to save a new location on the board. We have to make calls to save the new indices of every card that shifts during the drag. On the other hand, if a card stores references to the cards that come directly before and after it, we gain some performance: This time the worst case scenario involves 5 calls: the moving card itself, its former neighbors, and its new neighbors.
 
-Meticulist does a little better than this by abstracting the ordering away from the cards and to the lists that contain them. Each list has a reference to the ids of the cards contained within it and their relative order, while each card only has a reference to its list's id. Now the worst case scenario involves 3 calls: the card itself, its former list, and its new list (GIF 3).
-
-`3 gifs of reordering highlighting the number of saves`
+Meticulist does a little better than this by abstracting the ordering away from the cards and to the lists that contain them. Each list has a reference to the ids of the cards contained within it and their relative order, while each card only has a reference to its list's id. Now the worst case scenario involves 3 calls: the card itself, its former list, and its new list.
 
 In addition to the card saving its new list id, we edit each list by making this call:
 ```javascript
@@ -94,7 +92,7 @@ These fields are referenced below the title of the card in the board show view, 
 
 <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/Card+show.png" width="800">
 
-Due dates will dynamically change color based on how soon each card is due, both on the card show modal and in the indicator on the overall board view. If the card is due within 24 hours, the due date background will appear 🟡yellow🟡, while overdue cards will be marked with 🔴red🔴
+Due dates will dynamically change color based on how soon each card is due, both on the card show modal and in the indicator on the overall board view. If the card is due within 24 hours, the due date background will appear 🟡 yellow 🟡 , while overdue cards will be marked with 🔴 red 🔴 
 
 <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/Due+dates.png" width="350">
 
