@@ -95,10 +95,3 @@ These fields are referenced below the title of the card in the board show view, 
 Due dates will dynamically change color based on how soon each card is due, both on the card show modal and in the indicator on the overall board view. If the card is due within 24 hours, the due date background will appear 🟡 yellow 🟡 , while overdue cards will be marked with 🔴 red 🔴 
 
 <img src="https://meticulist-seeds.s3-us-west-1.amazonaws.com/SiteAssets/Due+dates.png" width="350">
-
-## Future Updates
-
-Meticulist's roadmap includes the following:
-* Sharing boards with other Meticulist users
-* Card attachments
-* 'Tutorial' modal with basic Meticulist instructions
