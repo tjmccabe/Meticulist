@@ -13,6 +13,8 @@ gem 'puma', '>= 4.3.12'
 gem 'sass-rails', '>= 6.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 4.2'
+gem 'rspec', '~> 3.0'
+gem 'source_map', '~> 3.0', '>= 3.0.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
